@@ -1,0 +1,28 @@
+<h1>Shows</h1>
+<br/>
+<%= link_to "Create New Show", new_show_path %>
+<table>
+  <tr>
+    <th>Title</th>
+     <th>Description</th>
+    <th>Genre</th>
+    <th>Image</th>
+    <th>Performer</th>
+  </tr>
+
+  <% @shows.each do |show| %>
+    <tr>
+      <td><%= show.title %></td>
+       <td><%= show.description %></td>
+      <td><%= show.genre %></td>
+      <td><%= show.description %></td>
+      <td><%= show.image %></td>
+      <td><%= show.description %></td>
+
+    </tr>
+
+
+
+    </tr>
+  <% end %>
+</table>

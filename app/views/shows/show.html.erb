@@ -1,0 +1,16 @@
+<h1><%= @show.title %> </h1>
+
+<ul>
+
+    <li> Genre <%= @show.genre %></li>
+    <li>Performer <%= @show.performer %></li>
+     <li><%= @show.image %></li>
+    <li>Description <%= @show.description %></li>
+
+  </ul>
+
+    <br><br>
+<%= link_to "AllShows", shows_path %>
+
+
+<%= link_to "Create New Show", new_show_path %>

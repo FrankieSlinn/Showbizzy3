@@ -15,10 +15,17 @@
 
     <p class="text-blue-700">test layout</p>
     <% if user_signed_in?%>
-<p c>Welcome <%= current_user.email %>!</p>
+<p c>Hello <%= current_user.email %>!</p>
 &nbsp; &nbsp;
 <%= form_for(current_user, url: destroy_user_session_path, method: :delete) do |f| %>
   <%= f.submit "Logout" %>
+  <br /><br />
+  <h2>Add new Show</h2>
+  <br>
+  <br>
+   <%= link_to "Create New Show", new_show_path %>
+<br><br>
+    <h2>Shows</h2>
 <% end %>
 
 <% else %>
