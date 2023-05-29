@@ -12,10 +12,8 @@
  
   <body>
 
-
-    <p class="text-blue-700">test layout</p>
     <% if user_signed_in?%>
-<p c>Hello <%= current_user.email %>!</p>
+<p c>Hello <%= current_user.username %>!</p>
 &nbsp; &nbsp;
 <%= form_for(current_user, url: destroy_user_session_path, method: :delete) do |f| %>
   <%= f.submit "Logout" %>
@@ -26,14 +24,27 @@
    <%= link_to "Create New Show", new_show_path %>
 <br><br>
     <h2>Shows</h2>
+    <br><br>
+<% @shows.each do |show| %>
+  <div>
+    <h3><%= show.title %></h3>
+    <p><%= show.description %></p>
+    <!-- Add more show information as needed -->
+  </div>
+<% end %>
 <% end %>
 
 <% else %>
 <div class = "userlogin">
 <%= link_to "Login", new_user_session_path %>
 <%= link_to "Sign up", new_user_registration_path %>
+<br />
+<br />
 </div>
 <% end %>
+<H2>Shows!!!</h2>
+<br /><br />
+<%= render "shows/displayall" %>
  <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
     <%= yield %>

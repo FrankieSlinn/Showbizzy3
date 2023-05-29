@@ -24,6 +24,14 @@ class ShowsController < ApplicationController
             
             render 'new'
           end
+    def edit
+     @show= Showfind(params[:id])
+    end
+    def update
+    show = Show.find(params[:id])
+     show.update(show_params)
+     redirect_to show
+    end
         
          
 

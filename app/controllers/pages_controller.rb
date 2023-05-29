@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
+ 
     def home
-    end
+        @shows = Show.all # Assuming you have a Show model representing your shows
+      end
   
     def loggedin
     end
