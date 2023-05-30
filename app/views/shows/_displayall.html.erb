@@ -6,7 +6,7 @@
     <th>Image</th>
     <th>Performer</th>
   </tr>
-
+<%if @shows %>
   <% @shows.each do |show| %>
     <tr>
       <td><%= show.title %></td>
@@ -21,5 +21,6 @@
 
 
     </tr>
+  <% end %>
   <% end %>
 </table>

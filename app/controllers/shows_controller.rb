@@ -4,6 +4,7 @@ class ShowsController < ApplicationController
     end
     def show
         @show = Show.find(params[:id])
+        @shows = Show.where.not(id: @show.id)
     end
     def new
         @show = Show.new
@@ -24,13 +25,25 @@ class ShowsController < ApplicationController
             
             render 'new'
           end
-    def edit
-     @show= Showfind(params[:id])
+        end
+    def myshows
+         @user = current_user
+         @shows = @user.shows
     end
+      
+    def edit
+     @show= Show.find(params[:id])
+     @shows = Show.where.not(id: @show.id)
+    end
+    # def update
+    # @show = Show.find(params[:id])
+    #  @show.update(show_params)
+    #  redirect_to @show
+    # end
     def update
-    show = Show.find(params[:id])
-     show.update(show_params)
-     redirect_to show
+      show = Show.find(params[:id])
+      show.update(show_params)
+      redirect_to show
     end
         
          
@@ -42,4 +55,4 @@ class ShowsController < ApplicationController
       def show_params
         params.require(:show).permit(:title, :description, :image, :genre, :performer, :user_id,  :current_user)
       end
-end
+

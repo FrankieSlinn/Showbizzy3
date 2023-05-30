@@ -13,7 +13,7 @@
   <body>
 
     <% if user_signed_in?%>
-<p c>Hello <%= current_user.username %>!</p>
+<p >Hello <%= current_user.username %>!</p>
 &nbsp; &nbsp;
 <%= form_for(current_user, url: destroy_user_session_path, method: :delete) do |f| %>
   <%= f.submit "Logout" %>
@@ -23,6 +23,9 @@
   <br>
    <%= link_to "Create New Show", new_show_path %>
 <br><br>
+<%= link_to 'My Shows - View and Edit', my_shows_path %>
+
+
     <h2>Shows</h2>
     <br><br>
 <% @shows.each do |show| %>

@@ -1,0 +1,9 @@
+<H2>My Shows</H2>
+<% current_user.shows.each do |show| %>
+  <div>
+    <h3><%= show.title %></h3>
+    <p><%= show.description %></p>
+    <td> <%= link_to "Edit Show", edit_show_path(show) %></td>&nbsp;&nbsp;
+    <!-- Add more show information as needed -->
+  </div>
+<% end %>

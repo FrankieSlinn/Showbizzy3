@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'users/registrations' }
+ # get 'show/my_shows', to: 'shows#myshows', as: 'my_shows'
+  get 'user/myshows', to: 'shows#myshows', as: 'my_shows'
   get 'pages/home'
   get 'pages/loggedin'
 
