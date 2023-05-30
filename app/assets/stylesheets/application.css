@@ -17,3 +17,15 @@
     background-color:lightblue;
     font-weight: 700;;
  }
+ .header-div{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   
+ }
+ .title{
+ flex-grow: 1;
+ text-align: center;}
+ .userlogin{
+   text-align: right;
+ }
