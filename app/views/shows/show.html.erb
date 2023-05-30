@@ -6,6 +6,7 @@
     <li>Performer <%= @show.performer %></li>
      <li><%= @show.image %></li>
     <li>Description <%= @show.description %></li>
+<td><%= button_to "Delete Show", show_path(show), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Show?' %></td>
 
   </ul>
 
@@ -14,3 +15,4 @@
 
 
 <%= link_to "Create New Show", new_show_path %>
+ 

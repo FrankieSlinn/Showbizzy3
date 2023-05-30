@@ -45,6 +45,11 @@ class ShowsController < ApplicationController
       show.update(show_params)
       redirect_to show
     end
+    def destroy
+      show = Show.find(params[:id])
+      show.destroy
+      redirect_to shows_path, notice: 'Show was successfully deleted.'
+    end
         
          
 

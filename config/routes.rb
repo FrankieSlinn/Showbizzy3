@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'users/registrations' }
  # get 'show/my_shows', to: 'shows#myshows', as: 'my_shows'
-  get 'user/myshows', to: 'shows#myshows', as: 'my_shows'
+  # get 'user/myshows', to: 'shows#myshows', as: 'my_shows'
+  get '/user/myshows', to: 'shows#myshows'
+  # post '/user/myshows', to: 'shows#myshows', as: 'user_myshows'
+  delete '/shows/:id', to: 'shows#destroy', as: 'show'
   get 'pages/home'
   get 'pages/loggedin'
 

@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+   # <%# <%= javascript_include_tag "turbo" %>
   </head>
  
   <body>
@@ -23,7 +24,7 @@
   <br>
    <%= link_to "Create New Show", new_show_path %>
 <br><br>
-<%= link_to 'My Shows - View and Edit', my_shows_path %>
+<%= link_to 'My Shows - View and Edit', user_myshows_path %>
 
 
     <h2>Shows</h2>
