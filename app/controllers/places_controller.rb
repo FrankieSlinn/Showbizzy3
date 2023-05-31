@@ -24,7 +24,7 @@ class PlacesController < ApplicationController
         @place = Place.new(place_params)
        
         @show = Show.find(params[:place][:show_id])
-        @show.places.create(place_params)
+        # @show.places.create(place_params)
       
         if @place.save
           # Handle successful save
