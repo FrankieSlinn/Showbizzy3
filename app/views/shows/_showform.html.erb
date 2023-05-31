@@ -27,7 +27,8 @@
   </div>
 
   <%= f.fields_for :places, Place.new do |place_form| %>
-    <%= render partial: "shows/placefields" %>
+   <%= render partial: "shows/placefields", locals: { show: @show, place_form: place_form } %>
+
     <button>Would you like to add another location?</button>
   <% end %>
 
