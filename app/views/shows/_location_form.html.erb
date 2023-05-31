@@ -1,3 +1,4 @@
+<%= form_for @place || Place.new do |place_form| %>
 <%= place_form.hidden_field :show_id, value: @show.id %>
     
       <div class="field">
@@ -6,7 +7,7 @@
       </div>
 
       <div class="field">
-        <%= place_form.label :placetown, 'place' %>
+        <%= place_form.label :placetown, 'Place' %>
         <%= place_form.text_field :placetown %>
       </div>
 
@@ -19,4 +20,6 @@
         <%= place_form.label :placeinfo, 'Description' %>
         <%= place_form.text_field :placeinfo %>
       </div>
+       <%= place_form.submit 'Submit', class: 'button' %>
+<% end %>
 

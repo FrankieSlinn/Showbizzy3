@@ -8,14 +8,15 @@ class ShowsController < ApplicationController
        
     end
     def show
-        @show = Show.find(params[:id])
-        @shows = Show.all
-        @place = Show.find(params[:id])
-        @places = @show.places
+      @show = Show.find(params[:id])
+      @shows = Show.all
+
+      @places = @show.places
     end
     def new
       @shows = Show.all
       @show = Show.new
+      
      
      
         @places = Place.all
@@ -36,7 +37,7 @@ class ShowsController < ApplicationController
       @show.user_id = current_user.id
       if @show.save
         # Handle successful save
-        redirect_to @show, notice: 'Show was successfully created.'
+        redirect_to show_path(@show), notice: 'Show was successfully created.'
       else
         # Handle save errors
         @places = Place.all
@@ -67,6 +68,8 @@ class ShowsController < ApplicationController
       show.destroy
       redirect_to shows_path, notice: 'Show was successfully deleted.'
     end
+
+ 
         
          
 

@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   # get 'user/myshows', to: 'shows#myshows', as: 'my_shows'
   get '/user/myshows', to: 'shows#myshows'
   # post '/user/myshows', to: 'shows#myshows', as: 'user_myshows'
-  delete '/shows/:id', to: 'shows#destroy', as: 'show'
+  delete '/shows/:id', to: 'shows#destroy', as: 'showdestroy'
+
   get 'pages/home'
   get 'pages/loggedin'
+
 
     # devise_for :users, controllers: {
     #   sessions: 'users/sessions'

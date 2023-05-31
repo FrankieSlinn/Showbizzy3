@@ -1,19 +1,16 @@
 class PlacesController < ApplicationController
-    class placesController < ApplicationController
+
     
-  
-        def new
-            @place = place.new
-          end
-    end
+
+ 
     def new
     
           #@place.user_id = current_user.id
        
         
   
-          @places = place.all
-          @place= place.new
+          @places = Place.all
+          @place= Place.new
           if @place.save
             # Show saved successfully
           else
@@ -23,10 +20,11 @@ class PlacesController < ApplicationController
       end
       
       def create
-      
-        @places=place.all
-        @place = place.new(place_params)
-      
+        @places=Place.all
+        @place = Place.new(place_params)
+       
+        @show = Show.find(params[:place][:show_id])
+        @show.places.create(place_params)
       
         if @place.save
           # Handle successful save
@@ -34,7 +32,7 @@ class PlacesController < ApplicationController
         else
             puts @place.errors.full_messages
           # Handle save errors
-          @places = place.all
+          @places = Place.all
           render :new
         end
       end
@@ -44,9 +42,11 @@ class PlacesController < ApplicationController
       def place_params
         params.require(:place).permit(
           :user_id,
+          :show_id,
           :placevenue,
           :placetown,
           :placeaddress,
           :placeinfo)
       end
-end
+    end
+
