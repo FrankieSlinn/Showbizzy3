@@ -1,31 +1,48 @@
 class ShowsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
+ 
     def index
         @shows= Show.all
+        @places=Place.all
+       
     end
     def show
         @show = Show.find(params[:id])
-        @shows = Show.where.not(id: @show.id)
+        @shows = Show.all
+        @place = Show.find(params[:id])
+        @places = @show.places
     end
     def new
-        @show = Show.new
-        @show.user_id = current_user.id
+      @shows = Show.all
+      @show = Show.new
+     
+     
+        @places = Place.all
+        @place= Place.new
+        if @show.save
+          # Show saved successfully
+        else
+          # Show failed to save, handle the error
+          puts @show.errors.full_messages
+        end
     end
     
     def create
-        @show = Show.new(show_params)
-        if @show.save
-       
-            # Log success message or debug information
-            Rails.logger.info "Show successfully saved to the database."
-            
-            redirect_to @show
-          else
-            # Log failure message or debug information
-            Rails.logger.error "Failed to save the show to the database."
-            
-            render 'new'
-          end
-        end
+
+      @shows=Show.all
+      @show = Show.new(show_params)
+      @place = @show.places.build
+      @show.user_id = current_user.id
+      if @show.save
+        # Handle successful save
+        redirect_to @show, notice: 'Show was successfully created.'
+      else
+        # Handle save errors
+        @places = Place.all
+        render :new
+      end
+    end
     def myshows
          @user = current_user
          @shows = @user.shows
@@ -58,6 +75,15 @@ class ShowsController < ApplicationController
       private
 
       def show_params
-        params.require(:show).permit(:title, :description, :image, :genre, :performer, :user_id,  :current_user)
+        params.require(:show).permit(
+          :user_id,
+          :title,
+          :genre,
+          :description,
+          :image,
+          :performer,
+          places_attributes: [:show_id, :placevenue, :placetown, :placeaddress, :placeinfo]
+        )
       end
+
 

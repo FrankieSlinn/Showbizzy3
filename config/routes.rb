@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     #   sessions: 'users/sessions'
     # }
     resources :shows
+    resources :locations
+    resources :datelocs
+    resources :places
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

@@ -6,7 +6,18 @@
     <li>Performer <%= @show.performer %></li>
      <li><%= @show.image %></li>
     <li>Description <%= @show.description %></li>
-<td><%= button_to "Delete Show", show_path(show), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Show?' %></td>
+        <li>
+       <% @places.each do |place| %>
+      <div class="place">
+        <p>Venue: <%= place.placevenue %></p>
+        <p>Location: <%= place.placetown %></p>
+        <p>Address: <%= place.placeaddress %></p>
+        <p>Description: <%= place.placeinfo %></p>
+      </div>
+    <% end %>
+    </li>
+    <br/><br/>
+<td><%= button_to "Delete Show", show_path(@show), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Show?' %></td>
 
   </ul>
 

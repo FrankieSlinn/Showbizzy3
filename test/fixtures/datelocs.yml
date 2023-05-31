@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  show: one
+  location: one
+  date: 2023-05-30
+  time: MyString
+
+two:
+  show: two
+  location: two
+  date: 2023-05-30
+  time: MyString

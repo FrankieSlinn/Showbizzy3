@@ -1,27 +1,37 @@
 <%= form_for @show || Show.new do |f| %>
- <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
 
-<div class = "field">
-    <%= f.label :title, 'Title'  %>
+  <div class="field">
+    <%= f.label :title, 'Title' %>
     <%= f.text_field :title %>
-</div>
-<div class = "field">
-    <%=f.label :genre, 'Genre'%>
+  </div>
+
+  <div class="field">
+    <%= f.label :genre, 'Genre' %>
     <%= f.text_field :genre %>
-</div>
-<div class = "field">
-    <%=f.label :description, 'Description'%>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, 'Description' %>
     <%= f.text_field :description %>
-</div>
+  </div>
 
-<div class = "field">
- <%=f.label :image, 'Image'%>
+  <div class="field">
+    <%= f.label :image, 'Image' %>
     <%= f.text_field :image %>
-    </div>
-    <div class = "field">
- <%=f.label :performer, 'Performer'%>
-    <%= f.text_field :performer %>
-    </div>
-<%= f.submit 'Submit', :class => 'button' %>
+  </div>
 
+  <div class="field">
+    <%= f.label :performer, 'Performer' %>
+    <%= f.text_field :performer %>
+  </div>
+
+  <%= f.fields_for :places, Place.new do |place_form| %>
+    <%= render partial: "shows/placefields" %>
+    <button>Would you like to add another location?</button>
+  <% end %>
+
+  <%= f.submit 'Submit', class: 'button' %>
 <% end %>
+
+
