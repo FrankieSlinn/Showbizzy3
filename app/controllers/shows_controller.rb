@@ -32,7 +32,7 @@ class ShowsController < ApplicationController
 
       @shows=Show.all
       @show = Show.new(show_params)
-      @place = @show.places.build
+      # @place = @show.places.build
       @show.user_id = current_user.id
       if @show.save
         # Handle successful save

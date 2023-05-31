@@ -28,9 +28,10 @@
 
   <%= f.fields_for :places, Place.new do |place_form| %>
    <%= render partial: "shows/placefields", locals: { show: @show, place_form: place_form } %>
-
-    <button>Would you like to add another location?</button>
+       <button>Would you like to add another location?</button>
   <% end %>
+
+
 
   <%= f.submit 'Submit', class: 'button' %>
 <% end %>
