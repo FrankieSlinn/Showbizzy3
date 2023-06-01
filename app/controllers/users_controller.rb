@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       end
       def create
         @user = User.new
-        
+
       
       end
          def index
@@ -25,6 +25,10 @@ class UsersController < ApplicationController
     def myshows
       @user = current_user
       @shows = @user.shows
+ end
+ def update
+  user = User.find(params[:id])
+  user.update(user_params)
  end
     # def destroy
     #   @show = Show.find(params[:id])
