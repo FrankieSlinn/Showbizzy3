@@ -1,16 +1,21 @@
 <h1>Venue </h1>
-       <% @places.each do |place| %>
+
       <div class="place">
-        <p>Venue: <%= place.placevenue %></p>
-        <p>Location: <%= place.placetown %></p>
-        <p>Address: <%= place.placeaddress %></p>
-        <p>Description: <%= place.placeinfo %></p>
+        <p>Venue: <%= @place.placevenue %></p>
+        <p>Location: <%= @place.placetown %></p>
+        <p>Address: <%= @place.placeaddress %></p>
+        <p>Description: <%= @place.placeinfo %></p>
+         <% @timings.each do |timing| %>
+           <p>Date: <%= timing.day %></p>
+        <p>Time/s: <%= timing.timeslot %></p>
+  
+
       </div>
-        <button  type="button" id="add-time-btn">Add timings to the location!!</button>
+        <%# <button  type="button" id="add-time-btn">Add timings to the location!!</button> %>
     <% end %>
 
     <div class="timeForm" >
-  <p>"timeForm"</p>
+  <p>Add date / times to the show's venue</p>
   <%= render partial: 'places/timing_form' %>
   <br/><br/>
     
@@ -19,8 +24,8 @@
     <%# <button  type="button" id="add-place-btn">add a location to the show!!!!?</button> %>
     <%# <%= link_to "Add New Location", new_place_path(@show) %>
 
-      <script>
+      <%# <script>
   document.getElementById("add-time-btn").addEventListener("click", function(){
     console.log("clicked for timing")
   document.querySelector(".timeForm").style.visibility = "visible";
-});
+}); %>
