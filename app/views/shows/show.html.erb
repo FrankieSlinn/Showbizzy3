@@ -4,7 +4,9 @@
 
     <li> Genre <%= @show.genre %></li>
     <li>Performer <%= @show.performer %></li>
-     <li><%= @show.image %></li>
+     <li><% if @show.image.attached? %>
+   <img src="<%=(url_for(@show.image)) %>">
+<% end %></li>
     <li>Description <%= @show.description %></li>
         <li>
        <% @places.each do |place| %>
@@ -27,12 +29,7 @@
   <p>"placeForm"</p>
   <%= render partial: 'shows/place_form' %>
   <br/><br/>
-   <div class="timeForm" >
-  <%# <p>"placeForm"</p>
-  <%= render partial: 'places/timing_form' %>
-  <br/><br/> %>
-    
-  </div>
+
   <%= @show_id %>
   <script>
   document.getElementById("add-place-btn").addEventListener("click", function(){

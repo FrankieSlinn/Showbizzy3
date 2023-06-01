@@ -13,7 +13,9 @@
        <td><%= show.description %></td>
       <td><%= show.genre %></td>
       <td><%= show.description %></td>
-      <td><%= show.image %></td>
+      <td><% if show.image.attached? %>
+   <img src="<%=(url_for(@show.image)) %>">
+<% end %></td>
       <td><%= show.description %></td>
           <td><%= link_to "Display Show", show_path(show) %></td>&nbsp;&nbsp;
       

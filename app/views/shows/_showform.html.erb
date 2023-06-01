@@ -15,11 +15,17 @@
     <%= f.label :description, 'Description' %>
     <%= f.text_field :description %>
   </div>
-
-  <div class="field">
-    <%= f.label :image, 'Image' %>
-    <%= f.text_field :image %>
+    <div class="field">
+  <%= f.label :image %>
+<%= f.file_field :image %>
   </div>
+  <%# <%= f.label :main_image %>
+<%# <%= f.file_field :main_image %> %> %>
+
+  <%# <div class="field">
+    <%= f.label :image, 'Image' %>
+    <%# <%= f.text_field :image %>
+  <%# </div> %> 
 
   <div class="field">
     <%= f.label :performer, 'Performer' %>
