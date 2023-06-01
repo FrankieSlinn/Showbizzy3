@@ -1,10 +1,16 @@
        <h3>Places Index</h3>
        <% @places.each do |place| %>
       <div class="place">
+        <p>ShowId: <%= place.show_id %></p>
         <p>Venue: <%= place.placevenue %></p>
         <p>Location: <%= place.placetown %></p>
         <p>Address: <%= place.placeaddress %></p>
         <p>Description: <%= place.placeinfo %></p>
+     <%= link_to 'Edit', edit_place_path(place) %>
+     <br />
+     <td><%= button_to "Delete Venue", place_path(place), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Venue?' %></td> 
+     <br />
+        
       </div>
         <button  type="button" id="add-time-btn">Add timings to the location</button>
     <% end %>

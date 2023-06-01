@@ -15,6 +15,7 @@
         <p>Location: <%= place.placetown %></p>
         <p>Address: <%= place.placeaddress %></p>
         <p>Description: <%= place.placeinfo %></p>
+        <%= render partial: "place_form" %>
       </div>
         <%# <button  type="button" id="add-time-btn">Add timings to the location</button> %>
     <% end %>

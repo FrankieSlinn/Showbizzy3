@@ -52,6 +52,8 @@ class ShowsController < ApplicationController
     def edit
      @show= Show.find(params[:id])
      @shows = Show.where.not(id: @show.id)
+
+  @places = Place.where(show_id: @show.id)
     end
     # def update
     # @show = Show.find(params[:id])
@@ -61,6 +63,7 @@ class ShowsController < ApplicationController
     def update
       show = Show.find(params[:id])
       show.update(show_params)
+      @place = Place.where(show_id: :id)
       redirect_to show
     end
     def destroy

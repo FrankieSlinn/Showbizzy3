@@ -1,0 +1,29 @@
+<h3>Edit Venue</h3>
+
+<p><%= render partial: "place_form", locals: { place_form: @place } %></p>
+
+<%= form_for @place || Place.new do |place_form| %>
+  <%= place_form.hidden_field :show_id, value: @place.show_id %>
+
+  <div class="field">
+    <%= place_form.label :placevenue, 'Venue' %>
+    <%= place_form.text_field :placevenue %>
+  </div>
+
+  <div class="field">
+    <%= place_form.label :placetown, 'Place' %>
+    <%= place_form.text_field :placetown %>
+  </div>
+
+  <div class="field">
+    <%= place_form.label :placeaddress, 'Address' %>
+    <%= place_form.text_field :placeaddress %>
+  </div>
+
+  <div class="field">
+    <%= place_form.label :placeinfo, 'Description' %>
+    <%= place_form.text_field :placeinfo %>
+  </div>
+
+  <%= place_form.submit 'Submit', class: 'button' %>
+<% end %>
