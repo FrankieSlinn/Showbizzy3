@@ -4,8 +4,8 @@
 
     <li> Genre <%= @show.genre %></li>
     <li>Performer <%= @show.performer %></li>
-     <li><% if @show.image.attached? %>
-   <img src="<%=(url_for(@show.image)) %>">
+     <li><% if @show.imageup.attached? %>
+   <img src="<%=(url_for(@show.imageup)) %>">
 <% end %></li>
     <li>Description <%= @show.description %></li>
         <li>

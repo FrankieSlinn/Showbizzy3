@@ -27,23 +27,11 @@
    <%= link_to "Create New Show", new_show_path %>
 <br><br>
 <%= link_to 'My Shows - View and Edit', user_myshows_path %>
-
-<% if @shows.present? %>
-    <h2>Shows</h2>
-    <br><br>
-<% @shows.each do |show| %>
-  <div>
-    <h3><%= show.title %></h3>
-    <p><%= show.description %></p>
-    <!-- Add more show information as needed -->
-  </div>
-  <% end %>
+ 
 <% end %>
 <% end %>
 
-<% else %>
 
-<% end %>
  <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
     <%= yield %>

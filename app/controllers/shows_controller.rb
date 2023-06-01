@@ -83,7 +83,7 @@ class ShowsController < ApplicationController
           :title,
           :genre,
           :description,
-          :image,
+          :imageup,
           :performer,
           places_attributes: [:show_id, :placevenue, :placetown, :placeaddress, :placeinfo]
         )

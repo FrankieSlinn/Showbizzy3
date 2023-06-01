@@ -3,7 +3,7 @@ class Show < ApplicationRecord
 
 
   has_many :places, dependent: :destroy
-  has_one_attached :image
+  has_one_attached :imageup
   
  
   accepts_nested_attributes_for :places
