@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_31_130125) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_01_082918) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,6 +68,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_130125) do
     t.index ["user_id"], name: "index_shows_on_user_id"
   end
 
+  create_table "timings", force: :cascade do |t|
+    t.bigint "place_id", null: false
+    t.date "day"
+    t.string "timeslot"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_timings_on_place_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -88,4 +97,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_31_130125) do
   add_foreign_key "places", "shows"
   add_foreign_key "reviews", "shows"
   add_foreign_key "shows", "users"
+  add_foreign_key "timings", "places"
 end

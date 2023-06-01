@@ -1,0 +1,17 @@
+<%= form_for @timing || Timing.new do |timing_form| %>
+
+<%= timing_form.hidden_field :place_id, value: @place.id %>
+
+    
+      <div class="field">
+        <%= timing_form.label :day, 'Date' %>
+        <%= timing_form.date_field :day %>
+      </div>
+
+      <div class="field">
+        <%= timing_form.label :timeslot, 'Time' %>
+        <%= timing_form.text_field :timeslot %>
+      </div>
+     <%= timing_form.submit 'Submit', class: 'button' %>
+
+<% end %>

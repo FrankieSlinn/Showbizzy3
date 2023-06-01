@@ -1,14 +1,14 @@
 class LocationsController < ApplicationController
     
-  
-    def new
-        @location = Location.new
-      end
-end
+  def index
+    @locations= Location.all
+    @timings=Timing.all
+   
+end 
+
+
 def new
 
-      #@location.user_id = current_user.id
-    
       @show.datelocs.build.location
       @locations = Location.all
       @location= Location.new
@@ -45,5 +45,6 @@ def new
       :venuename,
       :town,
       :address,
-      :info
+      :info)
   end
+end

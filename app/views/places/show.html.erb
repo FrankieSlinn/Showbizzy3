@@ -1,0 +1,26 @@
+<h1>Venue </h1>
+       <% @places.each do |place| %>
+      <div class="place">
+        <p>Venue: <%= place.placevenue %></p>
+        <p>Location: <%= place.placetown %></p>
+        <p>Address: <%= place.placeaddress %></p>
+        <p>Description: <%= place.placeinfo %></p>
+      </div>
+        <button  type="button" id="add-time-btn">Add timings to the location!!</button>
+    <% end %>
+
+    <div class="timeForm" >
+  <p>"timeForm"</p>
+  <%= render partial: 'places/timing_form' %>
+  <br/><br/>
+    
+    <br/><br/>
+    <p>Add date / time to the venue.</p>
+    <%# <button  type="button" id="add-place-btn">add a location to the show!!!!?</button> %>
+    <%# <%= link_to "Add New Location", new_place_path(@show) %>
+
+      <script>
+  document.getElementById("add-time-btn").addEventListener("click", function(){
+    console.log("clicked for timing")
+  document.querySelector(".timeForm").style.visibility = "visible";
+});

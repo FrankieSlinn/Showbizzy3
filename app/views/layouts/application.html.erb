@@ -27,7 +27,7 @@
 <br><br>
 <%= link_to 'My Shows - View and Edit', user_myshows_path %>
 
-
+<% if @shows.present? %>
     <h2>Shows</h2>
     <br><br>
 <% @shows.each do |show| %>
@@ -36,6 +36,7 @@
     <p><%= show.description %></p>
     <!-- Add more show information as needed -->
   </div>
+  <% end %>
 <% end %>
 <% end %>
 

@@ -2,7 +2,7 @@ class Show < ApplicationRecord
   belongs_to :user
 
 
-  has_many :places
+  has_many :places, dependent: :destroy
   
  
   accepts_nested_attributes_for :places

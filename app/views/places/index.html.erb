@@ -1,0 +1,10 @@
+       <h3>Places Index</h3>
+       <% @places.each do |place| %>
+      <div class="place">
+        <p>Venue: <%= place.placevenue %></p>
+        <p>Location: <%= place.placetown %></p>
+        <p>Address: <%= place.placeaddress %></p>
+        <p>Description: <%= place.placeinfo %></p>
+      </div>
+        <button  type="button" id="add-time-btn">Add timings to the location</button>
+    <% end %>

@@ -14,24 +14,37 @@
         <p>Address: <%= place.placeaddress %></p>
         <p>Description: <%= place.placeinfo %></p>
       </div>
+        <%# <button  type="button" id="add-time-btn">Add timings to the location</button> %>
     <% end %>
     </li>
     <br/><br/>
     <p>Would you like to add a venue / venues to this show?</p>
-    <button  type="button" id="add-location-btn">add a location to the show!!!!?</button>
-    <%# <%= link_to "Add New Location", new_place_path(@show) %>
+    <button  type="button" id="add-place-btn">add a location to the show!!!!?</button>
+
 
 
  <div class="placeForm" >
   <p>"placeForm"</p>
-  <%= render partial: 'shows/location_form' %>
+  <%= render partial: 'shows/place_form' %>
+  <br/><br/>
+   <div class="timeForm" >
+  <%# <p>"placeForm"</p>
+  <%= render partial: 'places/timing_form' %>
+  <br/><br/> %>
+    
   </div>
   <%= @show_id %>
   <script>
-  document.getElementById("add-location-btn").addEventListener("click", function(){
+  document.getElementById("add-place-btn").addEventListener("click", function(){
     console.log("clicked")
   document.querySelector(".placeForm").style.visibility = "visible";
 });
+//   document.getElementById("add-time-btn").addEventListener("click", function(){
+//     console.log("clicked timeslot")
+//   document.querySelector(".timeForm").style.visibility = "visible";
+// });
+
+
 </script> 
 
 <td><%= button_to "Delete Show", show_path(@show), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Show?' %></td>
