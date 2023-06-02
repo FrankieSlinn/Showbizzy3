@@ -22,23 +22,33 @@
           <td><%= link_to "Display Show", show_path(show) %>
           </td>&nbsp;&nbsp;
 
-          <%= link_to "Review Show", new_review_path %></td>&nbsp;&nbsp;
+       <%# <td>   <%= link_to "Review Show", new_review_path</td>&nbsp;&nbsp;  %>
           
           
 
                 <%# <script>
-          document.querySelector('.review-button').addEventListener('click', function(){
-            console.log("clicked");
-            document.querySelector('.review-form').style.display='block';
-            document.querySelector('.review-form').style.visibility='visible';
-          }
-          )
+ document.querySelectorAll('.review-button').forEach(function(button) {
+  button.addEventListener('click', function() {
+    var showId = this.getAttribute('data-show-id');
+    console.log('clicked on show ID:', showId);
+    
+    var reviewForm = document.querySelector('.review-form');
+    reviewForm.style.display = 'block';
+    reviewForm.style.visibility = 'visible';
+    
+    // Set the show ID in the form
+    var showIdInput = document.querySelector('#review_show_id');
+    showIdInput.value = showId;
+  });
+}); %>
+          <%# </script>
          
-                    <td><button class="review-button">Review Show</button></td>&nbsp;&nbsp;
+       
           <div class="review-form" hidden> 
             <p>"hi"klkjlkjksiojijijesioeio</p>
-            <%= render partial: 'reviews/review_form' %>
-            <button class="cancel-review-button">Cancel Review</button> %>
+            <%= render partial: 'shows/review_form'%>
+            <%# <button class="cancel-review-button">Cancel Review</button> 
+            </div>  %>
  
  
 

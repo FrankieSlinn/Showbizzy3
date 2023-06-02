@@ -6,6 +6,7 @@ class ShowsController < ApplicationController
         @shows= Show.all
         @show=Show.find(params[:id])
         @places=Place.all
+        @reviews=Review.all
        
     end
     def show
@@ -13,6 +14,7 @@ class ShowsController < ApplicationController
       @shows = Show.all
 
       @places = @show.places
+      @reviews=@show.reviews
     end
     def new
       @shows = Show.all
@@ -43,6 +45,7 @@ class ShowsController < ApplicationController
         redirect_to show_path(@show), notice: 'Show was successfully created.'
       else
         # Handle save errors
+        @review=review.all
         @places = Place.all
         render :new
       end
@@ -50,6 +53,7 @@ class ShowsController < ApplicationController
     def myshows
          @user = current_user
          @shows = @user.shows
+        
          @places = Place.where(show_id: :id)
          puts "#{@places} This is a test"
     end
@@ -101,7 +105,7 @@ class ShowsController < ApplicationController
           :description,
           :imageup,
           :performer,
-          places_attributes: [:show_id, :placevenue, :placetown, :placeaddress, :placeinfo, timings_attributes: [:place_id, :day, :timeshot]]
+          reviews_attributes: [:show_id, :rating, :review], places_attributes: [:show_id, :placevenue, :placetown, :placeaddress, :placeinfo, timings_attributes: [:place_id, :day, :timeshot]]
         )
       end
 

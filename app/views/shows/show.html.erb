@@ -1,24 +1,43 @@
-<h1><%= @show.title %> </h1>
-
+<h1><%= @show.title %>!!</h1>
 <ul>
-
-    <li> Genre <%= @show.genre %></li>
-    <li>Performer <%= @show.performer %></li>
-     <li><% if @show.imageup.attached? %>
-   <img src="<%=(url_for(@show.imageup)) %>">
-<% end %></li>
-    <li>Description <%= @show.description %></li>
-        <li>
-       <% @places.each do |place| %>
+  <li>Genre <%= @show.genre %></li>
+  <li>Performer <%= @show.performer %></li>
+  <li>
+    <% if @show.imageup.attached? %>
+      <img src="<%= url_for(@show.imageup) %>">
+    <% end %>
+  </li>
+  <li>Description <%= @show.description %></li>
+  <li>
+    <% @places.each do |place| %>
       <div class="place">
         <p>Venue: <%= place.placevenue %></p>
         <p>Location: <%= place.placetown %></p>
         <p>Address: <%= place.placeaddress %></p>
         <p>Description: <%= place.placeinfo %></p>
-        <%= render partial: "place_form" %>
       </div>
-        <%# <button  type="button" id="add-time-btn">Add timings to the location</button> %>
+      <br /><br />
     <% end %>
-    </li>
-    <br/><br/>
-   
+    <%= render partial: "place_form" %>
+    <%= form_for @review || Review.new do |review_form| %>
+      <%= review_form.hidden_field :show_id, value: @show.id %>
+      <div class="field">
+        <%= review_form.label :rating, 'Rating(1 lowest, 5 highest)' %>
+        <%= review_form.text_field :rating %>
+      </div>
+      <div class="field">
+        <%= review_form.label :review, 'Review' %>
+        <%= review_form.text_field :review %>
+      </div>
+      <%= review_form.submit 'Submit', class: 'button' %>
+    <% end %>
+  </li>
+</ul>
+<%= link_to "Review Show", new_review_path(show_id: @show.id) %>
+<h3>Reviews</h3>
+<% @reviews.each do |r| %>
+  <div class="place">
+    <p>Rating: <%= r.rating %></p>
+    <p>Review: <%= r.review %></p>
+  </div>
+<% end %>

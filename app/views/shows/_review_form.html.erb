@@ -1,6 +1,3 @@
-<h2>Review For </h2>
-    <%# <%= @show.review.title%> 
-<br/><br/>
 <%= form_for @review || Review.new do |review_form| %>
 
    <%= review_form.hidden_field :show_id %>
@@ -19,4 +16,3 @@
   <%= review_form.submit 'Submit', class: 'button' %>
 
   <% end %>
-<p><%= render partial: 'shows/review_form' %></p>

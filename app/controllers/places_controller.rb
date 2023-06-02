@@ -21,8 +21,8 @@ class PlacesController < ApplicationController
       def create
         @places=Place.all
         @place = Place.new(place_params)
-       
         @show = Show.find(params[:show_id])
+       
         # @show.places.create(place_params)
       
         if @place.save

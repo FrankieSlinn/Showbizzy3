@@ -9,8 +9,10 @@ class ReviewsController < ApplicationController
       end
     
       def new
+        # @show = Show.find(params[:show_id])
         @reviews = Review.all
         @review= Review.new
+      
         if @review.save
           # Show saved successfully
         else
@@ -21,10 +23,14 @@ class ReviewsController < ApplicationController
       end
     
       def create
+       
+     
         @reviews=Review.all
         @review = Review.new(review_params)
        
-        @show = Show.find(params[:show_id])
+       
+  
+
         # @show.places.create(place_params)
       
         if @review.save
@@ -55,6 +61,7 @@ class ReviewsController < ApplicationController
           :show_id,
           :rating,
           :review,
+          shows_attributes: [:id, :user_id, :title, :genre, :description, :imageup, :performer]
         )
       end
     end
