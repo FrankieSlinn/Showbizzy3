@@ -33,7 +33,7 @@ class TimingsController < ApplicationController
             @place = Place.find(params[:timing][:place_id])
            timing = Timing.find(params[:id])
             timing.update(timing_params)
-            #redirect_to place
+            redirect_to @place_edit
           end
        
           def edit
@@ -42,6 +42,7 @@ class TimingsController < ApplicationController
             @timing = Timing.find(params[:id])
           end
           def destroy
+            @place = Place.find(params[:timing][:place_id])
             timing = Timing.find(params[:id])
             timing.destroy
             redirect_to places_path, notice: 'Time/s / Date was successfully deleted.'

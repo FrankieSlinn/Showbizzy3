@@ -47,7 +47,7 @@ class PlacesController < ApplicationController
         @show = Show.find(params[:place][:show_id])
         place = Place.find(params[:id])
         place.update(place_params)
-        @timing== Timing.where(place_id: params[:id], id: params[:timing_id])
+        @timing= Timing.where(place_id: params[:id], id: params[:timing_id])
         @timings = Timing.where(place_id: :id)
           @place = Place.find(params[:id])
         redirect_to place
@@ -55,12 +55,13 @@ class PlacesController < ApplicationController
    
       def edit
         @show_title = params[:show_title]
-       @timing== Timing.where(place_id: params[:id], id: params[:timing_id])
+       @timing= Timing.where(place_id: params[:id], id: params[:timing_id])
      @timings = Timing.where(place_id: :id)
        @place = Place.find(params[:id])
+       place = Place.find(params[:id])
       end
       def destroy
-        place = Place.find(params[:id])
+       @place = Place.find(params[:id])
         place.destroy
         redirect_to places_path, notice: 'Venue was successfully deleted.'
       end

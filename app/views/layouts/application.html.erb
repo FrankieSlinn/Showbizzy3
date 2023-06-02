@@ -27,6 +27,9 @@
    <%= link_to "Create New Show", new_show_path %>
 <br><br>
 <%= link_to 'My Shows - View and Edit', user_myshows_path %>
+<br><br>
+<h2>Shows</h2>
+<%= render partial: "shows/displayall" %>
  
 <% end %>
 <% end %>
