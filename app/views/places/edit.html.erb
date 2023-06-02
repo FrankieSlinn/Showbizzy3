@@ -30,8 +30,8 @@
   <h3>Time / Date</h3>
   <p>Date: <%= timing.day %></p>
   <p>Time/s: <%= timing.timeslot %></p>
-
-   <%= render partial: 'places/timing_form' %>
+    <h3>Edit Time / Date</h3>
+  <%= link_to 'Edit', edit_timing_path(timing) %>
   <br />
 <% end %>
 

@@ -31,9 +31,9 @@ class TimingsController < ApplicationController
           end
           def update
             @place = Place.find(params[:timing][:place_id])
-           timing = Timinge.find(params[:id])
+           timing = Timing.find(params[:id])
             timing.update(timing_params)
-            redirect_to place
+            #redirect_to place
           end
        
           def edit
