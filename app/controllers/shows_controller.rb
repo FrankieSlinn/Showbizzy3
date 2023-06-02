@@ -4,6 +4,7 @@ class ShowsController < ApplicationController
  
     def index
         @shows= Show.all
+        @show=Show.find(params[:id])
         @places=Place.all
        
     end
@@ -47,13 +48,22 @@ class ShowsController < ApplicationController
     def myshows
          @user = current_user
          @shows = @user.shows
+         @places = Place.where(show_id: :id)
+         puts "#{@places} This is a test"
     end
       
     def edit
+      # @showtitle = Show.find(params[:title])
+     # redirect_to places_path(show_title: @show.title)
      @show= Show.find(params[:id])
+   
      @shows = Show.where.not(id: @show.id)
+     #@place = @show.place
 
-  @places = Place.where(show_id: @show.id)
+     @places = Place.where(show_id: :id)
+    # @place = Place.where(show_id: :id id: :place_id)
+     #@timings = @show.place.timing
+    # @place = Place(params[show_id: :id])
     end
     # def update
     # @show = Show.find(params[:id])

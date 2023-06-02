@@ -1,5 +1,5 @@
 <%= form_for @place || Place.new do |place_form| %>
-<%= place_form.hidden_field :show_id, value: @place.show_id %>
+<%= place_form.hidden_field :show_id %>
     
       <div class="field">
         <%= place_form.label :placevenue, 'Venue' %>

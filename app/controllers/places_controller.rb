@@ -48,9 +48,9 @@ class PlacesController < ApplicationController
       end
    
       def edit
-       
-        # @place.show_id = params[:place][:show_id] 
-        @place = Place.find(params[:id])
+        @show_title = params[:show_title]
+       # @place.show_id = params[:place][:show_id] 
+       @place = Place.find(params[:id])
       end
       def destroy
         place = Place.find(params[:id])

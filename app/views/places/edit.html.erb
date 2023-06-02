@@ -1,6 +1,7 @@
 <h3>Edit Venue</h3>
+<p><%= @show_title %>
 
-<p><%= render partial: "place_form", locals: { place_form: @place } %></p>
+<%# <p><%= render partial: "place_form", locals: { place_form: @place } %></p> %>
 
 <%= form_for @place || Place.new do |place_form| %>
   <%= place_form.hidden_field :show_id, value: @place.show_id %>

@@ -6,6 +6,8 @@
         <p>Address: <%= @place.placeaddress %></p>
         <p>Description: <%= @place.placeinfo %></p>
                <br />
+                <%= link_to 'Go Back to Show', edit_show_path(@place.show_id) %>
+                <br />
                  <%= link_to 'Edit', edit_place_path(@place) %>
                  <br />
                  <td><%= button_to "Delete Venue", place_path(@place), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Venue?' %></td> 
