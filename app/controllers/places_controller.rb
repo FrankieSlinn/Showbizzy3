@@ -1,4 +1,7 @@
 class PlacesController < ApplicationController
+    skip_before_action :verify_authenticity_token
+
+    
     def index
         @places= Place.all
         @timings=Timing.all
@@ -44,12 +47,16 @@ class PlacesController < ApplicationController
         @show = Show.find(params[:place][:show_id])
         place = Place.find(params[:id])
         place.update(place_params)
+        @timing== Timing.where(place_id: params[:id], id: params[:timing_id])
+        @timings = Timing.where(place_id: :id)
+          @place = Place.find(params[:id])
         redirect_to place
       end
    
       def edit
         @show_title = params[:show_title]
-       # @place.show_id = params[:place][:show_id] 
+       @timing== Timing.where(place_id: params[:id], id: params[:timing_id])
+     @timings = Timing.where(place_id: :id)
        @place = Place.find(params[:id])
       end
       def destroy
@@ -68,7 +75,7 @@ class PlacesController < ApplicationController
           :placetown,
           :placeaddress,
           :placeinfo,
-          shows_attributes: [:id, :title, :genre, :description, :imageup, :performer])
+          timings_attributes: [:place_id, :day, :timeslot], shows_attributes: [:id, :title, :genre, :description, :imageup, :performer])
       end
     end
  

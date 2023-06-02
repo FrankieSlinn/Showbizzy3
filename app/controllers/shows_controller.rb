@@ -18,8 +18,8 @@ class ShowsController < ApplicationController
       @shows = Show.all
       @show = Show.new
       
-     
-     
+    
+
         @places = Place.all
         @place= Place.new
         if @show.save
@@ -59,8 +59,9 @@ class ShowsController < ApplicationController
    
      @shows = Show.where.not(id: @show.id)
      #@place = @show.place
-
+     @place = Place.where(show_id: params[:id], id: params[:place_id])
      @places = Place.where(show_id: :id)
+     @timings = Timing.where(place_id: :id)
     # @place = Place.where(show_id: :id id: :place_id)
      #@timings = @show.place.timing
     # @place = Place(params[show_id: :id])
@@ -98,7 +99,7 @@ class ShowsController < ApplicationController
           :description,
           :imageup,
           :performer,
-          places_attributes: [:show_id, :placevenue, :placetown, :placeaddress, :placeinfo]
+          places_attributes: [:show_id, :placevenue, :placetown, :placeaddress, :placeinfo, timings_attributes: [:place_id, :day, :timeshot]]
         )
       end
 

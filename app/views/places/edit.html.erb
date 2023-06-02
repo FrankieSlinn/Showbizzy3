@@ -1,30 +1,43 @@
+<h2>Show: <%=@place.show.title %></h2>
+
+
 <h3>Edit Venue</h3>
-<p><%= @show_title %>
-
-<%# <p><%= render partial: "place_form", locals: { place_form: @place } %></p> %>
-
 <%= form_for @place || Place.new do |place_form| %>
   <%= place_form.hidden_field :show_id, value: @place.show_id %>
-
   <div class="field">
     <%= place_form.label :placevenue, 'Venue' %>
     <%= place_form.text_field :placevenue %>
   </div>
-
   <div class="field">
     <%= place_form.label :placetown, 'Place' %>
     <%= place_form.text_field :placetown %>
   </div>
-
   <div class="field">
     <%= place_form.label :placeaddress, 'Address' %>
     <%= place_form.text_field :placeaddress %>
   </div>
-
   <div class="field">
     <%= place_form.label :placeinfo, 'Description' %>
     <%= place_form.text_field :placeinfo %>
   </div>
-
   <%= place_form.submit 'Submit', class: 'button' %>
+  <br />
+  <p>Add date / times to the show's venue</p>
+  <%= render partial: 'places/timing_form' %>
 <% end %>
+
+<% @place.timings.each do |timing| %>
+  <h3>Time / Date</h3>
+  <p>Date: <%= timing.day %></p>
+  <p>Time/s: <%= timing.timeslot %></p>
+
+   <%= render partial: 'places/timing_form' %>
+  <br />
+<% end %>
+
+
+
+
+
+
+
