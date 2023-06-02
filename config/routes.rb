@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :datelocs
     resources :places
     resources :timings
+    resources :shows
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

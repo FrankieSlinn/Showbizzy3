@@ -1,0 +1,6 @@
+<p >Hello <%= current_user.username %>!</p>
+&nbsp; &nbsp;
+<%= form_for(current_user, url: destroy_user_session_path, method: :delete) do |f| %>
+  <%= f.submit "Logout" %>
+  <%= link_to 'Edit Profile', edit_user_registration_path %>
+  <% end %>

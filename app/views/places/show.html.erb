@@ -10,7 +10,7 @@
                 <br />
                  <%= link_to 'Edit', edit_place_path(@place) %>
                  <br />
-                 <td><%= button_to "Delete Venue", timing_path(@place), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Venue?' %></td> 
+                 <td><%= button_to "Delete Venue", place_path(@place), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Venue?' %></td> 
          
          <% @timings.each do |timing| %>
            <p>Date: <%= timing.day %></p>

@@ -15,11 +15,8 @@
     <%= render "pages/header" %>
 
     <% if user_signed_in?%>
-<p >Hello <%= current_user.username %>!</p>
-&nbsp; &nbsp;
-<%= form_for(current_user, url: destroy_user_session_path, method: :delete) do |f| %>
-  <%= f.submit "Logout" %>
-  <%= link_to 'Edit Profile', edit_user_registration_path %>
+    <%= render partial: 'users/registrations/log_info_form' %>
+
   <br /><br />
   <h2>Add new Show</h2>
   <br>
@@ -29,10 +26,10 @@
 <%= link_to 'My Shows - View and Edit', user_myshows_path %>
 <br><br>
 <h2>Shows</h2>
-<%= render partial: "shows/displayall" %>
+<%= render partial:"shows/index" %>
  
 <% end %>
-<% end %>
+
 
 
  <p class="notice"><%= notice %></p>

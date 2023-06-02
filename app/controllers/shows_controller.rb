@@ -17,6 +17,8 @@ class ShowsController < ApplicationController
     def new
       @shows = Show.all
       @show = Show.new
+      @reviews = Review.all
+      @review= Review.new
       
     
 
