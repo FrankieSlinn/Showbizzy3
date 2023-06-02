@@ -3,6 +3,7 @@ Rails.application.routes.draw do
  # get 'show/my_shows', to: 'shows#myshows', as: 'my_shows'
   # get 'user/myshows', to: 'shows#myshows', as: 'my_shows'
   get '/user/myshows', to: 'shows#myshows'
+  get '/user/myreviews', to: 'shows#myreviews'
   # post '/user/myshows', to: 'shows#myshows', as: 'user_myshows'
   delete '/shows/:id', to: 'shows#destroy', as: 'showdestroy'
 

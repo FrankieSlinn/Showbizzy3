@@ -51,12 +51,22 @@ class ShowsController < ApplicationController
       end
     end
     def myshows
+     
          @user = current_user
+         @show= Show.find(params[@user.id])
          @shows = @user.shows
+         @reviews= Review.where(show_id: :id)
         
          @places = Place.where(show_id: :id)
          puts "#{@places} This is a test"
     end
+    def myreviews
+      @user=current_user
+
+        @shows = Show.all
+        @reviews = Review.where(show_id: @user.id)
+
+    end 
       
     def edit
       # @showtitle = Show.find(params[:title])

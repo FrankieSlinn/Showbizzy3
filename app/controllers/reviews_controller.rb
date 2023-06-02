@@ -5,7 +5,9 @@ class ReviewsController < ApplicationController
       end
     
       def show
+        @user = current_user
         @review=Review.find(params[:id])
+        @reviews=Review.where(show_id: @user.id)
       end
     
       def new
@@ -49,11 +51,18 @@ class ReviewsController < ApplicationController
       end
     
       def update
-        # Code for handling the update action
+        @show = Show.find(params[:review][:show_id])
+        review = Review.find(params[:id])
+        review.update(review_params)
+
+ 
+        redirect_to review
       end
     
       def destroy
-        # Code for handling the destroy action
+        @review = Review.find(params[:id])
+        @review.destroy
+        redirect_to reviews_path, notice: 'Review was successfully deleted.'
       end
       def review_params
         params.require(:review).permit(
