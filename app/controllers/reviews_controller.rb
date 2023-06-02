@@ -62,7 +62,8 @@ class ReviewsController < ApplicationController
       def destroy
         @review = Review.find(params[:id])
         @review.destroy
-        redirect_to reviews_path, notice: 'Review was successfully deleted.'
+        @reviews= Review.all
+        redirect_to show_path, notice: 'Review was successfully deleted.'
       end
       def review_params
         params.require(:review).permit(

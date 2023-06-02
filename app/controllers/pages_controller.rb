@@ -9,5 +9,7 @@ class PagesController < ApplicationController
 
         @shows = Show.all # Assuming you have a Show model representing your shows
       end
+      def about
+      end
 
 end

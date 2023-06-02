@@ -13,6 +13,7 @@
  
   <body>
     <%= render "pages/header" %>
+    <%= render "pages/navigation" %>
 
     <% if user_signed_in?%>
     <%= render partial: 'users/registrations/log_info_form' %>
@@ -28,6 +29,7 @@
 <br><br>
 <h2>Shows</h2>
 <%= render partial:"shows/index" %>
+<%= render partial:"footer" %>
  
 <% end %>
 

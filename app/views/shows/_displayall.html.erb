@@ -1,6 +1,6 @@
 <table>
   <tr>
-    <th>Title</th>
+    <th>Title!</th>
      <th>Description</th>
     <th>Genre</th>
     <th>Image</th>
@@ -19,13 +19,30 @@
    <% end %>
 </td>
       <td><%= show.description %></td>
+      <td>Review Show</td>
+        
+           <%= form_for @review || Review.new do |review_form| %>
+      <%= review_form.hidden_field :show_id, value: @show.id %>
+      <div class="field">
+        <%= review_form.label :rating, 'Rating(1 lowest, 5 highest)' %>
+        <%= review_form.text_field :rating %>
+      </div>
+      <div class="field">
+        <%= review_form.label :review, 'Review' %>
+        <%= review_form.text_field :review %>
+      </div>
+      <%= review_form.submit 'Submit', class: 'button' %>
+    <% end %>
+    
+
+
           <td><%= link_to "Display Show", show_path(show) %>
           </td>&nbsp;&nbsp;
 
           <td><%= link_to "Review Show", show_path(show) %></td>&nbsp;&nbsp;
           
           
-
+<%# 
                 <script>
           document.querySelector('.review-button').addEventListener('click', function(){
             console.log("clicked");
@@ -36,8 +53,8 @@
           </script>
                     <td><button class="review-button">Review Show</button></td>&nbsp;&nbsp;
           <div class="review-form" hidden> 
-            <p>"hi"klkjlkjksiojijijesioeio</p>
-            <p><%= render partial: 'reviews/review_form' %></p></div>
+            <p>"hi"klkjlkjksiojijijesioeio</p> %>
+            <%# <p><%= render partial: 'reviews/review_form'</p></div>  %>
  
 
 

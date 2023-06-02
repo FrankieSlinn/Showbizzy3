@@ -8,6 +8,10 @@ class ShowsController < ApplicationController
         @places=Place.all
         @reviews=Review.all
        
+  
+       
+        @reviews=@show.reviews
+       
     end
     def show
       @show = Show.find(params[:id])
@@ -53,7 +57,7 @@ class ShowsController < ApplicationController
     def myshows
      
          @user = current_user
-         @show= Show.find(params[@user.id])
+        #  @show= Show.find(params[@user.id])
          @shows = @user.shows
          @reviews= Review.where(show_id: :id)
         

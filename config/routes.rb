@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   # get 'user/myshows', to: 'shows#myshows', as: 'my_shows'
   get '/user/myshows', to: 'shows#myshows'
   get '/user/myreviews', to: 'shows#myreviews'
+  get '/about', to: 'pages#about'
+
   # post '/user/myshows', to: 'shows#myshows', as: 'user_myshows'
   delete '/shows/:id', to: 'shows#destroy', as: 'showdestroy'
 
   get 'pages/home'
+
   get 'pages/loggedin'
 
 
