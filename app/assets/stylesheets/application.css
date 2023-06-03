@@ -32,7 +32,11 @@
    text-align: right;
  }
  .copyright-container{
-  text-align: center
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-weight: 700;
  }
 .nav-container{
   display: flex;
