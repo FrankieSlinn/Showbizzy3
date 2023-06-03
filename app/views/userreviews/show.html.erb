@@ -1,11 +1,11 @@
 <h3>Review</h3>
-<p>sHOWY <%= @show1 %>
+
 <p>Rating: <%= @review.rating %></p>
 <p>Review: <%=@review.review %></p>
 <br />
 
 <%= render 'userreviews/edit' %>
 <br />
-<p><%= button_to "Delete Review", show_path(@review), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Review?' %></p>
+<p><%= button_to "Delete Review", show_path(@reviews), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Review?' %></p>
 <%# <td><%= button_to "Delete Review", show_path(@show), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Review?' %></td>  %>
 <%# #<td><%= button_to "Delete Venue", review_path(p), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Review?' %>

@@ -60,7 +60,7 @@ class ShowsController < ApplicationController
         # Handle save errors
         @review=Userreview.all
         @places = Place.all
-        render :new
+        render :show
       end
     end
     def myshows

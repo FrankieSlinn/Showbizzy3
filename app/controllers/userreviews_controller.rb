@@ -35,11 +35,7 @@ class UserreviewsController < ApplicationController
      
         @reviews=Userreview.all
         @review = Userreview.new(review_params)
-       
-       
-  
-
-        # @show.places.create(place_params)
+     
       
         if @review.save
           # Handle successful save
@@ -48,8 +44,9 @@ class UserreviewsController < ApplicationController
             puts @review.errors.full_messages
           # Handle save errors
        
-          render :new
+          
         end
+        render :show
       end
     
       def edit

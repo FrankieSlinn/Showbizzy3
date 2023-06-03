@@ -4,15 +4,18 @@
 
   
   <div class="field">
-    <%= review_form.label :rating, 'Rating(1 lowest, 5 highest)' %>
+    <span class="label"><%= review_form.label :rating, 'Rating(1 lowest, 5 highest)' %></span>
+    <br /> <br />
     <%= review_form.text_field :rating %>
   </div>
-
+<br/>
   <div class="field">
-    <%= review_form.label :review, 'Review' %>
+    <span class="label"><%= review_form.label :review, 'Review' %></span>
+     <br />
+       <br />
     <%= review_form.text_field :review %>
   </div>
-
+<br />
   <%= review_form.submit 'Submit', class: 'button' %>
 
   <% end %>

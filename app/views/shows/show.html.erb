@@ -1,26 +1,36 @@
+<div class="display-container">
 <h1><%= @show.title %></h1>
 <br />
-  Genre <%= @show.genre %>
-  Performer <%= @show.performer %>
-  Description <%= @show.description %>
+  <p><span class="label">Genre</span> <br/><br /><%= @show.genre %></p>
+  
+  <p><span class="label">Performer</span> <br/><br /><%= @show.performer %></p>
+ 
+ <p><span class="label"> Description</span><br/><br /> <%= @show.description %></p>
+ <p><span class="label"> Image</span><br/><br /></p>
+ <br />
   
     <% if @show.imageup.attached? %>
       <img src="<%= url_for(@show.imageup) %>">
+      <br />
     <% end %>
+
 <% @places.each do |place| %>
   <div class="place">
-    <p>Venue: <%= place.placevenue %></p>
-    <br />
-    <p>Location: <%= place.placetown %></p>
-    <br />
-    <p>Address: <%= place.placeaddress %></p>
-    <br />
-    <p>Description: <%= place.placeinfo %></p>
-    <br />
+    <p><span class="label">Venue:</span> <%= place.placevenue %></p>
+   
+    <p><span class="label">Location:</span> <%= place.placetown %></p>
+    
+    <p><span class="label">Address:</span> <%= place.placeaddress %></p>
+
+    <p><span class="label">Description:</span> <%= place.placeinfo %></p>
+   
   </div>
   <br /><br />
 <% end %>
-
+<br/><br/>
 <% if user_signed_in? %>
-  <%= render 'userreviews/review_form' %>
+<h2>Leave Rating</h2>
+ <p> <%= render 'userreviews/review_form' %></p>
 <% end %>
+</div>
+  <br /><br />
