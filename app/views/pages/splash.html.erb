@@ -1,7 +1,11 @@
-<% if !user_signed_in? %>
-<H2>Shows!!!</h2>
-<br /><br />
+
+<h2>Shows</h2>
+<%= link_to "Shows!", shows_path %>
+
+<%# <% if !user_signed_in? %>
+<%# <H2>Shows!!!</h2>
+<br /><br /> %>
 <%# <% @shows.each do |show| %>
 
-<%= render "shows/displayall" %>
-<% end %>
+<%= render "shows/index" %> 
+<%# <% end %> 

@@ -4,13 +4,13 @@ class ShowsController < ApplicationController
  
     def index
         @shows= Show.all
-        @show=Show.find(params[:id])
+        # @show=Show.find(params[:id])
         @places=Place.all
         @reviews=Review.all
        
   
        
-        @reviews=@show.reviews
+        # @reviews=@show.reviews
        
     end
     def show
