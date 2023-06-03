@@ -1,7 +1,9 @@
 <nav>
 <div class="nav-container">
     <a href="/about">About ShowBizzy</a>
-    <a href="/browse">Browse Shows</a>
-
- 
+    <a href="/">Browse Shows</a>
+    <% if user_signed_in? %>
+    <%= link_to "Create New Show", new_show_path %>
+    <%= link_to 'My Shows - View and Edit', user_myshows_path %>
+    <% end %>
 </nav>

@@ -11,6 +11,19 @@
         <p>Description: <%= p.placeinfo %></p>
                <br />
                  <%= link_to 'Edit', edit_place_path(p) %>
+                     <%= render partial: "place_form" %>
+    <%= form_for @review || Review.new do |review_form| %>
+      <%= review_form.hidden_field :show_id, value: @show.id %>
+      <div class="field">
+        <%= review_form.label :rating, 'Rating(1 lowest, 5 highest)' %>
+        <%= review_form.text_field :rating %>
+      </div>
+      <div class="field">
+        <%= review_form.label :review, 'Review' %>
+        <%= review_form.text_field :review %>
+      </div>
+      <%= review_form.submit 'Submit', class: 'button' %>
+    <% end %>
                  <br />
                  <td><%= button_to "Delete Venue", place_path(p), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Venue?' %></td> 
          

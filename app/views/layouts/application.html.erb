@@ -13,31 +13,15 @@
  
   <body>
     <%= render "pages/header" %>
-    <br />
     <%= render "pages/navigation" %>
     <%= render "pages/registration" %>
 
     <% if user_signed_in?%>
-    <%= render partial: 'users/registrations/log_info_form' %>
+   
 
   <br /><br />
-  <h2>Add new Show</h2>
-  <br>
-  <br>
-   <%= link_to "Create New Show", new_show_path %>
-<br><br>
-<%= link_to 'My Shows - View and Edit', user_myshows_path %>
 <%= link_to 'My Reviews - View and Edit', user_myreviews_path %>
 <br><br>
-<h2>Shows</h2>
-<div class="header-row">
-  <%= render partial: 'pages/header' %>
-</div>
-
-<div class="navigation-row">
-  <%= render partial: 'pages/navigation' %>
-</div>
- 
 <% end %>
 
   <%= render partial: 'pages/footer' %>

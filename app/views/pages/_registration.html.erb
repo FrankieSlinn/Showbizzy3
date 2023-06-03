@@ -1,16 +1,17 @@
-      <div class="userlogin">
-    <% if user_signed_in? %>
-      <%= form_for(current_user, url: destroy_user_session_path, method: :delete) do |f| %>
-        <%= f.submit "Logout" %>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-
-<% unless user_signed_in? %>
-  <div class="userlogin">
-    <%= link_to "Login", new_user_session_path %>&nbsp; &nbsp;
-    <%= link_to "Sign up", new_user_registration_path %>
+<div class="userlogin">
+  <% if user_signed_in? %>
+  <br/>
+  <div class="signed-in">
+<p class = "greeting">Hello <%= current_user.username %>!</p>
+&nbsp; &nbsp;
+<%= form_for(current_user, url: destroy_user_session_path, method: :delete) do |f| %>
+  <%= f.submit "Logout" %>
+  <%= link_to 'Edit Profile', edit_user_registration_path %>
   </div>
   <% end %>
-  </div>
+  
+  <% else %>
+    <%= link_to "Login", new_user_session_path %>&nbsp; &nbsp;
+    <%= link_to "Sign up", new_user_registration_path %>
+  <% end %>
+</div>
