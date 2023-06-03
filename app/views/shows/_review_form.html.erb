@@ -1,5 +1,5 @@
 <%= form_for @review || Userreview.new do |review_form| %>
-  <%= review_form.hidden_field :show_id, value: @show.id %>
+  <%= review_form.hidden_field :show_id %>
   <div class="field">
     <%= review_form.label :rating, 'Rating (1 lowest, 5 highest)' %>
     <%= review_form.text_field :rating %>

@@ -14,11 +14,20 @@ class ShowsController < ApplicationController
        
     end
     def show
-      @show = Show.find(params[:id])
+      @show1 = Show.joins(:userreviews).where(userreviews: { show_id: params[:show_id] }).first
+      begin
+        @show = Show.find(params[:id])
+        @places = @show.places
+        @reviews=@show.userreviews
+        # Show exists
+        # Proceed with further operations
+      rescue ActiveRecord::RecordNotFound
+        # Show not found
+        # Handle the case when the show is not found
+      end
       @shows = Show.all
 
-      @places = @show.places
-      @reviews=@show.userreviews
+   
     end
     def new
       @shows = Show.all
@@ -66,14 +75,21 @@ class ShowsController < ApplicationController
     end
     def myreviews
       @user=current_user
+     # @show = Show.includes(:reviews).find(params[:show_id])
+     @show = Show.joins(:userreviews).where(userreviews: { show_id: params[:show_id] }).first
+      
 
         @shows = Show.all
+       
+    
+      
       
         @reviews = Userreview.where(user_id: @user.id)
 
     end 
       
     def edit
+      @reviews = Userreview.where(user_id: @user.id)
       # @showtitle = Show.find(params[:title])
      # redirect_to places_path(show_title: @show.title)
      @show= Show.find(params[:id])
@@ -94,14 +110,32 @@ class ShowsController < ApplicationController
     # end
     def update
       show = Show.find(params[:id])
+      
       show.update(show_params)
+      userreview.update(userreview_params)
       @place = Place.where(show_id: :id)
       redirect_to show
     end
     def destroy
-      show = Show.find(params[:id])
-      show.destroy
-      redirect_to shows_path, notice: 'Show was successfully deleted.'
+
+      @review=Userreview.find(params[:id])
+      @review.destroy
+
+      
+      begin
+        @show = Show.find(params[:id])
+        # Show exists
+        # Proceed with further operations
+      rescue ActiveRecord::RecordNotFound
+        # Show not found
+        # Handle the case when the show is not found
+      end
+      if @show
+      @show.destroy
+      else
+        puts "No show found"
+      end
+      redirect_to userreview_path, notice: 'Review was successfully deleted.'
     end
 
  
@@ -120,7 +154,7 @@ class ShowsController < ApplicationController
           :description,
           :imageup,
           :performer,
-          iserreviews_attributes: [:show_id, :rating, :review], places_attributes: [:show_id, :placevenue, :placetown, :placeaddress, :placeinfo, timings_attributes: [:place_id, :day, :timeshot]]
+          userreviews_attributes: [:show_id, :rating, :review], places_attributes: [:show_id, :placevenue, :placetown, :placeaddress, :placeinfo, timings_attributes: [:place_id, :day, :timeshot]]
         )
       end
 

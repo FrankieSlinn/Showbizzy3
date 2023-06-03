@@ -16,13 +16,7 @@
     <%= render "pages/navigation" %>
     <%= render "pages/registration" %>
 
-    <% if user_signed_in?%>
-   
 
-  <br /><br />
-<%= link_to 'My Reviews - View and Edit', user_myreviews_path %>
-<br><br>
-<% end %>
 
   <%= render partial: 'pages/footer' %>
 

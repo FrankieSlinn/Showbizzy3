@@ -1,50 +1,26 @@
-<h1><%= @show.title %>!!</h1>
-<ul>
-  <li>Genre <%= @show.genre %></li>
-  <li>Performer <%= @show.performer %></li>
-  <li>
+<h1><%= @show.title %></h1>
+<br />
+  Genre <%= @show.genre %>
+  Performer <%= @show.performer %>
+  Description <%= @show.description %>
+  
     <% if @show.imageup.attached? %>
       <img src="<%= url_for(@show.imageup) %>">
     <% end %>
-  </li>
-  <li>Description <%= @show.description %></li>
-
-  </ul>
-    <% @places.each do |place| %>
-      <div class="place">
-        <p>Venue: <%= place.placevenue %></p>
-        <p>Location: <%= place.placetown %></p>
-        <p>Address: <%= place.placeaddress %></p>
-        <p>Description: <%= place.placeinfo %></p>
-      </div>
-      <br /><br />
-    <% end %>
-
-  
-</ul>
-  <li><% if user_signed_in? %>
-  <%= form_for @review || Userreview.new do |review_form| %>
-   <%= review_form.hidden_field :user_id, value: current_user.id %>
-  <%= review_form.hidden_field :show_id, value: @show.id %>
-  <div class="field">
-    <%= review_form.label :rating, 'Rating (1 lowest, 5 highest)' %>
-    <%= review_form.text_field :rating %>
+<% @places.each do |place| %>
+  <div class="place">
+    <p>Venue: <%= place.placevenue %></p>
+    <br />
+    <p>Location: <%= place.placetown %></p>
+    <br />
+    <p>Address: <%= place.placeaddress %></p>
+    <br />
+    <p>Description: <%= place.placeinfo %></p>
+    <br />
   </div>
-   <div class="field">
-    <%= review_form.label :review, 'Review' %>
-    <%= review_form.text_field :review %>
-  </div>
-  <div class="actions">
-    <%= review_form.submit 'Submit' %>
-  </div>
+  <br /><br />
 <% end %>
 
-    <% end %></li>
-
-<h3>Reviews</h3>
-<% @reviews.each do |r| %>
-  <div class="place">
-    <p>Rating: <%= r.rating %></p>
-    <p>Review: <%= r.review %></p>
-  </div>
+<% if user_signed_in? %>
+  <%= render 'userreviews/review_form' %>
 <% end %>

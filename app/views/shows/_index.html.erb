@@ -22,8 +22,9 @@
 
    <% end %>
 </td>
- 
-          <td><%= link_to "Display Show", show_path(show) %>
+ <% if user_signed_in? %>
+          <td><%= link_to "Review Show", show_path(show) %>
+  <% end %>
           <td>
 
           </td>&nbsp;&nbsp;

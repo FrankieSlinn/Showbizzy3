@@ -6,7 +6,13 @@ class UserreviewsController < ApplicationController
     
       def show
         @user = current_user
-        @review=Userreview.find(params[:id])
+        @show = Show.joins(:userreviews).where(userreviews: { show_id: params[:show_id] }).first
+        if Userreview.exists?(params[:id])
+            @review = Userreview.find(params[:id])
+          else
+            puts "error id isn't there man"
+            # Handle the case when the record doesn't exist
+          end
         @reviews=Userreview.where(show_id: @user.id)
       end
     
@@ -47,11 +53,13 @@ class UserreviewsController < ApplicationController
       end
     
       def edit
-        # Code for handling the edit action
+     
+        @show = Show.joins(:userreviews).where(userreviews: { show_id: params[:show_id] }).first
       end
     
       def update
-        @show = Show.find(params[:review][:show_id])
+        @showid= :show_id
+        @shows = Show.find(params[:review][:show_id])
         review = Userreview.find(params[:id])
         review.update(review_params)
 
