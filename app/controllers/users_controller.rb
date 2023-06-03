@@ -18,7 +18,7 @@ class UsersController < ApplicationController
         @user=current_user
 
           @shows = Show.all
-          @reviews = Review.where([:review][:show_id]: @user.id)
+          @reviews = Userreview.where([:userrreview][:show_id]: @user.id)
   
       end 
       def create

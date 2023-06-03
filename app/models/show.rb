@@ -1,13 +1,13 @@
 class Show < ApplicationRecord
   belongs_to :user
 
-  has_many :reviews, dependent: :destroy
+  has_many :userreviews, dependent: :destroy
   has_many :places, dependent: :destroy
   has_one_attached :imageup
   
  
   accepts_nested_attributes_for :places
-  accepts_nested_attributes_for :reviews
+  accepts_nested_attributes_for :userreviews
 
 
  

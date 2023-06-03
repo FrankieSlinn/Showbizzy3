@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :shows, dependent: :destroy
-  has_many :locations, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+
   # attr_accessor :username, :is_performer
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

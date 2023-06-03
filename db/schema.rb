@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_01_120736) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_03_093020) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -75,15 +75,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_120736) do
     t.index ["show_id"], name: "index_places_on_show_id"
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.bigint "show_id", null: false
-    t.integer "rating"
-    t.string "review"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["show_id"], name: "index_reviews_on_show_id"
-  end
-
   create_table "shows", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "title"
@@ -103,6 +94,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_120736) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["place_id"], name: "index_timings_on_place_id"
+  end
+
+  create_table "userreviews", force: :cascade do |t|
+    t.bigint "show_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "rating"
+    t.string "review"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["show_id"], name: "index_userreviews_on_show_id"
+    t.index ["user_id"], name: "index_userreviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -125,7 +127,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_120736) do
   add_foreign_key "datelocs", "shows"
   add_foreign_key "locations", "users"
   add_foreign_key "places", "shows"
-  add_foreign_key "reviews", "shows"
   add_foreign_key "shows", "users"
   add_foreign_key "timings", "places"
+  add_foreign_key "userreviews", "shows"
+  add_foreign_key "userreviews", "users"
 end

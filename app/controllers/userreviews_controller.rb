@@ -1,19 +1,19 @@
-class ReviewsController < ApplicationController
+class UserreviewsController < ApplicationController
     def index
-        @reviews= Review.all
+        @reviews= Userreview.all
         # Code for handling the index action
       end
     
       def show
         @user = current_user
-        @review=Review.find(params[:id])
-        @reviews=Review.where(show_id: @user.id)
+        @review=Userreview.find(params[:id])
+        @reviews=Userreview.where(show_id: @user.id)
       end
     
       def new
         # @show = Show.find(params[:show_id])
-        @reviews = Review.all
-        @review= Review.new
+        @reviews = Userreview.all
+        @review= Userreview.new
       
         if @review.save
           # Show saved successfully
@@ -27,8 +27,8 @@ class ReviewsController < ApplicationController
       def create
        
      
-        @reviews=Review.all
-        @review = Review.new(review_params)
+        @reviews=Userreview.all
+        @review = Userreview.new(review_params)
        
        
   
@@ -52,7 +52,7 @@ class ReviewsController < ApplicationController
     
       def update
         @show = Show.find(params[:review][:show_id])
-        review = Review.find(params[:id])
+        review = Userreview.find(params[:id])
         review.update(review_params)
 
  
@@ -60,13 +60,13 @@ class ReviewsController < ApplicationController
       end
     
       def destroy
-        @review = Review.find(params[:id])
+        @review = Userreview.find(params[:id])
         @review.destroy
         @reviews= Review.all
         redirect_to show_path, notice: 'Review was successfully deleted.'
       end
       def review_params
-        params.require(:review).permit(
+        params.require(:userreview).permit(
           :user_id,
           :show_id,
           :rating,
@@ -74,4 +74,4 @@ class ReviewsController < ApplicationController
           shows_attributes: [:id, :user_id, :title, :genre, :description, :imageup, :performer]
         )
       end
-    end
+end

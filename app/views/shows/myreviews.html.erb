@@ -1,22 +1,10 @@
 <h2>My Reviews</h2>
-<%= @reviews %>
+
 <%= @reviews.each do |review| %>
 <div>
-  <p><%= review %>
-    <p><%= review.rating %>
-    <p><%= review.review %>
+     <p>Show <%= review.rating %>
+    <p>Rating <%= review.rating %>
+    <p> Review <%= review.review %>
     </div>
     <% end %>
-<%# <% @reviews.each do |review| %>
-  <%# <div> %>
-    <%# <p><%= review.show_id</p> %>
-    <%# <p><%= review.rating</p> %>
-    <%# <p><%= review.review</p>  %>
-    <%# <% if review.show.places.first %> 
-      <%# <p>Venue name <%= review.show.places.first.placevenue</p> %>
-    <%# <% end %> 
-    <%# <td> <%= link_to "View Show", show_path(review.show)</td> %>
-    <%# <td><%= button_to "Delete Show", show_path(review.show), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Show?'</td>  %>
-    <%# <td> <%= link_to "Edit Show", edit_show_path(review.show)</td> %>
-    <!-- Add more show information as needed -->
-  <%# </div> %>
+

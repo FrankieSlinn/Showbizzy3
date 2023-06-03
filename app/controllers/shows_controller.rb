@@ -6,7 +6,7 @@ class ShowsController < ApplicationController
         @shows= Show.all
         # @show=Show.find(params[:id])
         @places=Place.all
-        @reviews=Review.all
+        @reviews=Userreview.all
        
   
        
@@ -18,13 +18,13 @@ class ShowsController < ApplicationController
       @shows = Show.all
 
       @places = @show.places
-      @reviews=@show.reviews
+      @reviews=@show.userreviews
     end
     def new
       @shows = Show.all
       @show = Show.new
-      @reviews = Review.all
-      @review= Review.new
+      @reviews = Userreview.all
+      @review= Userreview.new
       
     
 
@@ -49,7 +49,7 @@ class ShowsController < ApplicationController
         redirect_to show_path(@show), notice: 'Show was successfully created.'
       else
         # Handle save errors
-        @review=review.all
+        @review=Userreview.all
         @places = Place.all
         render :new
       end
@@ -59,7 +59,7 @@ class ShowsController < ApplicationController
          @user = current_user
         #  @show= Show.find(params[@user.id])
          @shows = @user.shows
-         @reviews= Review.where(show_id: :id)
+         @reviews= Userreview.where(show_id: :id)
         
          @places = Place.where(show_id: :id)
          puts "#{@places} This is a test"
@@ -68,7 +68,8 @@ class ShowsController < ApplicationController
       @user=current_user
 
         @shows = Show.all
-        @reviews = Review.where(show_id: @user.id)
+      
+        @reviews = Userreview.where(user_id: @user.id)
 
     end 
       
@@ -119,7 +120,7 @@ class ShowsController < ApplicationController
           :description,
           :imageup,
           :performer,
-          reviews_attributes: [:show_id, :rating, :review], places_attributes: [:show_id, :placevenue, :placetown, :placeaddress, :placeinfo, timings_attributes: [:place_id, :day, :timeshot]]
+          iserreviews_attributes: [:show_id, :rating, :review], places_attributes: [:show_id, :placevenue, :placetown, :placeaddress, :placeinfo, timings_attributes: [:place_id, :day, :timeshot]]
         )
       end
 
