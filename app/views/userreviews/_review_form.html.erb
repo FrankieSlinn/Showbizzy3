@@ -1,6 +1,7 @@
 <%= form_for @review || Userreview.new do |review_form| %>
 
-   <%= review_form.hidden_field :show_id %>
+   <%= review_form.hidden_field :show_id %>   
+   <%= review_form.hidden_field :user_id %>
 
   
   <div class="field">

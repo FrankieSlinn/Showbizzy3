@@ -14,23 +14,26 @@
       <br />
     <% end %>
 
-<% @places.each do |place| %>
-  <div class="place">
-    <p><span class="label">Venue:</span> <%= place.placevenue %></p>
-   
-    <p><span class="label">Location:</span> <%= place.placetown %></p>
-    
-    <p><span class="label">Address:</span> <%= place.placeaddress %></p>
-
-    <p><span class="label">Description:</span> <%= place.placeinfo %></p>
-   
-  </div>
-  <br /><br />
-<% end %>
 <br/><br/>
 <% if user_signed_in? %>
 <h2>Leave Rating</h2>
- <p> <%= render 'userreviews/review_form' %></p>
+<%= form_for @userreview || Userreview.new do |review_form| %>
+  <%= review_form.hidden_field :show_id, value: @show.id  %>
+  <%= review_form.hidden_field :user_id, value: current_user.id  %>
+  <div class="field">
+    <%= review_form.label :rating, 'Rating (1 lowest, 5 highest)' %>
+    <br />
+    <%= review_form.text_field :rating %>
+  </div>
+   <div class="field">
+    <%= review_form.label :review, 'Review' %>
+    <br />
+    <%= review_form.text_field :review %>
+  <div class="actions">
+    <%= review_form.submit 'Submit' %>
+  </div>
+<% end %>
+ <p> <%= render 'shows/review_form' %></p>
 <% end %>
 </div>
   <br /><br />

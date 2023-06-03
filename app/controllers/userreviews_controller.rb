@@ -46,7 +46,7 @@ class UserreviewsController < ApplicationController
        
           
         end
-        render :show
+
       end
     
       def edit
@@ -56,12 +56,11 @@ class UserreviewsController < ApplicationController
     
       def update
         @showid= :show_id
-        @shows = Show.find(params[:review][:show_id])
-        review = Userreview.find(params[:id])
-        review.update(review_params)
+        #@shows = Show.find(params[:review][:show_id])
+        @userreview = Userreview.find(params[:id])
+        @userreview.update(review_params)
 
- 
-        redirect_to review
+
       end
     
       def destroy

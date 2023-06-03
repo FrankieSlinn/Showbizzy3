@@ -5,7 +5,7 @@ class ShowsController < ApplicationController
     def index
         @shows= Show.all
         # @show=Show.find(params[:id])
-        @places=Place.all
+      
         @reviews=Userreview.all
        
   
@@ -89,7 +89,7 @@ class ShowsController < ApplicationController
     end 
       
     def edit
-      @reviews = Userreview.where(user_id: @user.id)
+     # @reviews = Userreview.where(user_id: @user.id)
       # @showtitle = Show.find(params[:title])
      # redirect_to places_path(show_title: @show.title)
      @show= Show.find(params[:id])
@@ -109,12 +109,14 @@ class ShowsController < ApplicationController
     #  redirect_to @show
     # end
     def update
-      show = Show.find(params[:id])
-      
-      show.update(show_params)
-      userreview.update(userreview_params)
-      @place = Place.where(show_id: :id)
-      redirect_to show
+      @show = Show.find(params[:id])
+      @user=current_user
+      #@userreview=Userreview.find(params[:id])
+     # @userreview.update(userreview_params)
+      @show.update(show_params)
+      #userreview.update(userreview_params)
+    
+
     end
     def destroy
 

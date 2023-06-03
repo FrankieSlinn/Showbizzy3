@@ -23,7 +23,7 @@
    <% end %>
 </td>
  <% if user_signed_in? %>
-          <td><%= link_to "Review Show", show_path(show) %>
+         <td><%= button_to "Review Show", show_path(show), method: :get, class: "button" %></td>
   <% end %>
           <td>
 

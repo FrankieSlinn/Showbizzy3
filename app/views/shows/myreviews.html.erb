@@ -1,8 +1,8 @@
-<h2>My Reviews</h2>
+<div class='display-container'>
+  <h2>My Reviews</h2>
 
 <%= @reviews.each do |review| %>
 <div>
-
      <h4>Show Title <%= Show.find(review.show_id).title %></h4>
     <p>Rating <%= review.rating %>
     <p> Review <%= review.review %>
@@ -28,6 +28,7 @@
     <p><%= button_to "Delete Review", show_path(review), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Review?' %></p>
     </div>
     <% end %>
+    </div>
   <br />
 
 
