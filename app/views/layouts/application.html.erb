@@ -13,7 +13,9 @@
  
   <body>
     <%= render "pages/header" %>
+    <br />
     <%= render "pages/navigation" %>
+    <%= render "pages/registration" %>
 
     <% if user_signed_in?%>
     <%= render partial: 'users/registrations/log_info_form' %>
@@ -28,12 +30,17 @@
 <%= link_to 'My Reviews - View and Edit', user_myreviews_path %>
 <br><br>
 <h2>Shows</h2>
-<%= render partial:"shows/index" %>
-<%= render partial:"footer" %>
+<div class="header-row">
+  <%= render partial: 'pages/header' %>
+</div>
+
+<div class="navigation-row">
+  <%= render partial: 'pages/navigation' %>
+</div>
  
 <% end %>
 
-
+  <%= render partial: 'pages/footer' %>
 
  <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>

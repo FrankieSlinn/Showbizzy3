@@ -14,15 +14,17 @@
  *= require_self
  */
  *{
-    background-color:lightyellow;
-    font-weight: 700;;
+    background-color:lightblue;
+
  }
- .header-div{
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   
+ h1{
+  display: block;
  }
+ .header-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
  .title{
  flex-grow: 1;
  text-align: center;}
@@ -32,3 +34,20 @@
  .copyright-container{
   text-align: center
  }
+.nav-container{
+  display: flex;
+justify-content: space-around;
+text-align: center;
+background-color: #777;
+padding: 0.5rem;
+
+}
+.show-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.index th{
+  font-size: 1.24rem;
+}
