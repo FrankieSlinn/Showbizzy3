@@ -15,9 +15,12 @@
 <ul>
 <% @userreviews.each do |r| %>
 <li class = "row">
-    <strong><%= r.rating %></strong>
-    <em><%= r.review %></em>
-    <em><%= @user.username %></em>
+    <p>Rating: <strong><%= r.rating %></strong></p>
+    <br />
+    <%=User.find_by(id: @userreviews.first.user_id).username %>
+  
+   <p> Review: <%= r.review %></em>
+   <%# <p> User Name:  <><%= @user.username %>
     </li>
 <% end %>
 
