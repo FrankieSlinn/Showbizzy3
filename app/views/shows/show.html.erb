@@ -1,34 +1,67 @@
 <div class="display-container">
-  <h1><%= @show.title %></h1>
-  <br />
-  <p><span class="label">Genre</span> <br/><br /><%= @show.genre %></p>
-  <p><span class="label">Performer</span> <br/><br /><%= @show.performer %></p>
+  <%# Confirms if the user has reviewed the site or not based on whether their email has been added to the 
+  useremails array which contains the emails for the users that have reviewed this specific show.  %>
+  <% @reviewed = false %>
+  <%# Gets username for reviews by userreviews for the show.  %>
+  <%# Also pushes user emails to array. If email there, the user cannot make a second rating.  %>
+  
+  <% @usernames = [] %>
+  <% @useremails = [] %>
+  
+  <% @userreviews.each do |userreview| %>
+    <% @users = User.where(id: userreview.user_id) %>
+    <% @users.each do |user| %>
+      <% @usernames.push(user.username) %>
+      <% @useremails.push(user.email) %>
+      <% if @useremails.include?(current_user.email) %>
+        <% @reviewed = true %>
+      <% else %>
+        <% @reviewed = false %>
+        <% @useremails %>
+        <p>Email: <%= user.email %></p>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <h2><%= @show.title %></h2>
+  <p><span class="label">Genre</span><br/><br /><%= @show.genre %></p>
+  <p><span class="label">Performer</span><br/><br /><%= @show.performer %></p>
   <p><span class="label">Description</span><br/><br /><%= @show.description %></p>
   <p><span class="label">Image</span><br/><br /></p>
   <br />
-  
+
   <% if @show.imageup.attached? %>
     <img src="<%= url_for(@show.imageup) %>">
     <br />
   <% end %>
-  <h2>Reviews:</h2>
-<ul>
-  <% if @userreviews.present? %>
-<% @userreviews.each do |r| %>
-<li class = "row">
-    <p>Rating: <strong><%= r.rating %></strong></p>
-    <br />
-    <%=User.find_by(id: @userreviews.first.user_id).username %>
-  
-   <p> Review: <%= r.review %></em>
-   <%# <p> User Name:  <><%= @user.username %>
-    </li>
-<% end %>
-<% end %>
 
-  <br/><br/>
-
+  <% if @reviewed == true %>
+    <p><span class="label">You have reviewed this show</span></p>
+  <% else %>
     <p><%= render 'shows/review_form' %></p>
+  <% end %>
 
+  <br /><br />
+  <div class="reviews">
+  <h2>Reviews:</h2>
+
+    <% if @userreviews.present? %>
+      <% @userreviews.each do |r| %>
+  <div class="review">
+          <p><span class="label">Rating:</span> 
+                    &nbsp;&nbsp;
+          <strong><%= r.rating %></strong></p>
+          <p><span class="label">Reviewer:</span>
+          <br /> <%=@usernames[0]%></p>
+          <% @usernames.shift %>
+          <p><span class="label">Review:</span> 
+          <br /><%= r.review %></p>
+          </div>
+     
+      <% end %>
+    <% end %>
+    </div>
+  </ul>
+  <br/><br/>
 </div>
 <br /><br />

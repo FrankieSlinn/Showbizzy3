@@ -34,10 +34,5 @@ class UsersController < ApplicationController
       @shows = @user.shows
  end
 
-    # def destroy
-    #   @show = Show.find(params[:id])
-    #   @show.destroy
-    #   redirect_to shows_path, notice: 'Show was successfully deleted.'
-    # end
-        
+
 end
