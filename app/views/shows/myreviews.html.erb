@@ -1,30 +1,15 @@
 <div class='display-container'>
+
   <h2>My Reviews</h2>
 
-<%= @reviews.each do |review| %>
+<%= @userreviews.each do |review| %>
 <div>
+   <% @show=Show.find(review.show_id) %>
      <h4>Show Title <%= Show.find(review.show_id).title %></h4>
     <p>Rating <%= review.rating %>
     <p> Review <%= review.review %>
-   <p> <%= link_to "Edit Review", edit_show_path(review) %></p>
-   <p><%= form_for @review || Userreview.new do |review_form| %>
-
-   <%= review_form.hidden_field :show_id %>
-
-  
-  <div class="field">
-    <%= review_form.label :rating, 'Rating(1 lowest, 5 highest)' %>
-    <%= review_form.text_field :rating %>
-  </div>
-
-  <div class="field">
-    <%= review_form.label :review, 'Review' %>
-    <%= review_form.text_field :review %>
-  </div>
-
-  <%= review_form.submit 'Submit', class: 'button' %>
-
-  <% end %></p>
+    <%=render 'review_form'%>
+   
     <p><%= button_to "Delete Review", show_path(review), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Review?' %></p>
     </div>
     <% end %>
