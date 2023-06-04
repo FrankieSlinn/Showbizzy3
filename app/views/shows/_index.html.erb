@@ -1,6 +1,11 @@
+
+
+<p>test<%= %></p>
+
 <table class="index">
   <tr>
     <th>Title</th>
+    <th>Rating</th>
         <th>Performer</th>
      <th>Description</th>
     <th>Genre</th>
@@ -11,6 +16,23 @@
   <% @shows.each do |show| %>
     <tr>
       <td><%= show.title %></td>
+    <td>  <% @showid =show.id %>
+<% @ratingsum = 0 %>
+<% @count = 0 %>
+<% @userreviews = Userreview.where(show_id: show.id) %>
+<% @userreviews.each do |userreview| %>
+  <% if userreview.rating.is_a?(Numeric) %>
+    <% @ratingsum += userreview.rating %>
+    <% @count += 1 %>
+  <% end %>
+<% end %>
+<% if @count != 0 %>
+  <%= @ratingsum / @count %>
+<% else %>
+  Not yet rated
+<% end %>
+<% @ratingsum = 0 %>
+<% @count = 0 %></td>
             <td><%= show.performer %></td>
        <td><%= show.description %></td>
       <td><%= show.genre %></td>
@@ -35,3 +57,4 @@
   <% end %>
   <% end %>
 </table>
+<br/><br/><br/><br/>

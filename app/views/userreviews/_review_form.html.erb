@@ -9,7 +9,7 @@
   <div class="field">
     <span class="label"><%= review_form.label :rating, 'Rating(1 lowest, 5 highest)' %></span>
     <br /> <br />
-    <%= review_form.text_field :rating %>
+   <%= review_form.select :rating, (1..5) %> 
   </div>
 <br/>
   <div class="field">

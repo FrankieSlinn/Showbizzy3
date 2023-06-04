@@ -4,9 +4,10 @@ class ShowsController < ApplicationController
  
     def index
         @shows= Show.all
+        @show = Show.find(params[:id])
         # @show=Show.find(params[:id])
       
-        @reviews=Userreview.all
+        @userreviews=Userreview.all
        
   
        
@@ -36,8 +37,8 @@ class ShowsController < ApplicationController
     def new
       @shows = Show.all
       @show = Show.new
-      @reviews = Userreview.all
-      @review= Userreview.new
+      @userreviews = Userreview.all
+      @userreview= Userreview.new
       
     
 
