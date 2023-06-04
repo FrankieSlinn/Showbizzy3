@@ -49,6 +49,8 @@ class ShowsController < ApplicationController
         else
           # Show failed to save, handle the error
           puts @show.errors.full_messages
+          flash.now[:alert] = 'Error saving information. Please make sure you have completed the mandatory fields.'
+          render :new
         end
     end
     

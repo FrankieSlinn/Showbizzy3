@@ -13,6 +13,7 @@
   <% end %>
   <h2>Reviews:</h2>
 <ul>
+  <% if @userreviews.present? %>
 <% @userreviews.each do |r| %>
 <li class = "row">
     <p>Rating: <strong><%= r.rating %></strong></p>
@@ -22,6 +23,7 @@
    <p> Review: <%= r.review %></em>
    <%# <p> User Name:  <><%= @user.username %>
     </li>
+<% end %>
 <% end %>
 
   <br/><br/>

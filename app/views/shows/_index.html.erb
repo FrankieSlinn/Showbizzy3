@@ -27,7 +27,7 @@
   <% end %>
 <% end %>
 <% if @count != 0 %>
-  <%= @ratingsum / @count %>
+  <%= number_with_precision(@ratingsum.to_f / @count, precision: 1) %>
 <% else %>
   Not yet rated
 <% end %>

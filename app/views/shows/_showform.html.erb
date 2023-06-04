@@ -1,33 +1,45 @@
-<%= form_for @show || Show.new do |f| %>
+<div class="display-container">
+  <%= form_for @show || Show.new do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
 
   <div class="field">
-    <%= f.label :title, 'Title' %>
+     <span class="label"><%= f.label :title, '* Title' %></span>
+    <br />
     <%= f.text_field :title %>
+
   </div>
-  <% @dropdown_values = ['Comedy', 'Theatre', 'Music',  'Dance', 'Other']%>%
+  <br />
+  <% @dropdown_values = ['Comedy', 'Theatre', 'Music',  'Dance', 'Other']%>
 
 <div class="field">
-  <%= f.label :genre, 'Genre' %>
+  <span class="label"> <%= f.label :genre, '* What type of show is it?' %></span>
+  <br /><br />
   <%= f.select :genre, options_for_select(@dropdown_values) %>
 </div>
+<br />
 
   <div class="field">
-    <%= f.label :description, 'Description' %>
+   <span class="label">  <%= f.label :description, '* Description' %></span>
+    <br/>
     <%= f.text_field :description %>
+
   </div>
+  <br/>
     <div class="field">
-  <%= f.label :imageup %>
+   <span class="label"><%= f.label :imageup, 'Update a picture of the show' %></span>
+  <br/><br />
 <%= f.file_field :imageup %>
   </div>
+  <br/>
 
   <div class="field">
-    <%= f.label :performer, 'Performer' %>
+  <span class="label">   <%= f.label :performer, '* Performer' %></span>
+    <br/>
     <%= f.text_field :performer %>
   </div>
-
+<br/>
   <%= f.submit 'Submit', class: 'button' %>
 <% end %>
-  
+  </div>
 
 
