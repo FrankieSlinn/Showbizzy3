@@ -1,3 +1,5 @@
+<%# NOTE: this has different fields to the review form in the shows path %>
+
 <%= form_for @review || Userreview.new do |review_form| %>
 
    <%= review_form.hidden_field :show_id %>   

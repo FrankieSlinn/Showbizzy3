@@ -16,9 +16,10 @@ class ShowsController < ApplicationController
     def show
       @show1 = Show.joins(:userreviews).where(userreviews: { show_id: params[:show_id] }).first
       begin
+        @user=current_user
         @show = Show.find(params[:id])
         @places = @show.places
-        @reviews=@show.userreviews
+        @userreviews=@show.userreviews
         # Show exists
         # Proceed with further operations
       rescue ActiveRecord::RecordNotFound
@@ -80,11 +81,12 @@ class ShowsController < ApplicationController
       
 
         @shows = Show.all
+        
        
     
       
       
-        @reviews = Userreview.where(user_id: @user.id)
+        @userreviews = Userreview.where(user_id: @user.id)
 
     end 
       
@@ -141,10 +143,7 @@ class ShowsController < ApplicationController
     end
 
  
-        
-         
-
-
+      
       end
       private
 

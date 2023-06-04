@@ -6,7 +6,7 @@
      <h4>Show Title <%= Show.find(review.show_id).title %></h4>
     <p>Rating <%= review.rating %>
     <p> Review <%= review.review %>
-   <p> <%= link_to "Edit Review", edit_userreview_path(review) %></p>
+   <p> <%= link_to "Edit Review", edit_show_path(review) %></p>
    <p><%= form_for @review || Userreview.new do |review_form| %>
 
    <%= review_form.hidden_field :show_id %>

@@ -11,6 +11,15 @@
     <img src="<%= url_for(@show.imageup) %>">
     <br />
   <% end %>
+  <h2>Reviews:</h2>
+<ul>
+<% @userreviews.each do |r| %>
+<li class = "row">
+    <strong><%= r.rating %></strong>
+    <em><%= r.review %></em>
+    <em><%= @user.username %></em>
+    </li>
+<% end %>
 
   <br/><br/>
 
