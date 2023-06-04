@@ -1,3 +1,4 @@
+<%# //fields specifically for the shows view/controller %>
 <%= form_for @userreview || Userreview.new do |review_form| %>
   <%= review_form.hidden_field :show_id, value: @show.id %>
   <%= review_form.hidden_field :user_id, value: current_user.id %>
@@ -6,11 +7,13 @@
     <br />
     <%= review_form.text_field :rating %>
   </div>
-   <div class="field">
+  <div class="field">
     <%= review_form.label :review, 'Review' %>
     <br />
     <%= review_form.text_field :review %>
+  </div>
   <div class="actions">
     <%= review_form.submit 'Submit' %>
   </div>
 <% end %>
+

@@ -1,0 +1,14 @@
+<%# Has fields apart from the show_id field which is different dependeing 
+on whether you're in the show path or the userreview path  %>
+
+  <div class="field">
+    <%= review_form.label :rating, 'Rating (1 lowest, 5 highest)' %>
+    <br />
+    <%= review_form.text_field :rating %>
+  </div>
+   <div class="field">
+    <%= review_form.label :review, 'Review' %>
+    <br />
+    <%= review_form.text_field :review %>
+  <div class="actions">
+    <%= review_form.submit 'Submit' %>

@@ -59,6 +59,7 @@ class UserreviewsController < ApplicationController
         #@shows = Show.find(params[:review][:show_id])
         @userreview = Userreview.find(params[:id])
         @userreview.update(review_params)
+        redirect_to userreview_path(@userreview), notice: 'Review was successfully updated.'
 
 
       end

@@ -1,39 +1,20 @@
 <div class="display-container">
-<h1><%= @show.title %></h1>
-<br />
+  <h1><%= @show.title %></h1>
+  <br />
   <p><span class="label">Genre</span> <br/><br /><%= @show.genre %></p>
-  
   <p><span class="label">Performer</span> <br/><br /><%= @show.performer %></p>
- 
- <p><span class="label"> Description</span><br/><br /> <%= @show.description %></p>
- <p><span class="label"> Image</span><br/><br /></p>
- <br />
+  <p><span class="label">Description</span><br/><br /><%= @show.description %></p>
+  <p><span class="label">Image</span><br/><br /></p>
+  <br />
   
-    <% if @show.imageup.attached? %>
-      <img src="<%= url_for(@show.imageup) %>">
-      <br />
-    <% end %>
+  <% if @show.imageup.attached? %>
+    <img src="<%= url_for(@show.imageup) %>">
+    <br />
+  <% end %>
 
-<br/><br/>
-<% if user_signed_in? %>
-<h2>Leave Rating</h2>
-<%= form_for @userreview || Userreview.new do |review_form| %>
-  <%= review_form.hidden_field :show_id, value: @show.id  %>
-  <%= review_form.hidden_field :user_id, value: current_user.id  %>
-  <div class="field">
-    <%= review_form.label :rating, 'Rating (1 lowest, 5 highest)' %>
-    <br />
-    <%= review_form.text_field :rating %>
-  </div>
-   <div class="field">
-    <%= review_form.label :review, 'Review' %>
-    <br />
-    <%= review_form.text_field :review %>
-  <div class="actions">
-    <%= review_form.submit 'Submit' %>
-  </div>
-<% end %>
- <p> <%= render 'shows/review_form' %></p>
-<% end %>
+  <br/><br/>
+
+    <p><%= render 'shows/review_form' %></p>
+
 </div>
-  <br /><br />
+<br /><br />
