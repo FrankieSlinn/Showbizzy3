@@ -1,3 +1,21 @@
+<% @reviewed = false %>
+  <% @usernames = [] %>
+  <% @useremails = [] %>
+  
+  <% @userreviews.each do |userreview| %>
+    <% @users = User.where(id: userreview.user_id) %>
+    <% @users.each do |user| %>
+      <% @usernames.push(user.username) %>
+      <% @useremails.push(user.email) %>
+      <% if @useremails.include?(current_user.email) %>
+        <% @reviewed = true %>
+      <% else %>
+        <% @reviewed = false %>
+        <% @useremails %>
+      <% end %>
+    <% end %>
+  <% end %>
+
 <h3>Edit Review</h3>
 <p>title <%=@show %></p>
 <p>title id <%=@showid %></p>

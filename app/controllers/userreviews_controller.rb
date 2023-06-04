@@ -50,6 +50,7 @@ class UserreviewsController < ApplicationController
       end
     
       def edit
+        @userreview=User.find(params[:id])
      
         @show = Show.joins(:userreviews).where(userreviews: { show_id: params[:show_id] }).first
       end

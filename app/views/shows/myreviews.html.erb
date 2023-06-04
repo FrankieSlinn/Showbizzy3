@@ -7,8 +7,10 @@
    <% @show=Show.find(review.show_id) %>
      <h3>Show Title: <span class="label"> <%= Show.find(review.show_id).title %></span></h3>
     <p><span class="label">Rating <%= review.rating %></span>
-    <p><span class="label"> Review <%= review.review %></span>
-    <%=render 'review_form'%>
+    <p><span class="label"> Review </span>
+    <br /><br/><%= review.review %>
+  
+     <td><%= button_to "Edit Review", userreview_path(review), method: :get, class: "button" %></td>
    
     <p><%= button_to "Delete Review", show_path(review), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Review?' %></p>
     </div>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
  # get 'show/my_shows', to: 'shows#myshows', as: 'my_shows'
   # get 'user/myshows', to: 'shows#myshows', as: 'my_shows'
   get '/user/myshows', to: 'shows#myshows'
-  get '/user/myreviews', to: 'shows#myreviews'
+  get '/shows/myreviews', to: 'shows#myreviews'
   get '/about', to: 'pages#about'
 
   # post '/user/myshows', to: 'shows#myshows', as: 'user_myshows'

@@ -3,7 +3,7 @@
 <%= form_for @review || Userreview.new do |review_form| %>
 
    <%= review_form.hidden_field :show_id %>   
-   <%= review_form.hidden_field :user_id %>
+   <%= review_form.hidden_field :user_id, value: current_user.id %>
   <div class="field">
     <span class="label"><%= review_form.label :rating, 'Rating(1 lowest, 5 highest)' %></span>
     <br /> <br />
