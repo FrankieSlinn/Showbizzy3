@@ -3,8 +3,14 @@ class ShowsController < ApplicationController
 
  
     def index
-        @shows= Show.all
-        @show = Show.find(params[:id])
+      if params[:category].present?
+        # Perform filtering based on the selected category
+        @shows = Show.where(category: params[:category])
+      else
+        # Load all shows when no category is selected
+        @shows = Show.all
+      end
+      
         # @show=Show.find(params[:id])
       
         @userreviews=Userreview.all

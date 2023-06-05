@@ -1,60 +1,58 @@
-
-
 <p>test<%= %></p>
-
+<%# First step for search: get parameter for user search dropdown: %>
+<%= form_with(url: root_path, method: :get) do |form| %>
+  <%= form.select(:category, options_for_select([["All Categories", ""], ["Comedy", "Comedy"], ["Theatre", "Theatre"], ["Music", "Music"], ["Dance", "Dance"], ["Other", "Other"]]), {}, class: "cat-select", prompt: "Select a category") %>
+  <%= form.submit("Search", class: "cat-search") %>
+<% end %>
+<p> params category<%=params[:category]%> </p>
+<% @shows = Show.where(genre: params[:category]) if params[:category].present? %>
 <table class="index">
   <tr>
     <th>Title</th>
     <th>Rating</th>
-        <th>Performer</th>
-     <th>Description</th>
+    <th>Performer</th>
+    <th>Description</th>
     <th>Genre</th>
     <th>Image</th>
-
   </tr>
-<%if @shows %>
-  <% @shows.each do |show| %>
-    <tr>
-      <td><%= show.title %></td>
-    <td>  <% @showid =show.id %>
-<% @ratingsum = 0 %>
-<% @count = 0 %>
-<% @userreviews = Userreview.where(show_id: show.id) %>
-<% @userreviews.each do |userreview| %>
-  <% if userreview.rating.is_a?(Numeric) %>
-    <% @ratingsum += userreview.rating %>
-    <% @count += 1 %>
-  <% end %>
-<% end %>
-<% if @count != 0 %>
-  <%= number_with_precision(@ratingsum.to_f / @count, precision: 1) %>
-<% else %>
-  Not yet rated
-<% end %>
-<% @ratingsum = 0 %>
-<% @count = 0 %></td>
-            <td><%= show.performer %></td>
-       <td><%= show.description %></td>
-      <td><%= show.genre %></td>
-
-     
-      <td>
-        <% if show.present? && show.imageup.attached? %>
-   <img style="width: 300px; height: 150px;" src="<%= url_for(show.imageup) %>">
-
-   <% end %>
-</td>
- <% if user_signed_in? %>
-         <td><%= button_to "Review Show", show_path(show), method: :get, class: "button" %></td>
-  <% end %>
-          <td>
-
-          </td>&nbsp;&nbsp;
-
-
-
-    </tr>
-  <% end %>
+  <% if @shows %>
+    <% @shows.each do |show| %>
+      <tr>
+        <td><%= show.title %></td>
+        <td>
+          <% @showid = show.id %>
+          <% @ratingsum = 0 %>
+          <% @count = 0 %>
+          <% @userreviews = Userreview.where(show_id: show.id) %>
+          <% @userreviews.each do |userreview| %>
+            <% if userreview.rating.is_a?(Numeric) %>
+              <% @ratingsum += userreview.rating %>
+              <% @count += 1 %>
+            <% end %>
+          <% end %>
+          <% if @count != 0 %>
+            <%= number_with_precision(@ratingsum.to_f / @count, precision: 1) %>
+          <% else %>
+            Not yet rated
+          <% end %>
+          <% @ratingsum = 0 %>
+          <% @count = 0 %>
+        </td>
+        <td><%= show.performer %></td>
+        <td><%= show.description %></td>
+        <td><%= show.genre %></td>
+        <td>
+          <% if show.present? && show.imageup.attached? %>
+            <img style="width: 300px; height: 150px;" src="<%= url_for(show.imageup) %>">
+          <% end %>
+        </td>
+        <% if user_signed_in? %>
+          <td><%= button_to "Review Show", show_path(show), method: :get, class: "button" %></td>
+        <% end %>
+        <td>
+        </td>&nbsp;&nbsp;
+      </tr>
+    <% end %>
   <% end %>
 </table>
 <br/><br/><br/><br/>
