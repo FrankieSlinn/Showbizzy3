@@ -1,30 +1,5 @@
 
-<%# First step for search: get parameter for user search dropdown. These forms get parameters for
-the show genre, the show title and the show performer%>
-<div class="search">
-  <%= form_with(url: root_path, method: :get) do |form| %>
-    <%= form.select(:category, options_for_select([["All Categories", ""], ["Comedy", "Comedy"], ["Theatre", "Theatre"], ["Music", "Music"], ["Dance", "Dance"], ["Other", "Other"]]), {}, class: "cat-select", prompt: "Select a category") %>
-    <%= form.submit("Search", class: "cat-search") %>
-  <% end %>
-  <br />
-  <%= form_with(url: root_path, method: :get) do |form| %>
-    <%= form.select(:userrating, options_for_select([["All Userratings", ""], ["5", "5"], ["4", "4"], ["3", "3"], ["2", "2"], ["1", "1"]]), {}, class: "cat-select", prompt: "Select a rating") %>
-    <%= form.submit("Search", class: "cat-search") %>
-  <% end %>
-  <br />
-  <%= form_tag(shows_path, method: :get) do %>
-    <%= text_field_tag(:showname, params[:showname].to_s, placeholder: "Search by Show") %>
-    <%= submit_tag("Search", class: "cat-search") %>
-  <% end %>
-  <br />
-  <%= form_tag(shows_path, method: :get) do %>
-    <%= text_field_tag(:performer, params[:performer].to_s, placeholder: "Search by Performer") %>
-    <%= submit_tag("Search", class: "cat-search") %>
-  <% end %>
-</div>
-
-<br />
-
+ <h2>Shows</h2>
 <% @shows = Show.where(genre: params[:category]) if params[:category].present? %>
 <% @shows = @shows.joins(:userreviews).where("userreviews.rating >= ?", params[:userrating].to_i + 1) if params[:userrating].present? %>
 <% @shows = @shows.where("title LIKE ?", "%#{params[:showname]}%") if params[:showname].present? %>
@@ -33,11 +8,9 @@ the show genre, the show title and the show performer%>
 <% div_array = [] %>
   <% if @shows %>
     <% @shows.each do |show| %>
-    <% div_array << content_tag(:div, class: 'index') do %>
-      
-              
+    <% div_array << content_tag(:div, class: 'index') do %>        
           <% if show.present? && show.imageup.attached? %>
-            <img style="width: auto; height: 150px;" src="<%= url_for(show.imageup) %>">
+            <img style="width: 300px; height: 175px;" src="<%= url_for(show.imageup) %>">
           <% end %>
           <br />
        
@@ -78,12 +51,10 @@ the show genre, the show title and the show performer%>
   <% end %>
   <%end %>
 
-
-
-<br/><br/><br/><br/>
 <div class="index-container-outer">
   <%= div_array.join.html_safe %>
 </div>
   <br />
-
+<br />
+<br />
 <br />

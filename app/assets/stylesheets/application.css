@@ -52,6 +52,17 @@
  .userlogin{
    text-align: right;
  }
+ input[type="text"]{
+  width: 200px
+ }
+ select {
+  width: 215px;
+ }
+ input[type="text"],
+select {
+  padding: 5px;
+  boder-radius: 5px;
+}
  .copyright-container{
   text-align: center;
   position: fixed;
@@ -72,16 +83,31 @@ padding: 0.5rem;
   font-weight: 700;
   text-decoration: none;
 }
+.overall-container{
+ 
+    display: grid;
+    grid-template-columns: 3fr 1fr; 
+    grid-template-rows: auto; 
+
+    grid-gap: 20px;
+  }
+  .right-container{
+    grid-column: 3 / 4;
+    padding: 0.5rem;
+    margin-right: 1.5rem;
+    /* border: solid #555 3px; */
+    border-radius: 5px;
+  }
+
 .show-container{
-  /* display: flex;
-  flex-direction: row;
-  justify-content: center; */
+  grid-row:1;
+  grid-column: 1 / 3;
   text-align: center;
 }
 .index-container-outer{
  
   display: grid;
-  grid-template-columns: repeat(4, auto); /* Adjust the number of columns as needed */
+  grid-template-columns: repeat(4, auto); 
   grid-gap: 10px; 
   margin: 0 0 0 3rem;
 }
@@ -107,6 +133,7 @@ padding: 0.5rem;
 }
 .index-item{
   color: #ddd;
+  font-size: 0.75rem;
 }
 
 .signed-in{
