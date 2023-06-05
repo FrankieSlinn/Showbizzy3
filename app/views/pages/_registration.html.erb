@@ -5,8 +5,8 @@
 <p class = "greeting">Hello <%= current_user.username %>!</p>
 &nbsp; &nbsp;
 <%= form_for(current_user, url: destroy_user_session_path, method: :delete) do |f| %>
-  <%= f.submit "Logout" %>
-  <%= link_to 'Edit Profile', edit_user_registration_path %>
+ <span class="reg-label"> <%= f.submit "Logout" %></span>
+ <span class="reg-label"> <%= link_to 'Edit Profile', edit_user_registration_path %></span>
   <script>
 document.addEventListener('DOMContentLoaded', function() {
   var editProfileButton = document.getElementById('edit-profile-button');

@@ -24,18 +24,20 @@
   <% end %>
 <%# Condition to check if the person who created the show is the current user. %>
   <% @self = User.where(id: @show.user_id) %>
+  <%# Display the show details %>
 
   <h2><span class="display-title"><%= @show.title %></h2></span>
-  <p><span class="label">Genre</span><br/><br /><%= @show.genre %></p>
+  <br />
+    <% if @show.imageup.attached? %>
+    <img src="<%= url_for(@show.imageup) %>">
+  <% end %>
+  <p><%= @show.genre %></p>
   <p><span class="label">Performer</span><br/><br /><%= @show.performer %></p>
   <p><span class="label">Description</span><br/><br /><%= @show.description %></p>
-  <p><span class="label">Image</span><br/><br /></p>
+
   <br />
 
-  <% if @show.imageup.attached? %>
-    <img src="<%= url_for(@show.imageup) %>">
-    <br />
-  <% end %>
+
 <%# Checks as to whether the current user has already reviewed the show.  %>
   <% if @reviewed == true %>
     <p><span class="label">You have reviewed this show</span></p>

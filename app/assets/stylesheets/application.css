@@ -16,22 +16,34 @@
  */
  *{
     background-color: #343434;
-    color: #FFE135;
+ 
     font-family: 'Geologica', sans-serif;
     font-size: 1rem;
  }
+ body{
+  color: #ddd;
+ }
  h1{
   display: block;
+  color: #FFE135;
  }
  h2{
   font-size: 2rem;
+  color: #FFE135;
  }
  a{
   background-color: #555;
  }
+ button{
+  color:#FFE135;
+ }
  img{
   border-radius: 5px;
  }
+ input, select{
+  color: #ddd;
+ }
+ 
  .header-div{
   padding:0;
  }
@@ -50,7 +62,14 @@
   font-size: 3rem;
  }
  .userlogin{
+  color: #FFE135;
    text-align: right;
+ }
+ .reg-label{
+  color: #FFE135;
+ }
+ .edit-user a{
+  color: #ffe135;
  }
  input[type="text"]{
   width: 200px
@@ -64,6 +83,7 @@ select {
   boder-radius: 5px;
 }
  .copyright-container{
+  color: #ffe135;
   text-align: center;
   position: fixed;
   bottom: 0;
@@ -136,11 +156,13 @@ padding: 0.5rem;
   font-size: 0.75rem;
 }
 
-.signed-in{
+.signed-in{   
+   color: #FFE135;
   font-weight: 700; 
   margin-right: 1rem;
 }
 .label{
+  color: #FFE135;
   font-weight: 700;
   font-size: 1.25rem;
 }
@@ -153,5 +175,12 @@ padding: 0.5rem;
   height: 20rem;
 }
 .display-container .display-title{
+  display: block;
+  color: #FFE135;
+  background-color: #777;
+  boder-radius: 5px;
+  
 font-size: 1.5rem;
+padding: 0.25rem;
+
 }
