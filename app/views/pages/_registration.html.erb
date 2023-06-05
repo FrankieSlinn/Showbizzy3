@@ -7,6 +7,16 @@
 <%= form_for(current_user, url: destroy_user_session_path, method: :delete) do |f| %>
   <%= f.submit "Logout" %>
   <%= link_to 'Edit Profile', edit_user_registration_path %>
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+  var editProfileButton = document.getElementById('edit-profile-button');
+  if (editProfileButton) {
+    editProfileButton.addEventListener('click', function(event) {
+      event.preventDefault(); 
+    });
+  }
+});
+</script>
   </div>
   <% end %>
   

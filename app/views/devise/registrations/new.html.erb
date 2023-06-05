@@ -5,33 +5,42 @@
 
   <div class="field">
     <%= f.label :email %><br />
+    <br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+  <br />
   
 
   <div class="field"><div class="field">
-  <%= label :username, :"Name you'd like to user for the site" %><br />
+  <%= label :username, :"Name you'd like to user for the site" %><br /><br />
   <%= text_field :user, :username %>
 </div>
+<br />
+
 <div class="field">
-  <%= label :user, :is_performer, "Are You a Performer?" %><br />
+  <%= label :user, :is_performer, "Are You a Performer?" %><br /><br />
   <%= f.select :is_performer, [['Yes', true], ['No', false]], {}, class: 'form-control' %>
 </div>
+<br />
     <%= f.label :password %>
+    <br />
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <% end %><br /><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
+  <br />
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation %><br /><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  <br />
 
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
+  <br />
 <% end %>
 
 <%= render "devise/shared/links" %>
