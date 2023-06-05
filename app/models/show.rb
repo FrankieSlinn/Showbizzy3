@@ -4,7 +4,7 @@ class Show < ApplicationRecord
   has_many :userreviews, dependent: :destroy
   has_many :places, dependent: :destroy
   has_one_attached :imageup
-  validates :title, :description, :performer, :genre, presence: true
+  validates :title, :description, :performer, :genre, :imageup, presence: true
  
   accepts_nested_attributes_for :places
   accepts_nested_attributes_for :userreviews

@@ -2,30 +2,29 @@
 <%# First step for search: get parameter for user search dropdown. These forms get parameters for
 the show genre, the show title and the show performer%>
 <div class="search">
-<%= form_with(url: root_path, method: :get) do |form| %>
-  <%= form.select(:category, options_for_select([["All Categories", ""], ["Comedy", "Comedy"], ["Theatre", "Theatre"], ["Music", "Music"], ["Dance", "Dance"], ["Other", "Other"]]), {}, class: "cat-select", prompt: "Select a category") %>
-  <%= form.submit("Search", class: "cat-search") %>
-<% end %>
-<br />
-<%= form_with(url: root_path, method: :get) do |form| %>
-  <%= form.select(:userrating, options_for_select([["All Userratings", ""], ["5", "5"], ["4", "4"], ["3", "3"], ["2", "2"], ["1", "1"]]), {}, class: "cat-select", prompt: "Select a rating") %>
-  <%= form.submit("Search", class: "cat-search") %>
-<% end %>
-<br />
-<%= form_tag(shows_path, method: :get) do %>
-  <%= text_field_tag(:showname, params[:showname].to_s, placeholder: "Search by Show") %>
-  <%= submit_tag("Search", class: "cat-search") %>
+  <%= form_with(url: root_path, method: :get) do |form| %>
+    <%= form.select(:category, options_for_select([["All Categories", ""], ["Comedy", "Comedy"], ["Theatre", "Theatre"], ["Music", "Music"], ["Dance", "Dance"], ["Other", "Other"]]), {}, class: "cat-select", prompt: "Select a category") %>
+    <%= form.submit("Search", class: "cat-search") %>
+  <% end %>
+  <br />
+  <%= form_with(url: root_path, method: :get) do |form| %>
+    <%= form.select(:userrating, options_for_select([["All Userratings", ""], ["5", "5"], ["4", "4"], ["3", "3"], ["2", "2"], ["1", "1"]]), {}, class: "cat-select", prompt: "Select a rating") %>
+    <%= form.submit("Search", class: "cat-search") %>
   <% end %>
   <br />
   <%= form_tag(shows_path, method: :get) do %>
-  <%= text_field_tag(:performer, params[:performer].to_s, placeholder: "Search by Performer") %>
-  <%= submit_tag("Search", class: "cat-search") %>
-<% end %>
+    <%= text_field_tag(:showname, params[:showname].to_s, placeholder: "Search by Show") %>
+    <%= submit_tag("Search", class: "cat-search") %>
+  <% end %>
+  <br />
+  <%= form_tag(shows_path, method: :get) do %>
+    <%= text_field_tag(:performer, params[:performer].to_s, placeholder: "Search by Performer") %>
+    <%= submit_tag("Search", class: "cat-search") %>
+  <% end %>
 </div>
 
 <br />
-<p> params category<%=params[:showname]%> </p>
-<p> params category<%=params[:category]%> </p>
+
 <% @shows = Show.where(genre: params[:category]) if params[:category].present? %>
 <% @shows = @shows.joins(:userreviews).where("userreviews.rating >= ?", params[:userrating].to_i + 1) if params[:userrating].present? %>
 <% @shows = @shows.where("title LIKE ?", "%#{params[:showname]}%") if params[:showname].present? %>
@@ -57,7 +56,7 @@ the show genre, the show title and the show performer%>
             <% end %>
           <% end %>
           <% if @count != 0 %>
-            <%= number_with_precision(@ratingsum.to_f / @count, precision: 1) %>&nbsp;&nbsp;&nbsp;<%= @count %>&nbsp;<span>Reviews</span>
+           <%= number_with_precision(@ratingsum.to_f / @count, precision: 1) %>&nbsp;&nbsp;&nbsp;<%= @count %>&nbsp;<span class="index-item">Reviews</span>
           <% else %>
             Not yet rated
           <% end %>
@@ -65,7 +64,7 @@ the show genre, the show title and the show performer%>
           <% @count = 0 %>
           <br />
         
-        <p>performed by: <%= show.performer %></p>
+        <span class="index-item">performed by: <%= show.performer %></span>
         <br />
         <%= show.genre %>
         </br>
@@ -78,12 +77,13 @@ the show genre, the show title and the show performer%>
     <% end %>
   <% end %>
   <%end %>
-  <br />
 
-<br />
 
 
 <br/><br/><br/><br/>
 <div class="index-container-outer">
   <%= div_array.join.html_safe %>
 </div>
+  <br />
+
+<br />
