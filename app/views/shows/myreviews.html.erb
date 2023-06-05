@@ -2,7 +2,7 @@
 
   <h2>My Reviews</h2>
 
-<%= @userreviews.each do |review| %>
+<% @userreviews.each do |review| %>
 <div>
    <% @show=Show.find(review.show_id) %>
      <h3>Show Title: <span class="label"> <%= Show.find(review.show_id).title %></span></h3>
@@ -12,11 +12,11 @@
   
      <td><%= button_to "Edit Review", userreview_path(review), method: :get, class: "button" %></td>
    
-    <p><%= button_to "Delete Review", show_path(review), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Review?' %></p>
+    <p><%= button_to "Delete Review", userreview_path(review), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Review?' %></p>
     </div>
     <% end %>
     </div>
-  <br />
+  <br /> <br /> <br /> <br />
 
 
 

@@ -127,25 +127,11 @@ class ShowsController < ApplicationController
 
     end
     def destroy
-
-      @review=Userreview.find(params[:id])
-      @review.destroy
-
-      
-      begin
         @show = Show.find(params[:id])
-        # Show exists
-        # Proceed with further operations
-      rescue ActiveRecord::RecordNotFound
-        # Show not found
-        # Handle the case when the show is not found
-      end
-      if @show
+
       @show.destroy
-      else
-        puts "No show found"
-      end
-      redirect_to userreview_path, notice: 'Review was successfully deleted.'
+
+      redirect_to user_myshows_path, notice: 'Show was successfully deleted.'
     end
 
  

@@ -68,8 +68,7 @@ class UserreviewsController < ApplicationController
       def destroy
         @review = Userreview.find(params[:id])
         @review.destroy
-        @reviews= Review.all
-        redirect_to show_path, notice: 'Review was successfully deleted.'
+        redirect_to shows_myreviews_path, notice: 'Review was successfully deleted.'
       end
       def review_params
         params.require(:userreview).permit(
