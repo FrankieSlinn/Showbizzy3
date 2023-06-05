@@ -58,13 +58,33 @@ padding: 0.5rem;
 
 }
 .show-container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center; */
   text-align: center;
 }
-.index th{
-  font-size: 1.24rem;
+.index-container-outer{
+  display: grid;
+  grid-template-columns: repeat(4, auto); /* Adjust the number of columns as needed */
+  grid-gap: 10px; 
+  margin: 0 0 0 3rem;
+}
+
+
+.index{
+  width: 100%;
+
+ 
+  display: inline;
+
+
+
+}
+.index-show-title{
+  font-weight: 700;
+}
+.index tr{
+  text-align: center;
 }
 .signed-in{
   font-weight: 700; 

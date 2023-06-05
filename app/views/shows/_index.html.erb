@@ -1,25 +1,51 @@
-<p>test<%= %></p>
-<%# First step for search: get parameter for user search dropdown: %>
+
+<%# First step for search: get parameter for user search dropdown. These forms get parameters for
+the show genre, the show title and the show performer%>
+<div class="search">
 <%= form_with(url: root_path, method: :get) do |form| %>
   <%= form.select(:category, options_for_select([["All Categories", ""], ["Comedy", "Comedy"], ["Theatre", "Theatre"], ["Music", "Music"], ["Dance", "Dance"], ["Other", "Other"]]), {}, class: "cat-select", prompt: "Select a category") %>
   <%= form.submit("Search", class: "cat-search") %>
 <% end %>
+<br />
+<%= form_with(url: root_path, method: :get) do |form| %>
+  <%= form.select(:userrating, options_for_select([["All Userratings", ""], ["5", "5"], ["4", "4"], ["3", "3"], ["2", "2"], ["1", "1"]]), {}, class: "cat-select", prompt: "Select a rating") %>
+  <%= form.submit("Search", class: "cat-search") %>
+<% end %>
+<br />
+<%= form_tag(shows_path, method: :get) do %>
+  <%= text_field_tag(:showname, params[:showname].to_s, placeholder: "Search by Show") %>
+  <%= submit_tag("Search", class: "cat-search") %>
+  <% end %>
+  <br />
+  <%= form_tag(shows_path, method: :get) do %>
+  <%= text_field_tag(:performer, params[:performer].to_s, placeholder: "Search by Performer") %>
+  <%= submit_tag("Search", class: "cat-search") %>
+<% end %>
+</div>
+
+<br />
+<p> params category<%=params[:showname]%> </p>
 <p> params category<%=params[:category]%> </p>
 <% @shows = Show.where(genre: params[:category]) if params[:category].present? %>
-<table class="index">
-  <tr>
-    <th>Title</th>
-    <th>Rating</th>
-    <th>Performer</th>
-    <th>Description</th>
-    <th>Genre</th>
-    <th>Image</th>
-  </tr>
+<% @shows = @shows.joins(:userreviews).where("userreviews.rating >= ?", params[:userrating].to_i + 1) if params[:userrating].present? %>
+<% @shows = @shows.where("title LIKE ?", "%#{params[:showname]}%") if params[:showname].present? %>
+<% @shows = @shows.where("performer LIKE ?", "%#{params[:performer]}%") if params[:performer].present? %>
+
+<% div_array = [] %>
   <% if @shows %>
     <% @shows.each do |show| %>
-      <tr>
-        <td><%= show.title %></td>
-        <td>
+    <% div_array << content_tag(:div, class: 'index') do %>
+      
+              
+          <% if show.present? && show.imageup.attached? %>
+            <img style="width: auto; height: 150px;" src="<%= url_for(show.imageup) %>">
+          <% end %>
+          <br />
+       
+      
+          <span class="index-show-title"><%= show.title %></span>
+          <br />
+         
           <% @showid = show.id %>
           <% @ratingsum = 0 %>
           <% @count = 0 %>
@@ -31,28 +57,33 @@
             <% end %>
           <% end %>
           <% if @count != 0 %>
-            <%= number_with_precision(@ratingsum.to_f / @count, precision: 1) %>
+            <%= number_with_precision(@ratingsum.to_f / @count, precision: 1) %>&nbsp;&nbsp;&nbsp;<%= @count %>&nbsp;<span>Reviews</span>
           <% else %>
             Not yet rated
           <% end %>
           <% @ratingsum = 0 %>
           <% @count = 0 %>
-        </td>
-        <td><%= show.performer %></td>
-        <td><%= show.description %></td>
-        <td><%= show.genre %></td>
-        <td>
-          <% if show.present? && show.imageup.attached? %>
-            <img style="width: 300px; height: 150px;" src="<%= url_for(show.imageup) %>">
-          <% end %>
-        </td>
+          <br />
+        
+        <p>performed by: <%= show.performer %></p>
+        <br />
+        <%= show.genre %>
+        </br>
+
         <% if user_signed_in? %>
-          <td><%= button_to "Review Show", show_path(show), method: :get, class: "button" %></td>
+          <%= button_to "Review Show", show_path(show), method: :get, class: "button" %>
         <% end %>
-        <td>
-        </td>&nbsp;&nbsp;
-      </tr>
+       &nbsp;&nbsp;
+      
     <% end %>
   <% end %>
-</table>
+  <%end %>
+  <br />
+
+<br />
+
+
 <br/><br/><br/><br/>
+<div class="index-container-outer">
+  <%= div_array.join.html_safe %>
+</div>
