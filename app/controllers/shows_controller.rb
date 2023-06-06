@@ -21,21 +21,17 @@ class ShowsController < ApplicationController
        
     end
     def show
+      
       @show1 = Show.joins(:userreviews).where(userreviews: { show_id: params[:show_id] }).first
-      begin
+    
         @users=User.all
 
         @show = Show.find(params[:id])
-        @places = @show.places
         @userreviews=@show.userreviews
         # @user = User.joins(shows: :userreviews).where(userreviews: { id: current_user.id }).first
 
-        # Show exists
-        # Proceed with further operations
-      rescue ActiveRecord::RecordNotFound
-        # Show not found
-        # Handle the case when the show is not found
-      end
+     
+   
       @shows = Show.all
 
    

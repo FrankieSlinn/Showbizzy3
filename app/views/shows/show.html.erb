@@ -23,7 +23,10 @@
     <% end %>
   <% end %>
 <%# Condition to check if the person who created the show is the current user. %>
-  <% @self = User.where(id: @show.user_id) %>
+  <% if @show.id==@show.user_id %>
+  <% @ownreview=true %>
+  <% end %>
+
   <%# Display the show details %>
 
   <h2><span class="display-title"><%= @show.title %></h2></span>
@@ -42,11 +45,17 @@
   <% if @reviewed == true %>
     <p><span class="label">You have reviewed this show</span></p>
   <%# Checks as to whether the current user has created the show. They shouldn't be able to review the show.  %>
-  <% elsif @self.blank? %>
+      <% elsif @ownreview==true%>
+    <p>You cannot review a show you created(Sorry!).</p>
+  
+  <% else %> 
+  <h2>Review Show</h2>
+
     <p><%= render 'shows/review_form' %></p>
+
   <% end %>
 
-  <br /><br />
+  <br />
   <div class="reviews">
  
 
