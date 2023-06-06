@@ -52,6 +52,15 @@
  input{
   border: solid 2px #555;
  }
+ input.button, .delete-button{
+  color: #FFE135;
+  background: none;
+  background-color: #555;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 5px;
+ }
  
  .header-div{
   display: flex;
@@ -60,14 +69,11 @@
   justify-content:space-around;
   position: relative;
   text-align: center;
-  /* display: grid;
-  grid-template-columns: 4fr 1fr; 
-  grid-template-rows: auto; /* Repeat 1fr five times */
-  grid-gap: 10px;   */
-    align-items: center;
-height: 9rem;
+  grid-gap: 10px; 
+  align-items: center;
+  height:9rem;
   padding:0;
-  margin-top:-2rem;
+  margin-top:2rem;
  }
  .reg-div{
 position: absolute;
@@ -138,6 +144,10 @@ margin:0;
 select {
   padding: 5px;
   border-radius: 5px;
+}
+textarea{
+  width: 20rem;
+  height: 10rem;
 }
 .link-to-page{
   font-weight: 700;
@@ -250,12 +260,13 @@ padding: 0.5rem;
   display: block;
   color: #FFE135;
   background-color: #777;
-  boder-radius: 5px;
+  border-radius: 5px;
   
 font-size: 1.5rem;
 padding: 0.25rem;
 
 }
+
 .review-area{
   color: #ffe135;
 }
@@ -269,10 +280,19 @@ padding: 0.25rem;
   border: 2px solid #777;
   padding: 0.5rem;
   border-radius: 5px;
-
 }
+
 .input-field{
   color: #ddd;
+  text-align: center;
+  padding: 0.25rem;
+  border-radius: 5px;
+}
+.edit-review{
+  color: #ffe135;
+  font-family: 'Geologica', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 @media (max-width: 1370px) {
   .index-container-outer{
