@@ -12,7 +12,7 @@
      <td> <%= link_to "View Show", show_path(show) %></td>
      <br />
      <br />
-  <td><%= button_to "Delete Show", show_path(show), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Show?' %></td>  
+  <td><%= button_to "Delete Show", show_path(show), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Show?', class:"delete-show" %></td>  
    <br />
    <td> <%= link_to "Edit Show", edit_show_path(show) %></td>
 

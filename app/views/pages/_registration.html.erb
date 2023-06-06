@@ -2,7 +2,7 @@
   <% if user_signed_in? %>
   <br/>
   <div class="signed-in">
-<p class = "greeting">Hello <%= current_user.username %>!</p>
+<p class = "greeting"><strong>Hello <%= current_user.username %>!</strong></p>
 &nbsp; &nbsp;
 
 <%= form_for(current_user, url: destroy_user_session_path, method: :delete) do |f| %>
