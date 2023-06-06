@@ -45,18 +45,24 @@
  }
  
  .header-div{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 2fr; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-around;
+  position: relative;
+  text-align: center;
+  /* display: grid;
+  grid-template-columns: 4fr 1fr; 
   grid-template-rows: auto; /* Repeat 1fr five times */
-  grid-gap: 10px;  
+  grid-gap: 10px;   */
     align-items: center;
 height: 9rem;
   padding:0;
   margin-top:-2rem;
  }
  .reg-div{
-  grid-row:1;
-  grid-column:5;
+position: absolute;
+right: 0;
   text-align: right;
  height: 70%
  
