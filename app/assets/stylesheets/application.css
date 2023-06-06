@@ -45,6 +45,8 @@
  }
  
  .header-div{
+  display: flex;
+  flex-direction: column;
   padding:0;
  }
  .header-row {
@@ -80,7 +82,7 @@
  input[type="text"],
 select {
   padding: 5px;
-  boder-radius: 5px;
+  border-radius: 5px;
 }
  .copyright-container{
   color: #ffe135;
