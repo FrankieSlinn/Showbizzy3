@@ -5,16 +5,16 @@
    <%= review_form.hidden_field :show_id %>   
    <%= review_form.hidden_field :user_id, value: current_user.id %>
   <div class="field">
-    <span class="label"><%= review_form.label :rating, 'Rating(1 lowest, 5 highest)' %></span>
+    <span class="label"><%= review_form.label :rating, 'Rating(5 highest)', class:"label" %></span>
     <br /> <br />
-     <%= review_form.select :rating, (1..5).to_a.reverse %>
+     <%= review_form.select :rating, (1..5).to_a.reverse, {}, class:"input-field"  %>
   </div>
 <br/>
   <div class="field">
-    <span class="label"><span class="label"><%= review_form.label :review, 'Review' %></span>
+    <span class="label"><%= review_form.label :review, 'Review', class:"label" %></span>
      <br />
        <br />
-    <%= review_form.text_field :review %>
+    <%= review_form.text_area :review, class:"review-area input-field" %>
   </div>
 <br />
   <%= review_form.submit 'Submit', class: 'button' %>

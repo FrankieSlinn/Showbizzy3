@@ -1,6 +1,8 @@
 <% @reviewed = false %>
   <% @usernames = [] %>
   <% @useremails = [] %>
+  <%=%>
+  need to get user details for the user review. The user review  has a user id thihs needs to match the user's id. 
   
   <% @userreviews.each do |userreview| %>
     <% @users = User.where(id: userreview.user_id) %>
@@ -16,7 +18,7 @@
     <% end %>
   <% end %>
 
-<h3>Edit Review</h3>
+<h2>Edit Review</h2>
 <p>title <%=@show %></p>
 <p>title id <%=@showid %></p>
 <%= render 'shows/review_form' %>

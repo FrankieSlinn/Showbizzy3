@@ -4,9 +4,7 @@
   <div>
     <h3><span class="display-title"><%= show.title %></span></h3>
     <p><%= show.description %></p>
-    <% if show.places.first %>
-<p><%= "Venue name #{show.places.first.placevenue}" %></p>
-<% end %>
+
 
 
      <td> <%= link_to "View Show", show_path(show) %></td>

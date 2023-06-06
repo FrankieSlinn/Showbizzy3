@@ -49,6 +49,9 @@
  input, select{
   color: #ddd;
  }
+ input{
+  border: solid 2px #555;
+ }
  
  .header-div{
   display: flex;
@@ -136,6 +139,14 @@ select {
   padding: 5px;
   border-radius: 5px;
 }
+.link-to-page{
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.link-to-page:hover{
+  font-size: 1.62rem;
+  color: lightyellow;
+}
  .copyright-container{
   color: #ffe135;
   text-align: center;
@@ -182,6 +193,8 @@ padding: 0.5rem;
   text-align: center;
   border: 2px solid #ccc;
   border-radius: 5px;
+  margin-left: 4rem;
+  margin-right: 4rem;
 }
 .index-container-outer{
  
@@ -242,6 +255,24 @@ padding: 0.5rem;
 font-size: 1.5rem;
 padding: 0.25rem;
 
+}
+.review-area{
+  color: #ffe135;
+}
+.rating{
+  font-size: 1.5rem;
+  font-weight: 777;
+}
+.review{
+  margin: 0 auto;
+  width: 50%;
+  border: 2px solid #777;
+  padding: 0.5rem;
+  border-radius: 5px;
+
+}
+.input-field{
+  color: #ddd;
 }
 @media (max-width: 1370px) {
   .index-container-outer{
