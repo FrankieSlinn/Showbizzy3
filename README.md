@@ -99,9 +99,9 @@ A logic was also needed on the page for displaying a show with its reviews. The 
 To check if the user is signed in this code was used 
 ```<% if !user_signed_in? %>```
 For the 2nd scenario the show's user id is compared with the current_user id(current_user is a Devise helper which relates to the logged in user). If they are the same a message is displayed that a user can't review their own show. 
- ``` <% if current_user.id==@show.user_id %>
-    <% @ownreview=true %>
-  <% end %>```
+ ``` <% if current_user.id==@show.user_id %>```
+   ``` <% @ownreview=true %>```
+ ```  <% end %>```
   Lastly users are filtered as to whether they had provided reviews for the current show. The current user details are compared to the list of reviewers. If the details match the user gets a message that they cannot review a show twice. 
   The full code for these scenarios is below: 
 
@@ -143,25 +143,3 @@ formatting links and buttons the same way.
 
 
 
-
-
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
