@@ -277,7 +277,9 @@ font-size: 1.5rem;
 padding: 0.25rem;
 
 }
-
+.cat-input:hover{
+  color: #ffe135;
+}
 
 .review-area{
   color: #ffe135;
