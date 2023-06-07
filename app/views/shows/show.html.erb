@@ -14,16 +14,17 @@
     <% @users.each do |user| %>
       <% @usernames.push(user.username) %>
       <% @useremails.push(user.email) %>
+      <% if current_user.present? %>
       <% if @useremails.include?(current_user.email) %>
         <% @reviewed = true %>
       <% else %>
         <% @reviewed = false %>
         <% @useremails %>
       <% end %>
+      <% end %>
     <% end %>
   <% end %>
-<%# Condition to check if the person who created the show is the current user. %>
-  <% if @show.id==@show.user_id %>
+  <% if current_user.id==@show.user_id %>
   <% @ownreview=true %>
   <% end %>
 
@@ -40,13 +41,14 @@
 
   <br />
 
-
+<% if !user_signed_in? %>
+<p><span class="label">Sign in to review this show</span></p>
 <%# Checks as to whether the current user has already reviewed the show.  %>
-  <% if @reviewed == true %>
+  <% elsif @reviewed == true %>
     <p><span class="label">You have reviewed this show</span></p>
   <%# Checks as to whether the current user has created the show. They shouldn't be able to review the show.  %>
       <% elsif @ownreview==true%>
-    <p>You cannot review a show you created(Sorry!).</p>
+    <p>You cannot review a show you created(Sorry!)</p>
   
   <% else %> 
   <h2>Review Show</h2>
@@ -55,7 +57,7 @@
 
   <% end %>
 
-  <br />
+
   <div class="reviews">
  
 
@@ -72,12 +74,14 @@
           <p><span class="label">Review:</span> 
           <br /><%= r.review %></p>
           </div>
+          <br />
      
       <% end %>
       <% else %>
       <p>There are currently no reviews for this show</p>
 
     <% end %>
+    <h2><%= link_to "Back to Shows", root_path, class:"link-to-page" %></h2>
     </div>
   </ul>
   <br/><br/>

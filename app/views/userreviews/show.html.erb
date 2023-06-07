@@ -7,7 +7,10 @@
 <%= render 'userreviews/edit' %>
 <br />
 <p><%= button_to "Delete Review", show_path(@reviews), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Review?', class:"delete-button" %></p>
-
-<br /><h2><%= link_to "Back to Shows", root_path, class:"link-to-page" %></h2>
+<br />
+<h2>
+    <%= link_to "Back to Show", show_path(Show.find(@review.show_id)), class: "link-to-page" %>
+  </h2>
+<h2><%= link_to "See All Shows", root_path, class:"link-to-page" %></h2>
 </div>
 <br /><br /><br /><br />

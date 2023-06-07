@@ -1,5 +1,4 @@
 
- <h2>Shows</h2>
 <% @shows = Show.where(genre: params[:category]) if params[:category].present? %>
 <% @shows = @shows.joins(:userreviews).where("userreviews.rating >= ?", params[:userrating].to_i + 1) if params[:userrating].present? %>
 <% @shows = @shows.where("title LIKE ?", "%#{params[:showname]}%") if params[:showname].present? %>
@@ -42,9 +41,9 @@
         <span class="genre"><%= show.genre %></span>
         </br>
 
-        <% if user_signed_in? %>
-          <%= button_to "Review Show", show_path(show), method: :get, class: "button" %>
-        <% end %>
+
+          <%= button_to "Look at Show", show_path(show), method: :get, class: "button" %>
+      
        &nbsp;&nbsp;
       
     <% end %>
