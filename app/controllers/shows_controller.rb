@@ -41,19 +41,8 @@ class ShowsController < ApplicationController
       @show = Show.new
       @userreviews = Userreview.all
       @userreview= Userreview.new
-      
-    
+  
 
-        @places = Place.all
-        @place= Place.new
-        if @show.save
-          # Show saved successfully
-        else
-          # Show failed to save, handle the error
-          puts @show.errors.full_messages
-          flash.now[:alert] = 'Error saving information. Please make sure you have completed the mandatory fields.'
-          render :new
-        end
     end
     
     def create
@@ -65,11 +54,11 @@ class ShowsController < ApplicationController
       if @show.save
         # Handle successful save
         redirect_to show_path(@show), notice: 'Show was successfully created.'
-      else
-        # Handle save errors
+      # else
+      #   flash.now[:alert] = 'Error saving information. Please make sure you have completed the mandatory fields.'
+
         @review=Userreview.all
-        @places = Place.all
-        render :show
+
       end
     end
     def myshows
