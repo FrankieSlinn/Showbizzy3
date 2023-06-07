@@ -108,6 +108,36 @@ For the 2nd scenario the show's user id is compared with the current_user id(cur
 
 ![Review Logic](app/assets/images/Review_Logic.png)
 
+## Wins
+
+In addition to the problems solved referenced in the coding logic section some wins were:
+-Ability to upload pictures via Active Storage. This was surprisingly easy to implement. 
+-Speedy implementation of the user authentication. 
+-No issues currently identified. 
+
+## Key Learnings
+
+There were a number of learnings gained from the project. Mainlly because this was the first larger app I created in Rails. 
+Initially I found it difficult to get parameters from different paths but having learnt about how print statements can work
+in Rails and a bit of practice this quickly became easier. 
+Also the labelling of the routes and the types of parameters and commandes that need to be in the controllers section was something I gained much better knowledge on in the course of the project. 
+
+I hope to continue to program in Rails to make the best use of my understanding and to solidify my knowledge in this area. 
+
+## Future Improvements
+
+There are many improvements I would like to make in the future, a number of which are listed below: 
+
+-Make the site fully responsive.
+-Readd the locations and timings models. 
+-Add a favicon. 
+-Change the font. 
+-Display review ratings as starts. 
+-Implement image functionality in production. 
+-Format the images to a larger size. 
+-Remove gaps in the display to allow for more images to be shown. 
+
+
 
 
  
