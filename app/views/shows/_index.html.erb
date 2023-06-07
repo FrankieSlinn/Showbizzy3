@@ -1,3 +1,11 @@
+<%# Define shows as per selection on search forms.  %>
+<% @shows = Show.where(genre: params[:category]) if params[:category].present? %>
+<% @shows = @shows.joins(:userreviews).where("userreviews.rating >= ?", params[:userrating].to_i + 1) if params[:userrating].present? %>
+<% @shows = @shows.joins(:userreviews).where("userreviews.rating >= ?", params[:userrating].to_i + 1).distinct if params[:userrating].present? %>
+<% @shows = @shows.where("title LIKE ?", "%#{params[:showname]}%") if params[:showname].present? %>
+<% @shows = @shows.where("performer LIKE ?", "%#{params[:performer]}%") if params[:performer].present? %>
+
+
 <% div_array = [] %>
 <% if @shows %>
   <% @shows.each do |show| %>

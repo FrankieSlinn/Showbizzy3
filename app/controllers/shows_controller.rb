@@ -59,6 +59,7 @@ class ShowsController < ApplicationController
 
         @review=Userreview.all
 
+    
       end
     end
     def myshows
