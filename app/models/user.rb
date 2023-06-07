@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :shows, dependent: :destroy
-  has_many :reviews, dependent: :destroy
+  has_many :userreviews, dependent: :destroy
   validates :username, presence: true
   
 

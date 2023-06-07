@@ -42,6 +42,7 @@
  }
  button{
   color:#FFE135;
+  padding: 0.25rem;
  }
  img{
   border-radius: 5px;
@@ -345,11 +346,6 @@ padding: 0.25rem;
     margin: 0;
     grid-row: 2;
     grid-column: 1 / span 3;
-   
-
- 
-
- 
   }
   
   .reg-div {
