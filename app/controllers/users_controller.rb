@@ -15,12 +15,10 @@ class UsersController < ApplicationController
     
       end
       def myreviews
-        @user=current_user
-
-          @shows = Show.all
-          @reviews = Userreview.where([:userrreview][:show_id]: @user.id)
-  
-      end 
+        @user = current_user
+        @shows = Show.all
+        @reviews = Userreview.where(show_id: @user.id)
+      end
       def create
         @user = User.new
 

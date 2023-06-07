@@ -73,18 +73,26 @@
   align-items: center;
   height:9rem;
   padding:0;
-  margin-top:2rem;
+  margin-top:-2rem;
  }
  .reg-div{
 position: absolute;
 right: 0;
   text-align: right;
  height: 70%
- 
  }
  .reg-div input, select{
   color: #FFE135;
  }
+ .signed-in {   
+  position: relative;
+  color: #FFE135;
+ font-weight: 700; 
+ margin-right: 1rem;
+}
+.signed-out{
+
+}
  .title{
  align-self: end;
 grid-row:1;
@@ -234,11 +242,7 @@ padding: 0.5rem;
   font-size: 0.75rem;
 }
 
-.signed-in{   
-   color: #FFE135;
-  font-weight: 700; 
-  margin-right: 1rem;
-}
+
 .label{
   color: #FFE135;
   font-weight: 700;
@@ -251,6 +255,11 @@ padding: 0.5rem;
 .display-container img{
   width: 30rem;
   height: 20rem;
+}
+.about p{
+  margin: 0 auto;
+  width: 50rem;
+
 }
 .display-container .display-title{
   display: block;
@@ -306,7 +315,6 @@ padding: 0.25rem;
     grid-template-columns: 5fr; 
   }
   .show-container{
-
     grid-template-columns: 5fr; 
   }
 }

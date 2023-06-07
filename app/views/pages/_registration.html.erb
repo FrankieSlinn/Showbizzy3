@@ -25,7 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
   <% end %>
   
   <% else %>
+  <div class="signed-out">
     <%= link_to "Login", new_user_session_path %>&nbsp; &nbsp;
     <%= link_to "Sign up", new_user_registration_path %>
+    </div>
   <% end %>
 </div>
