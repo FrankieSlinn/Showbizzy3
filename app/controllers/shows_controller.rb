@@ -14,7 +14,7 @@ class ShowsController < ApplicationController
         # @show=Show.find(params[:id])
       
         @userreviews=Userreview.all
-       
+      
   
        
         # @reviews=@show.reviews

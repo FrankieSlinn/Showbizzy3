@@ -1,3 +1,35 @@
 <%# This page has to stay as Rails is expecting a template called index. This
-renders the partial index so the user sees the same thing when they call the search results. %>
-<%=redirect_to root_path%>
+renders the partial index so the user sees the same thing when they call the search results. 
+Can't be to splash page or search function for show / performer won't work%>
+<div class="overall-container">
+<div class="right-container">
+<p> <strong>Search by show type, minimum show rating, <br />show name or performer/s.</strong> </p>
+
+<%# First step for search: get parameter for user search dropdown. These forms get parameters for
+the show genre, the show title and the show performer%>
+<div class="search">
+  <%= form_with(url: root_path, method: :get) do |form| %>
+    <%= form.select(:category, options_for_select([["All Categories", ""], ["Comedy", "Comedy"], ["Theatre", "Theatre"], ["Music", "Music"], ["Dance", "Dance"], ["Other", "Other"]]), {}, class: "cat-select", prompt: "Select a category") %>
+    &nbsp;<%= form.submit("Search", class: "cat-search") %>
+  <% end %>
+  <br />
+  <%= form_with(url: root_path, method: :get) do |form| %>
+    <%= form.select(:userrating, options_for_select([["All Userratings", ""], ["5", "5"], ["4", "4"], ["3", "3"], ["2", "2"], ["1", "1"]]), {}, class: "cat-select", prompt: "Select a rating") %>
+     &nbsp;<%= form.submit("Search", class: "cat-search") %>
+  <% end %>
+  <br />
+  <%= form_tag(shows_path, method: :get) do %>
+    &nbsp; <%= text_field_tag(:showname, params[:showname].to_s, placeholder: "Search by Show") %>
+    <%= submit_tag("Search", class: "cat-search") %>
+  <% end %>
+  <br />
+  <%= form_tag(shows_path, method: :get) do %>
+    &nbsp; <%= text_field_tag(:performer, params[:performer].to_s, placeholder: "Search by Performer") %>
+    <%= submit_tag("Search", class: "cat-search") %>
+  <% end %>
+</div>
+</div>
+<div class="show-container">
+<%= render "shows/index" %> 
+</div>
+</div>
