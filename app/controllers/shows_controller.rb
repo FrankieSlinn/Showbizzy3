@@ -80,42 +80,26 @@ class ShowsController < ApplicationController
 
         @shows = Show.all
         
-       
-    
-      
       
         @userreviews = Userreview.where(user_id: @user.id)
 
     end 
       
     def edit
-     # @reviews = Userreview.where(user_id: @user.id)
-      # @showtitle = Show.find(params[:title])
-     # redirect_to places_path(show_title: @show.title)
+  
      @show= Show.find(params[:id])
    
      @shows = Show.where.not(id: @show.id)
-     #@place = @show.place
-     @place = Place.where(show_id: params[:id], id: params[:place_id])
-     @places = Place.where(show_id: :id)
-     @timings = Timing.where(place_id: :id)
-    # @place = Place.where(show_id: :id id: :place_id)
-     #@timings = @show.place.timing
-    # @place = Place(params[show_id: :id])
+
     end
-    # def update
-    # @show = Show.find(params[:id])
-    #  @show.update(show_params)
-    #  redirect_to @show
-    # end
+
     def update
       @show = Show.find(params[:id])
       @user=current_user
-      #@userreview=Userreview.find(params[:id])
-     # @userreview.update(userreview_params)
+ 
       @show.update(show_params)
-      #userreview.update(userreview_params)
-    
+  
+      redirect_to user_myshows_path, notice: 'Show was successfully edited.'
 
     end
     def destroy

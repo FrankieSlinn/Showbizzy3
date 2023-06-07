@@ -130,12 +130,11 @@ There are many improvements I would like to make in the future, a number of whic
 
 -Make the site fully responsive.
 -Readd the locations and timings models. 
--Add a favicon. 
--Change the font. 
--Display review ratings as starts. 
+-Add many format changes such as: adding a favicon, changing the font, displaying review ratings as stars, making images larger, 
+formatting links and buttons the same way.  
+-Make the user journey easier by adding more links, cancel buttons.  
 -Implement image functionality in production. 
--Format the images to a larger size. 
--Remove gaps in the display to allow for more images to be shown. 
+
 
 
 
