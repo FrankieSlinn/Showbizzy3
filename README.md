@@ -20,6 +20,20 @@ The full project requirements are captured below.
 ##Planning
 Initially some user stories were written to serve as a basis for the scope. The project ended up addressing most of these with some likely to be implemented at a later point. 
 
+![User Stories](app/assets/images/User_Stories.png)
+
+This was followed by an ERD using Excalidraw. Again here the ERD was changed once by the tutors, another time by me to follow the path I had envisioned. 
+Halfway through the project two of the models(places and timings) were descoped to ensure it could be achieved to a standard I was aiming for. 
+
+![ERD](app/assets/images/ERD.png)
+
+The next steps was creating wireframes, also utilising Excalidraw.
+
+![ERD](app/assets/images/ERD.png)
+
+
+
+
 
 
 ##Setup
