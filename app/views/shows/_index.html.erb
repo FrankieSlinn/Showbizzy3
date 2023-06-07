@@ -1,12 +1,10 @@
 <%# Define shows as per selection on search forms.  %>
-<% @shows = Show.where(genre: params[:category]) if params[:category].present? %>
-<% @shows = @shows.joins(:userreviews).where("userreviews.rating >= ?", params[:userrating].to_i + 1) if params[:userrating].present? %>
-<% @shows = @shows.joins(:userreviews).where("userreviews.rating >= ?", params[:userrating].to_i + 1).distinct if 
-params[:userrating].present? %>
+<% @shows = Show.all %>
+<% @shows = @shows.where(genre: params[:category]) if params[:category].present? %>
+<% @shows = @shows.joins(:userreviews).where("userreviews.rating >= ?", params[:userrating].to_i.round(1)) if params[:userrating].present? %>
 <% @shows = @shows.where("title LIKE ?", "%#{params[:showname]}%") if params[:showname].present? %>
 <% @shows = @shows.where("performer LIKE ?", "%#{params[:performer]}%") if params[:performer].present? %>
-
-
+<% @shows = @shows.distinct %>
 <% div_array = [] %>
 <% if @shows %>
   <% @shows.each do |show| %>
@@ -15,10 +13,8 @@ params[:userrating].present? %>
         <img style="width: 300px; height: 175px;" src="<%= url_for(show.imageup) %>">
       <% end %>
       <br />
-      
       <span class="index-show-title"><%= show.title %></span>
       <br />
-      
       <% @showid = show.id %>
       <% @ratingsum = 0 %>
       <% @count = 0 %>
@@ -37,20 +33,15 @@ params[:userrating].present? %>
       <% @ratingsum = 0 %>
       <% @count = 0 %>
       <br />
-      
       <span class="index-item">performed by: <%= show.performer %></span>
       <br />
       <span class="genre"><%= show.genre %></span>
       <br /><br />
-      
       <%= button_to "Check it Out", show_path(show), method: :get, class: "button" %>
-      
       &nbsp;&nbsp;
-      
     <% end %>
   <% end %>
 <% end %>
-
 <% div_array = div_array.shuffle.sort_by do |div| %>
   <% show = div.instance_variable_get(:@object) %>
   <% if show %>
@@ -60,13 +51,10 @@ params[:userrating].present? %>
     <% random_factor = rand(3) + 1 %> 
     <% rating_factor = average_rating * random_factor %>
     # Relates to the increase of the rating factor for unrated shows
-    <% rating_factor += 10 if average_rating.zero? %> 
-    
+    <% rating_factor += 10 if average_rating.zero? %>    
     [rating_factor, review_count * random_factor]
-
   <% end %>
 <% end %>
-
 <div class="index-container-outer">
   <%= div_array.join.html_safe %>
 </div>
