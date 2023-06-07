@@ -1,7 +1,8 @@
 <%# Define shows as per selection on search forms.  %>
 <% @shows = Show.where(genre: params[:category]) if params[:category].present? %>
 <% @shows = @shows.joins(:userreviews).where("userreviews.rating >= ?", params[:userrating].to_i + 1) if params[:userrating].present? %>
-<% @shows = @shows.joins(:userreviews).where("userreviews.rating >= ?", params[:userrating].to_i + 1).distinct if params[:userrating].present? %>
+<% @shows = @shows.joins(:userreviews).where("userreviews.rating >= ?", params[:userrating].to_i + 1).distinct if 
+params[:userrating].present? %>
 <% @shows = @shows.where("title LIKE ?", "%#{params[:showname]}%") if params[:showname].present? %>
 <% @shows = @shows.where("performer LIKE ?", "%#{params[:performer]}%") if params[:performer].present? %>
 
@@ -55,9 +56,11 @@
   <% if show %>
     <% average_rating = -(show.userreviews.average(:rating) || 0) %>
     <% review_count = -show.userreviews.count %>
-    <% random_factor = rand(3) + 1 %> # Adjust the range of random factor as per preference
+  #Here the range of random factor can be adjusted.
+    <% random_factor = rand(3) + 1 %> 
     <% rating_factor = average_rating * random_factor %>
-    <% rating_factor += 10 if average_rating.zero? %> # Increase the rating factor for unrated shows
+    # Relates to the increase of the rating factor for unrated shows
+    <% rating_factor += 10 if average_rating.zero? %> 
     
     [rating_factor, review_count * random_factor]
 
