@@ -197,6 +197,11 @@ textarea {
   font-weight: 700;
   text-decoration: none;
 }
+.nav-item:hover{
+  color: #eee;
+  font-size: 1.125rem;
+
+}
 
 .overall-container {
   display: grid;
@@ -229,8 +234,6 @@ justify-content: center;
   font-weight: 400;
   width: 14rem;
 }
-
-
 .show-container {
   grid-row: 1;
   grid-column: 1 / 4;
@@ -261,6 +264,12 @@ justify-content: center;
 .index-item {
   color: #ddd;
   font-size: 0.75rem;
+}
+.view-show{
+  height: 2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-top: -0.3rem;
 }
 .genre {
   color: #aaa;
