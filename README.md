@@ -3,8 +3,7 @@
 ## About
 
 ShowBizzy was created as a final individual General Assembly Project. The timeframe was just under two weeks. 
-Here's a link to the deployed project: [ShowBizzy](https://fast-cove-85480.herokuapp.com/). At the time of writing there isn't a solution to display images in a live environment which makes it harder to gauge the look and feel of the app. This will be looked into. 
-
+Here's a link to the deployed project: [ShowBizzy](https://fast-cove-85480.herokuapp.com/). 
 ## Technologies Used
 
 Framework: 
@@ -20,14 +19,16 @@ Version Control:
 -GIT
 
 Operating System: 
--Windows with Ubunti
+-Windows with Ubunti=u
 
 Code Editor: 
--Visual Studio
+-Visual Studio Code
+
+Web Services:
+-Amazon Web Services(in deployed version)
 
 Deployment: 
 -Heroku
-
 
 ## Background
 
@@ -57,9 +58,17 @@ Halfway through the project two of the models(places and timings) were descoped 
 
 The next steps was creating wireframes, also utilising Excalidraw.
 
-![ERD](app/assets/images/Wireframes.png)
+![Wireframes](app/assets/images/Wireframes.png)
 
 It was helpful for me to engage in the planning to get a good feeling of what I was going to implement. As it was felt that good planning would save time in the long run over half a day was spent on the planning process. Although the scope ended up changing a bit, the core purpose of the site as maintained. 
+
+## Layout
+
+A number of review sites were viewed before creating the layout. The aim was to provide the user with a look and feel of what they were used to. An interesting observation was how similar to each other the layouts of the largest review sites were. 
+Given that the site is meant to be full of images, no further images have been added as part of the design. The colour scheme comprises a mixture of greys, black and yellows. The intention was to make the site look exciting while being accessible(yellow on dark colours is a good contrast). 
+The site was designed with mobiles in mind and has been made responsive through using rem instead of px where possible and also 
+through utilising media queries within CSS. 
+![Wireframes](app/assets/images/Wireframes.png)
 
 ## Setup
 

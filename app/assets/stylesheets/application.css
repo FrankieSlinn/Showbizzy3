@@ -220,18 +220,23 @@ textarea {
   text-align: center;
   background-color: #555;
   padding: 0.5rem;
+
 }
 
 .nav-container a {
+  display: flex;
+  align-items: center;
   color: #ddd;
   background-color: #555;
-  font-weight: 700;
+  font-weight: 400;
   text-decoration: none;
+  height: 2rem;
 }
 
 .nav-item:hover {
   color: #eee;
   font-size: 1.125rem;
+  font-weight: 700;
 }
 
 .overall-container {
@@ -290,10 +295,12 @@ textarea {
   display: inline;
 }
 
-.index-show-title {
+.index .index-show-title {
   color: #ffe135;
   font-size: 1rem;
   font-weight: 700;
+  width: 10rem;
+  text-align: center;
 }
 
 .index-item {

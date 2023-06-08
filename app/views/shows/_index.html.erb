@@ -10,7 +10,7 @@
   <% @shows.each do |show| %>
     <% div_array << content_tag(:div, class: 'index') do %>
       <% if show.present? && show.imageup.attached? %>
-        <img style="width: 300px; height: 175px;" src="<%= url_for(show.imageup) %>">
+        <img class="show-image" style="width: 300px; height: 175px;" src="<%= url_for(show.imageup) %>">
       <% end %>
       <br />
       <span class="index-show-title"><%= show.title %></span>
