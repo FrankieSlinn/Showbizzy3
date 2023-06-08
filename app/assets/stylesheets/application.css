@@ -129,6 +129,7 @@ select {
 
 .title-name {
   font-family: "Sigmar", cursive;
+  text-shadow: 0.025px 0.025px 15px;
   font-weight: 100;
   font-size: 3rem;
   margin-bottom: 1.32rem;
@@ -235,8 +236,7 @@ textarea {
 
 .nav-item:hover {
   color: #eee;
-  font-size: 1.125rem;
-  font-weight: 700;
+  text-shadow: 0.025px 0.025px 15px;
 }
 
 .overall-container {
