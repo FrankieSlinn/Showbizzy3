@@ -14,204 +14,205 @@
  *= require_self
  #main color:##242124;
  */
- *{
-    background-color: #343434;
- 
-    font-family: 'Geologica', sans-serif;
-    font-size: 1rem;
- }
- body{
+* {
+  background-color: #343434;
+
+  font-family: "Geologica", sans-serif;
+  font-size: 1rem;
+}
+body {
   color: #ddd;
- }
- h1{
+}
+h1 {
   display: block;
-  color: #FFE135;
- }
- h2{
+  color: #ffe135;
+}
+h2 {
   font-size: 2rem;
-  color: #FFE135;
- }
- a{
-  color:#FFE135;
+  color: #ffe135;
+}
+a {
+  color: #ffe135;
   background-color: #343434;
   text-decoration: none;
- }
- a:hover{
+}
+a:hover {
   font-weight: 700;
   color: light-yellow;
- }
- button{
-  color:#FFE135;
+}
+button {
+  color: #ffe135;
   padding: 0.25rem;
- }
- img{
   border-radius: 5px;
- }
- input, select{
+}
+img {
+  border-radius: 5px;
+}
+input,
+select {
   color: #ddd;
- }
- input{
+}
+input {
   border: solid 2px #555;
- }
- input.button, .delete-button{
-  color: #FFE135;
+}
+input.button,
+.delete-button {
+  color: #ffe135;
   background: none;
   background-color: #555;
   border: none;
   cursor: pointer;
   padding: 0.5rem;
   border-radius: 5px;
- }
- 
- .header-div{
+}
+
+.header-div {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content:space-around;
+  justify-content: space-around;
   position: relative;
   text-align: center;
-  grid-gap: 10px; 
+  grid-gap: 10px;
   align-items: center;
-  height:9rem;
-  padding:0;
-  margin-top:-2rem;
- }
- .reg-div{
-position: absolute;
-right: 0;
-  text-align: right;
- height: 70%
- }
- .reg-div input, select{
-  color: #FFE135;
- }
- .signed-in {   
-
-  
-  color: #FFE135;
- font-weight: 700; 
- margin-right: 1rem;
+  height: 9rem;
+  padding: 0;
+  margin-top: -2rem;
 }
-.signed-out{
+.reg-div {
+  position: absolute;
+  right: 0;
+  text-align: right;
+  height: 70%;
+}
+.reg-div input,
+select {
+  color: #ffe135;
+}
+.signed-in {
+  color: #ffe135;
+  font-weight: 700;
+  margin-right: 1rem;
+}
+.signed-out {
   position: relative;
   top: 4rem;
   right: 1rem;
-
 }
- .title{
- align-self: end;
-grid-row:1;
-grid-column:3;
-margin:0;
+.title {
+  align-self: end;
+  grid-row: 1;
+  grid-column: 3;
+  margin: 0;
   text-align: center;
   margin: 0;
 }
- 
 
- .title-name{
-  font-family: 'Sigmar', cursive;
+.title-name {
+  font-family: "Sigmar", cursive;
   font-weight: 100;
   font-size: 3rem;
   margin-bottom: 1.32rem;
- }
- .userlogin{
-  color: #FFE135;
-   text-align: right;
- }
- .logout, .delete-show{
+}
+.userlogin {
+  color: #ffe135;
+  text-align: right;
+}
+.logout,
+.delete-show {
   background: none;
   border: none;
   padding: 0;
   font: inherit;
   text-decoration: none;
   cursor: pointer;
- }
- .logout:hover, .delete-show:hover{
+}
+.logout:hover,
+.delete-show:hover {
   font-weight: 700;
   color: light-yellow;
- }
- 
- .edit-profile, .logout{
+}
+
+.edit-profile,
+.logout {
   color: #ffe135;
   background-color: #343434;
   text-decoration: none;
   font-weight: 400;
- }
- .greeting{
+}
+.greeting {
   margin-bottom: 0;
   font-weight: 700;
- }
- .reg-label{
-  color: #FFE135;
- }
- .edit-user a{
+}
+.reg-label {
   color: #ffe135;
- }
- input[type="text"]{
-  width: 200px
- }
- select {
+}
+.edit-user a {
+  color: #ffe135;
+}
+input[type="text"] {
+  width: 200px;
+}
+select {
   width: 215px;
- }
- input[type="text"],
+}
+input[type="text"],
 select {
   padding: 5px;
   border-radius: 5px;
 }
-textarea{
+textarea {
   width: 20rem;
   height: 10rem;
 }
-.link-to-page{
+.link-to-page {
   font-weight: 700;
   font-size: 1.5rem;
 }
-.link-to-page:hover{
+.link-to-page:hover {
   font-size: 1.62rem;
   color: lightyellow;
 }
- .copyright-container{
+.copyright-container {
   color: #ffe135;
   text-align: center;
   position: fixed;
   bottom: 0;
   width: 100%;
   font-weight: 700;
- }
-.nav-container{
-
-  display: flex;
-justify-content: space-around;
-text-align: center;
-background-color: #555;
-padding: 0.5rem;
 }
-.nav-container a{
+.nav-container {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  background-color: #555;
+  padding: 0.5rem;
+}
+.nav-container a {
   color: #ddd;
   background-color: #555;
   font-weight: 700;
   text-decoration: none;
 }
 
-.overall-container{
- 
-    display: grid;
-    grid-template-columns: 4fr 1fr; 
-    grid-template-rows: auto; 
+.overall-container {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: auto;
 
-    grid-gap: 10px;
-    margin-top: -0.5rem;
-  }
-  .right-container{
-    grid-column: 4 / 5;
-    padding: 0.5rem;
-    margin-right: 1.5rem;
-    /* border: solid #555 3px; */
-    border-radius: 5px;
-  }
+  grid-gap: 10px;
+  margin-top: -0.5rem;
+}
+.right-container {
+  grid-column: 4 / 5;
+  padding: 0.5rem;
+  margin-right: 1.5rem;
+  /* border: solid #555 3px; */
+  border-radius: 5px;
+}
 
-.show-container{
-  grid-row:1;
+.show-container {
+  grid-row: 1;
   grid-column: 1 / 4;
   text-align: center;
   /* border: 4px solid #555; */
@@ -219,76 +220,69 @@ padding: 0.5rem;
   margin-left: 4rem;
   margin-right: 4rem;
 }
-.index-container-outer{
- 
+.index-container-outer {
   display: grid;
-  grid-template-columns: repeat(4, auto); 
-  grid-gap: 10px; 
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 10px;
   margin: 0;
 }
 
-.index{
+.index {
   color: #ddd;
   font-size: 0.75rem;
   width: 100%;
   display: inline;
 }
-.index-show-title{
+.index-show-title {
   color: #ffe135;
   font-size: 1rem;
   font-weight: 700;
 }
-.index-item{
+.index-item {
   color: #ddd;
   font-size: 0.75rem;
 }
-.genre{
+.genre {
   color: #aaa;
   font-size: 0.75rem;
 }
 
-
-.label{
-  color: #FFE135;
+.label {
+  color: #ffe135;
   font-weight: 700;
   font-size: 1.25rem;
 }
-.display-container{
+.display-container {
   margin-top: -1.5rem;
   margin-bottom: 1rem;
-   text-align: center;
+  text-align: center;
 }
-.display-container img{
+.display-container img {
   width: 30rem;
   height: 20rem;
 }
-.about p{
+.about p {
   margin: 0 auto;
   width: 50rem;
-
 }
-.display-container .display-title{
+.display-container .display-title {
   display: block;
-  color: #FFE135;
+  color: #ffe135;
   background-color: #777;
   border-radius: 5px;
-  
-font-size: 1.5rem;
-padding: 0.25rem;
 
-}
-.cat-input:hover{
-  color: #ffe135;
+  font-size: 1.5rem;
+  padding: 0.25rem;
 }
 
-.review-area{
+.review-area {
   color: #ffe135;
 }
-.rating{
+.rating {
   font-size: 1.5rem;
   font-weight: 777;
 }
-.review{
+.review {
   margin: 0 auto;
   width: 50%;
   border: 2px solid #777;
@@ -296,65 +290,98 @@ padding: 0.25rem;
   border-radius: 5px;
 }
 
-.input-field{
+.input-field {
   color: #ddd;
   text-align: center;
   padding: 0.25rem;
   border-radius: 5px;
 }
-.edit-review{
+.edit-review {
   color: #ffe135;
-  font-family: 'Geologica', sans-serif;
+  font-family: "Geologica", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
 }
 @media (max-width: 1600px) {
-  .index-container-outer{
+  .index-container-outer {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (max-width: 1370px) {
-  .index-container-outer{
-    grid-template-columns: repeat(2, 2fr); 
+  .index-container-outer {
+    grid-template-columns: repeat(2, 2fr);
   }
 }
 @media (max-width: 1125px) {
-  .index-container-outer{
-    grid-template-columns: 5fr; 
+  .index-container-outer {
+    grid-template-columns: 5fr;
   }
-  .show-container{
-    grid-template-columns: 5fr; 
+  .show-container {
+    grid-template-columns: 5fr;
   }
+  .overall-container{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+   }
+   .search{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -2.5rem;
+  }
+  .cat-input,
+  .cat-search,
+  .cat-reset, 
+  .search-instruction {
+    margin: 0 auto;
+    padding: 0.25rem;
+  }
+  .search-instruction  
 }
 @media (max-width: 740px) {
-  .header-div{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr;
+  .header-div {
+    display: flex;
   }
   .title {
     align-self: center;
     grid-row: 1;
     grid-column: 1 / span 3;
   }
-  
+
   .title-name {
     font-size: 3rem;
     margin-bottom: 0.5rem;
   }
-  
+
   .userlogin {
     display: block;
     margin: 0;
     grid-row: 2;
     grid-column: 1 / span 3;
   }
-  
+
   .reg-div {
+    position: relative;
     grid-row: 2;
     margin-top: -5rem;
     padding: 0;
-   
+    height: 4rem;
+  }
+  .nav-container {
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    background-color: #555;
+    padding: 0.5rem;
+  }
+  
+  .nav-container a {
+    padding: 0.25rem;
+    font-weight: 700;
   }
 
 }

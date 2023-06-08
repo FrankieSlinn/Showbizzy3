@@ -1,10 +1,11 @@
 <div class="overall-container">
 <div class="right-container">
-<p> <strong>Search by show type, minimum show rating, <br />show name or performer/s.</strong> </p>
+  <div class="search">
+<p class="search-instruction"> <strong>Search by show type, minimum show rating, <br />show name or performer/s.</strong> </p>
 
 <%# First step for search: get parameter for user search dropdown. These forms get parameters for
 <%# the show genre, the show title and the show performer%>
-<div class="search">
+
   <%= form_with(url: root_path, method: :get) do |form| %>
     <%= form.select(:category, options_for_select([["All Categories", ""], ["Comedy", "Comedy"], ["Theatre", "Theatre"], ["Music", "Music"], ["Dance", "Dance"], ["Other", "Other"]]), {}, class: "cat-select", prompt: "Select a category") %>
     <br /><br />
