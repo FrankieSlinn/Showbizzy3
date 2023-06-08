@@ -4,13 +4,14 @@
   <div class="signed-in">
 <p class = "greeting"><strong>Hello <%= current_user.username %>!</strong></p>
 &nbsp; &nbsp;
-
+<div class="reg-buttons">
 <%= form_for(current_user, url: destroy_user_session_path, method: :delete) do |f| %>
  <span class="reg-label"><%= ;link_to f.submit "Logout", class: "logout" %></span>
 
 &nbsp; &nbsp;
  <span class="reg-label"><%= link_to 'Edit Profile', edit_user_registration_path, class: "edit-profile" %></span>
  <br />
+ </div>
   <script>
 document.addEventListener('DOMContentLoaded', function() {
   var editProfileButton = document.getElementById('edit-profile-button');

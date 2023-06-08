@@ -489,3 +489,31 @@ textarea {
     margin: 0;
   }
 }
+@media (max-width: 500px) {
+  .title-name {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .reg-div {
+height: auto;
+margin-bottom: -2rem;
+background-color: pink;
+  }
+
+.greeting{
+  margin-top: -0.55rem;
+}
+.reg-buttons{
+  display: flex;
+  margin-top: -1rem;
+  margin-bottom: -10rem;
+}
+.signed-in{
+  text-align: left;
+}
+.signed-out{
+  margin-top: -1.8rem;
+}
+}
+  
+
