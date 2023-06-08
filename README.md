@@ -68,6 +68,7 @@ A number of review sites were viewed before creating the layout. The aim was to 
 Given that the site is meant to be full of images, no further images have been added as part of the design. The colour scheme comprises a mixture of greys, black and yellows. The intention was to make the site look exciting while being accessible(yellow on dark colours is a good contrast). 
 The site was designed with mobiles in mind and has been made responsive through using rem instead of px where possible and also 
 through utilising media queries within CSS. 
+
 ![Wireframes](app/assets/images/Wireframes.png)
 
 ## Setup
