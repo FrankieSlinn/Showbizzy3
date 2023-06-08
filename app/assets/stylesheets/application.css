@@ -336,6 +336,11 @@ textarea {
   width: 30rem;
   height: 20rem;
 }
+.about-text{
+  text-align: center;
+  margin: 0 3rem;
+
+}
 
 .about p {
   margin: 0 auto;
@@ -407,6 +412,8 @@ textarea {
     justify-content: center;
     align-items: center;
   }
+
+
   .search {
     display: flex;
     flex-direction: column;
@@ -458,10 +465,14 @@ textarea {
   }
   .nav-container {
     flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
+    justify-content: center;
+  
     background-color: #555;
     padding: 0.5rem;
+  }
+  .nav-item{
+   display: flex;
+   justify-content: center;
   }
 
   .nav-container a {
