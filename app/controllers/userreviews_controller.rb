@@ -30,8 +30,7 @@ class UserreviewsController < ApplicationController
         @reviews=Userreview.all
         @review = Userreview.new(review_params)
         if @review.save
-          # Handle successful save
-          redirect_to @review, notice: 'Review was successfully created.'
+          redirect_to shows_myreviews_path, notice: 'Review was successfully created.'
         else
            # Handle save errors
           puts @review.errors.full_messages

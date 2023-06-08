@@ -14,50 +14,61 @@
  *= require_self
  #main color:##242124;
  */
-* {
-  background-color: #343434;
 
-  font-family: "Geologica", sans-serif;
+ * {
+  background-color: #343434;
+  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
 }
+
 body {
   color: #ddd;
 }
+
 h1 {
   display: block;
   color: #ffe135;
 }
+
 h2 {
   font-size: 2rem;
   color: #ffe135;
 }
+
 a {
   color: #ffe135;
   background-color: #343434;
   text-decoration: none;
 }
+
 a:hover {
   font-weight: 700;
   color: light-yellow;
 }
+
 button {
   color: #ffe135;
   padding: 0.25rem;
   border-radius: 5px;
 }
-button:hover{
+
+button:hover {
   cursor: pointer;
 }
+
 img {
   border-radius: 5px;
 }
+
 input,
 select {
   color: #ddd;
 }
+
 input {
   border: solid 2px #555;
 }
+
 input.button,
 .delete-button {
   color: #ffe135;
@@ -82,26 +93,31 @@ input.button,
   padding: 0;
   margin-top: -2rem;
 }
+
 .reg-div {
   position: absolute;
   right: 0;
   text-align: right;
   height: 70%;
 }
+
 .reg-div input,
 select {
   color: #ffe135;
 }
+
 .signed-in {
   color: #ffe135;
   font-weight: 700;
   margin-right: 1rem;
 }
+
 .signed-out {
   position: relative;
   top: 4rem;
   right: 1rem;
 }
+
 .title {
   align-self: end;
   grid-row: 1;
@@ -117,10 +133,12 @@ select {
   font-size: 3rem;
   margin-bottom: 1.32rem;
 }
+
 .userlogin {
   color: #ffe135;
   text-align: right;
 }
+
 .logout,
 .delete-show {
   background: none;
@@ -130,6 +148,7 @@ select {
   text-decoration: none;
   cursor: pointer;
 }
+
 .logout:hover,
 .delete-show:hover {
   font-weight: 700;
@@ -143,39 +162,49 @@ select {
   text-decoration: none;
   font-weight: 400;
 }
+
 .greeting {
   margin-bottom: 0;
   font-weight: 700;
 }
+
 .reg-label {
   color: #ffe135;
 }
+
 .edit-user a {
   color: #ffe135;
 }
+
 input[type="text"] {
   width: 200px;
 }
+
 select {
   width: 215px;
 }
+
 input[type="text"],
 select {
   padding: 5px;
   border-radius: 5px;
 }
+
 textarea {
   width: 20rem;
   height: 10rem;
 }
+
 .link-to-page {
   font-weight: 700;
   font-size: 1.5rem;
 }
+
 .link-to-page:hover {
   font-size: 1.62rem;
   color: lightyellow;
 }
+
 .copyright-container {
   color: #ffe135;
   text-align: center;
@@ -184,6 +213,7 @@ textarea {
   width: 100%;
   font-weight: 700;
 }
+
 .nav-container {
   display: flex;
   justify-content: space-around;
@@ -191,58 +221,61 @@ textarea {
   background-color: #555;
   padding: 0.5rem;
 }
+
 .nav-container a {
   color: #ddd;
   background-color: #555;
   font-weight: 700;
   text-decoration: none;
 }
-.nav-item:hover{
+
+.nav-item:hover {
   color: #eee;
   font-size: 1.125rem;
-
 }
 
 .overall-container {
   display: grid;
   grid-template-columns: 4fr 1fr;
   grid-template-rows: auto;
-
   grid-gap: 10px;
   margin-top: -0.5rem;
 }
+
 .right-container {
   grid-column: 4 / 5;
   padding: 0.5rem;
   margin-right: 1.5rem;
- 
   border-radius: 5px;
 }
-.search{
+
+.search {
   text-align: right;
   margin-top: -1rem;
 }
-.search-buttons{
+
+.search-buttons {
   display: flex;
   flex-direction: row;
-justify-content: center;
-  /* align-items: space-around; */
+  justify-content: center;
 }
-.search-instruction{
+
+.search-instruction {
   text-align: center;
   font-size: 0.5rem;
   font-weight: 400;
   width: 14rem;
 }
+
 .show-container {
   grid-row: 1;
   grid-column: 1 / 4;
   text-align: center;
-  /* border: 4px solid #555; */
   border-radius: 5px;
   margin-left: 4rem;
   margin-right: 4rem;
 }
+
 .index-container-outer {
   display: grid;
   grid-template-columns: repeat(4, auto);
@@ -256,21 +289,25 @@ justify-content: center;
   width: 100%;
   display: inline;
 }
+
 .index-show-title {
   color: #ffe135;
   font-size: 1rem;
   font-weight: 700;
 }
+
 .index-item {
   color: #ddd;
   font-size: 0.75rem;
 }
-.view-show{
+
+.view-show {
   height: 2rem;
   font-size: 0.75rem;
   font-weight: 700;
   margin-top: -0.3rem;
 }
+
 .genre {
   color: #aaa;
   font-size: 0.75rem;
@@ -281,25 +318,28 @@ justify-content: center;
   font-weight: 700;
   font-size: 1.25rem;
 }
+
 .display-container {
   margin-top: -1.5rem;
   margin-bottom: 1rem;
   text-align: center;
 }
+
 .display-container img {
   width: 30rem;
   height: 20rem;
 }
+
 .about p {
   margin: 0 auto;
   width: 50rem;
 }
+
 .display-container .display-title {
   display: block;
   color: #ffe135;
   background-color: #777;
   border-radius: 5px;
-
   font-size: 1.5rem;
   padding: 0.25rem;
 }
@@ -307,10 +347,12 @@ justify-content: center;
 .review-area {
   color: #ffe135;
 }
+
 .rating {
   font-size: 1.5rem;
   font-weight: 777;
 }
+
 .review {
   margin: 0 auto;
   width: 50%;
@@ -325,22 +367,26 @@ justify-content: center;
   padding: 0.25rem;
   border-radius: 5px;
 }
+
 .edit-review {
   color: #ffe135;
   font-family: "Geologica", sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
 }
+
 @media (max-width: 1600px) {
   .index-container-outer {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
 @media (max-width: 1370px) {
   .index-container-outer {
     grid-template-columns: repeat(2, 2fr);
   }
 }
+
 @media (max-width: 1125px) {
   .index-container-outer {
     grid-template-columns: 5fr;
@@ -348,13 +394,13 @@ justify-content: center;
   .show-container {
     grid-template-columns: 5fr;
   }
-  .overall-container{
+  .overall-container {
     display: flex;
     flex-direction: column;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
-   }
-   .search{
+  }
+  .search {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -364,13 +410,16 @@ justify-content: center;
   }
   .cat-input,
   .cat-search,
-  .cat-reset, 
+  .cat-reset,
   .search-instruction {
     margin: 0 auto;
     padding: 0.25rem;
   }
-  .search-instruction  
+  .search-instruction {
+    font-size: 0.75rem;
+  }
 }
+
 @media (max-width: 740px) {
   .header-div {
     display: flex;
@@ -407,10 +456,18 @@ justify-content: center;
     background-color: #555;
     padding: 0.5rem;
   }
-  
+
   .nav-container a {
     padding: 0.25rem;
     font-weight: 700;
   }
-
+  .search-buttons {
+    justify-content: center;
+  }
+  .cat-reset {
+    margin: 0;
+  }
+  .cat-search {
+    margin: 0;
+  }
 }
