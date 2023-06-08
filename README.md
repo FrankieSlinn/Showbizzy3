@@ -69,7 +69,7 @@ Given that the site is meant to be full of images, no further images have been a
 The site was designed with mobiles in mind and has been made responsive through using rem instead of px where possible and also 
 through utilising media queries within CSS. 
 
-![Wireframes](app/assets/images/Wireframes.png)
+![Index Page Layout](app/assets/images/Show_Layout.png)
 
 ## Setup
 
