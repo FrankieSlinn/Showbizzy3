@@ -1,29 +1,19 @@
+<%# Custom view created so the user can see all the shows they created in one place.  %>
 <div class="display-container">
-<h2>My Shows</h2>
-<% current_user.shows.each do |show| %>
-  <div>
-    <h3><span class="display-title"><%= show.title %></span></h3>
-    <p><%= show.description %></p>
-
-
-
-     <td> <%= link_to "View Show", show_path(show) %></td>
-     <br />
-     <br />
-  <td><%= button_to "Delete Show", show_path(show), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Show?', class:"delete-show" %></td>  
-   <br />
-   <td> <%= link_to "Edit Show", edit_show_path(show) %></td>
-       <br />
-    
-
-  
-
-  </div>
-
-  
-
-<% end %>
-<br />
-<%= link_to "Back to Shows", root_path, class:"link-to-page" %>
+  <h2>My Shows</h2>
+  <% current_user.shows.each do |show| %>
+    <div>
+      <h3><span class="display-title"><%= show.title %></span></h3>
+      <p><%= show.description %></p>
+      <td> <%= link_to "View Show", show_path(show) %></td>
+      <br />
+      <br />
+      <td><%= button_to "Delete Show", show_path(show), method: :delete, data: { turbo_action: "remove" }, confirm: 'Are you sure you want to delete this Show?', class:"delete-show" %></td>
+      <br />
+      <td> <%= link_to "Edit Show", edit_show_path(show) %></td>
+      <br />
+    </div>
+  <% end %>
+  <br />
+  <%= link_to "Back to Shows", root_path, class:"link-to-page" %>
 </div>
-

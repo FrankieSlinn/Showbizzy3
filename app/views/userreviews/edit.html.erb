@@ -1,13 +1,10 @@
 <% @reviewed = false %>
-  <% @usernames = [] %>
   <% @useremails = [] %>
-  <%=%>
-  need to get user details for the user review. The user review  has a user id thihs needs to match the user's id. 
-  
+  <%# Gets user details for the user review. The user review  has a user id this needs to match the user's id. Emails for reviewers checked 
+  against the current user's email.  %>
   <% @userreviews.each do |userreview| %>
     <% @users = User.where(id: userreview.user_id) %>
     <% @users.each do |user| %>
-      <% @usernames.push(user.username) %>
       <% @useremails.push(user.email) %>
       <% if @useremails.include?(current_user.email) %>
         <% @reviewed = true %>
@@ -17,7 +14,6 @@
       <% end %>
     <% end %>
   <% end %>
-
 <h3 class="display-label">Edit Review</h3>
 <p>title <%=@show %></p>
 <p>title id <%=@showid %></p>

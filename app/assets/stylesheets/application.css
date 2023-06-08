@@ -45,6 +45,9 @@ button {
   padding: 0.25rem;
   border-radius: 5px;
 }
+button:hover{
+  cursor: pointer;
+}
 img {
   border-radius: 5px;
 }
@@ -211,8 +214,22 @@ textarea {
   border-radius: 5px;
 }
 .search{
+  text-align: right;
   margin-top: -1rem;
 }
+.search-buttons{
+  display: flex;
+  flex-direction: row;
+justify-content: center;
+  /* align-items: space-around; */
+}
+.search-instruction{
+  text-align: center;
+  font-size: 0.5rem;
+  font-weight: 400;
+  width: 14rem;
+}
+
 
 .show-container {
   grid-row: 1;

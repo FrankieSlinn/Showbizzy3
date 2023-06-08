@@ -15,8 +15,11 @@
     <br /><br />
     <%= text_field_tag(:performer, params[:performer].to_s, placeholder: "Search by Performer", class: "cat-input") %>
     <br /><br />
+        <div class="search-buttons">
     <button type="submit" class="cat-search">Search</button>
+
     &nbsp; &nbsp;<%= button_tag("Reset", type: "reset", class: "cat-reset") %>
+    </div>
   <% end %>
 </div>
 

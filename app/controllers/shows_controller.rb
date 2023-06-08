@@ -1,7 +1,5 @@
 class ShowsController < ApplicationController
   skip_before_action :verify_authenticity_token
-
- 
     def index
       if params[:category].present?
         # Perform filtering based on the selected category
@@ -10,109 +8,65 @@ class ShowsController < ApplicationController
         # Load all shows when no category is selected
         @shows = Show.all
       end
-      
-        # @show=Show.find(params[:id])
-      
-        @userreviews=Userreview.all
-      
-  
-       
-        # @reviews=@show.reviews
-       
+        @userreviews=Userreview.all 
     end
     def show
-      
       @show1 = Show.joins(:userreviews).where(userreviews: { show_id: params[:show_id] }).first
-    
         @users=User.all
-
         @show = Show.find(params[:id])
         @userreviews=@show.userreviews
-        # @user = User.joins(shows: :userreviews).where(userreviews: { id: current_user.id }).first
-
-     
-   
       @shows = Show.all
-
-   
     end
     def new
       @shows = Show.all
       @show = Show.new
       @userreviews = Userreview.all
       @userreview= Userreview.new
-  
-
     end
-    
     def create
-
       @shows=Show.all
       @show = Show.new(show_params)
-      # @place = @show.places.build
       @show.user_id = current_user.id
       if @show.save
         # Handle successful save
         redirect_to show_path(@show), notice: 'Show was successfully created.'
-      # else
-      #   flash.now[:alert] = 'Error saving information. Please make sure you have completed the mandatory fields.'
-
         @review=Userreview.all
-
-    
       end
     end
+    # Custom view where the user can see the shows they created.
     def myshows
-     
          @user = current_user
-        #  @show= Show.find(params[@user.id])
          @shows = @user.shows
          @reviews= Userreview.where(show_id: :id)
-        
          @places = Place.where(show_id: :id)
          puts "#{@places} This is a test"
     end
+     # Custom view where the user can see the reviews they created.
     def myreviews
       @user=current_user
-     # @show = Show.includes(:reviews).find(params[:show_id])
-     @show = Show.joins(:userreviews).where(userreviews: { show_id: params[:show_id] }).first
-      
-
+      # Link show to its reviews.
+        @show = Show.joins(:userreviews).where(userreviews: { show_id: params[:show_id] }).first
         @shows = Show.all
-        
-      
         @userreviews = Userreview.where(user_id: @user.id)
-
-    end 
-      
+    end  
     def edit
-  
      @show= Show.find(params[:id])
-   
      @shows = Show.where.not(id: @show.id)
-
     end
-
     def update
       @show = Show.find(params[:id])
       @user=current_user
- 
       @show.update(show_params)
-  
+      # Redirect to path displaying the user's shows
       redirect_to user_myshows_path, notice: 'Show was successfully edited.'
-
     end
     def destroy
-        @show = Show.find(params[:id])
-
+      @show = Show.find(params[:id])
       @show.destroy
-
+      # Redirect to path displaying the user's shows
       redirect_to user_myshows_path, notice: 'Show was successfully deleted.'
     end
-
- 
-      
-      end
+  end
       private
 
       def show_params
@@ -123,7 +77,7 @@ class ShowsController < ApplicationController
           :description,
           :imageup,
           :performer,
-          userreviews_attributes: [:show_id, :rating, :review], places_attributes: [:show_id, :placevenue, :placetown, :placeaddress, :placeinfo, timings_attributes: [:place_id, :day, :timeshot]]
+          userreviews_attributes: [:show_id, :rating, :review]
         )
       end
 
