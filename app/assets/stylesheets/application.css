@@ -129,7 +129,7 @@ select {
 
 .title-name {
   font-family: "Sigmar", cursive;
-  text-shadow: 0.025px 0.025px 15px;
+  text-shadow: 0.025px 2px;
   font-weight: 100;
   font-size: 3rem;
   margin-bottom: 1.32rem;
@@ -227,6 +227,7 @@ textarea {
 .nav-container a {
   display: flex;
   align-items: center;
+  width: vw;
   color: #ddd;
   background-color: #555;
   font-weight: 400;
@@ -435,16 +436,14 @@ textarea {
 }
 
 @media (max-width: 740px) {
-  .header-div {
-    display: flex;
-  }
+/* 
   .title {
     align-self: center;
     grid-row: 1;
     grid-column: 1 / span 3;
-  }
+  } */
 
-  .title-name {
+  /* .title-name {
     font-size: 3rem;
     margin-bottom: 0.5rem;
   }
@@ -462,7 +461,7 @@ textarea {
     margin-top: -5rem;
     padding: 0;
     height: 4rem;
-  }
+  } */
   .nav-container {
     flex-direction: column;
     justify-content: center;
@@ -489,7 +488,63 @@ textarea {
     margin: 0;
   }
 }
+@media (max-width: 650px) {
+  .header-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .title{
+
+  }
+  .reg-div{
+
+    position: absolute;
+    background: transparent;
+
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 2rem;
+    margin: 0;
+  }
+  .user-login{
+    background: transparent;
+    height: 2rem;
+    margin: 0;
+  }
+  .signed-out{
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    width: vw;
+    margin: 0;
+    padding-top: 0.5rem;
+  }
+  .signed-out a{
+    background: transparent;
+  }
+  .signed-in{
+    position: absolute;
+    top: 5rem;
+    display: flex;
+    align-items: bottom;
+    gap: 7rem;
+    background: transparent;
+    height: 1.2rem;
+  }
+  .greeting{
+    position: absolute;
+    top: -1rem;
+  }
+  .userlogin{
+    background: transparent;
+    height:1.2rem;
+  }
+}
 @media (max-width: 500px) {
+  .header-div{
+    flex-direction: row;
+  }
   .title-name {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
