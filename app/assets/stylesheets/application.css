@@ -521,6 +521,10 @@ p.notice{
     background: transparent;
     height:1.2rem;
   }
+  .edit-profile{
+    display: inline-block;
+    text-align: center;
+   }
   .nav-container a {
     padding: 0rem;
     font-weight: 700;
@@ -548,10 +552,7 @@ p.notice{
   .logout{
     margin-bottom: 0.25rem;
   }
- .edit-profile{
-  display: inline-block;
-  text-align: center;
- }
+ 
   p.notice{
     display: block;
     width: vw;
@@ -570,8 +571,12 @@ p.notice{
     width: 300px;
     height: 200px;
   }
-
-
+}
+@media (max-width: 460px) {
+  .edit-profile{
+    width: 5rem;
+    margin-top: -0.3rem;
+  }
 }
   
 
