@@ -548,6 +548,10 @@ p.notice{
   .logout{
     margin-bottom: 0.25rem;
   }
+ .edit-profile{
+  display: inline-block;
+  text-align: center;
+ }
   p.notice{
     display: block;
     width: vw;
