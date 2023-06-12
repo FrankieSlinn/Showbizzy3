@@ -81,6 +81,8 @@ input.button,
 }
 p.notice{
   text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
 }
 
 .header-div {
@@ -559,6 +561,10 @@ p.notice{
     height: auto;
     width: 100%;
     background: transparent;
+  }
+  .display-container img{
+    width: 300px;
+    height: 200px;
   }
 
 
