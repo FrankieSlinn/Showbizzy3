@@ -38,9 +38,10 @@
   <p><span class="label">Performer</span><br/>
     <br />
     <%= @show.performer %></p>
-  <p><span class="label">Description</span><br/>
+    <div class="description-container">
+  <p class="description"><span class="label">Description</span><br/>
     <br />
-    <%= @show.description %></p>
+    <%= @show.description %></p></div>
   <br />
   <% if !user_signed_in? %>
     <p><span class="label">Sign in to review this show</span></p>
