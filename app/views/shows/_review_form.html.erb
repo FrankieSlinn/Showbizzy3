@@ -3,7 +3,7 @@
   <%= review_form.hidden_field :show_id, value: @show.id %>
   <%= review_form.hidden_field :user_id, value: current_user.id %>
   <div class="field">
-    <span class="label"><%= review_form.label :rating, 'Rating(5 highest)', class:"input-field" %></span>
+    <span class="label"><%= review_form.label :rating, 'Rating(1 lowest, 5 highest)', class:"input-field" %></span>
     <br /> <br />
      <%= review_form.select :rating, (1..5).to_a.reverse %>
   </div>

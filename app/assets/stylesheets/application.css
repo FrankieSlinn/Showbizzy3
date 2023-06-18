@@ -29,9 +29,6 @@ h1 {
   display: block;
   color: #ffe135;
 }
-p{
-  margin: 2rem;
-}
 
 h2 {
   font-size: 2rem;
@@ -200,10 +197,8 @@ select {
 }
 
 textarea {
-  color: #ddd;
   width: 20rem;
   height: 10rem;
-
 }
 
 .link-to-page {
@@ -384,10 +379,6 @@ p.notice{
   border: 2px solid #777;
   padding: 0.5rem;
   border-radius: 5px;
-}
-.description-container{
- margin: 0 auto;
- word-wrap: break-word;
 }
 
 .input-field {
