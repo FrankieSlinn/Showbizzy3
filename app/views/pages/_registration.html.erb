@@ -6,7 +6,14 @@
 &nbsp; &nbsp;
 <div class="reg-buttons">
 <%= form_for(current_user, url: destroy_user_session_path, method: :delete) do |f| %>
- <span class="reg-label"><%= ;link_to f.submit "Logout", class: "logout", "logoutClicked()" %></span>
+ <span class="reg-label"><%= ;link_to f.submit "Logout", class: "logout", onclick: "logoutClicked()" %></span>
+
+ <script>
+  function logoutClicked() {
+    console.log("Logout button clicked");
+    // Additional logout functionality if needed
+  }
+</script>
 
 &nbsp; &nbsp;
  <span class="reg-label"><%= link_to 'Edit Profile', edit_user_registration_path, class: "edit-profile" %></span>
