@@ -67,8 +67,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.ionos.co.uk",
     port: 587,
-    domain: "showbizzy.com",
-    user_name: "support@showbizzy.com",
+    domain: "showbizzy.org",
+    user_name: "support@showbizzy.org",
     password: ENV['IONOS_PASSWORD'],
     authentication: :plain,
     enable_starttls_auto: true
