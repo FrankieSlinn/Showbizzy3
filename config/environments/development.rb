@@ -32,7 +32,19 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.smtp_settings = {
+    address: "smtp.ionos.co.uk",
+    port: 587,
+    domain: "showbizzy.com",
+    user_name: "support@showbizzy.com",
+    password: ENV['IONOS_PASSWORD'],
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+  config.action_mailer.perform_deliveries = true
+
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local

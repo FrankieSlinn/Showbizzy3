@@ -63,13 +63,14 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "Showbizzy3_production"
   config.action_mailer.default_url_options = { host: 'fast-cove-85480.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
+
   config.action_mailer.smtp_settings = {
-    address: 'smtp.ionos.com',
+    address: "smtp.ionos.co.uk",
     port: 587,
-    domain: 'showbizzy.org',
-    user_name: 'support@showbizzy.org',
+    domain: "showbizzy.com",
+    user_name: "support@showbizzy.com",
     password: ENV['IONOS_PASSWORD'],
-    authentication: 'plain',
+    authentication: :plain,
     enable_starttls_auto: true
   }
 
