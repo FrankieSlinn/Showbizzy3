@@ -61,6 +61,17 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "Showbizzy3_production"
+  config.action_mailer.default_url_options = { host: 'fast-cove-85480.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.ionos.com',
+    port: 587,
+    domain: 'showbizzy.org',
+    user_name: 'support@showbizzy.org',
+    password: ENV['IONOS_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 
   config.action_mailer.perform_caching = false
 
