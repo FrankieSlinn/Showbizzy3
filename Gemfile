@@ -31,6 +31,8 @@ gem "jbuilder"
 
 gem "aws-sdk-s3", require: false
 
+gem 'sendgrid-ruby'
+
 
 
 # Use Redis adapter to run Action Cable in production

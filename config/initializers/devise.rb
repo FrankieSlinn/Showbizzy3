@@ -26,6 +26,7 @@ Devise.setup do |config|
   # with default "from" parameter.
  
   config.mailer_sender = 'support@showbizzy.org'
+  config.mailer = 'Devise::Mailer'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
