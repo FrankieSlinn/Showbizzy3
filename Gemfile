@@ -33,6 +33,8 @@ gem "aws-sdk-s3", require: false
 
 gem 'sendgrid-ruby'
 
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+
 
 
 # Use Redis adapter to run Action Cable in production

@@ -40,7 +40,7 @@ Rails.application.configure do
     port: 587,
     domain: 'showbizzy.org',
     user_name: 'support@showbizzy.org',
-    password: 'RobElephant1!',
+    password: ENV['SMTP_PASSWORD'],
     read_timeout: 60,
     debug_output: STDOUT,
     authentication: 'plain',

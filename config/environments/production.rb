@@ -66,12 +66,14 @@ Rails.application.configure do
   
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.ionos.co.uk",
+    address: 'smtp.ionos.co.uk',
     port: 587,
-    domain: "showbizzy.org",
-    user_name: "support@showbizzy.org",
-    password: ENV['PASSWORD'],
-    authentication: :plain,
+    domain: 'showbizzy.org',
+    user_name: 'support@showbizzy.org',
+    password: ENV['SMTP_PASSWORD'],
+    read_timeout: 60,
+    debug_output: STDOUT,
+    authentication: 'plain',
     enable_starttls_auto: true
   }
   config.action_mailer.perform_deliveries = true
