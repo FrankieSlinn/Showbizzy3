@@ -61,18 +61,16 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "Showbizzy3_production"
-  config.action_mailer.default_url_options = { host: 'https://fast-cove-85480.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'https://fast-cove-85480.herokuapp.com/', port: 42873 }
   config.action_mailer.delivery_method = :smtp
   
 
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.ionos.co.uk',
-    port: 587,
+  ActionMailer::Base.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: 587,  # Use port 587 for TLS encryption
     domain: 'showbizzy.org',
-    user_name: 'support@showbizzy.org',
+    user_name: 'apikey',
     password: ENV['SMTP_PASSWORD'],
-    read_timeout: 60,
-    debug_output: STDOUT,
     authentication: 'plain',
     enable_starttls_auto: true
   }

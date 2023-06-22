@@ -36,12 +36,12 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    address: 'smtp.ionos.co.uk',
-    port: 587,
+    address: 'smtp.sendgrid.net',
+    port:25,
     domain: 'showbizzy.org',
-    user_name: 'support@showbizzy.org',
+    user_name: 'apikey',
     password: ENV['SMTP_PASSWORD'],
-    read_timeout: 60,
+    read_timeout: 120,
     debug_output: STDOUT,
     authentication: 'plain',
     enable_starttls_auto: true
