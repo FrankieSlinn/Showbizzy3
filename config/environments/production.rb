@@ -67,7 +67,7 @@ Rails.application.configure do
 
   ActionMailer::Base.smtp_settings = {
     address: 'smtp.sendgrid.net',
-    port: 587,  # Use port 587 for TLS encryption
+    port: 465,  
     domain: 'showbizzy.org',
     user_name: 'apikey',
     password: ENV['SMTP_PASSWORD'],
