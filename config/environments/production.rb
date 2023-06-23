@@ -68,7 +68,7 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
     address: 'smtp.sendgrid.net',
     port: 465,  
-    domain: 'showbizzy.org',
+    domain: 'heroku.com',
     user_name: 'apikey',
     password: ENV['SMTP_PASSWORD'],
     read_timeout: 140,
