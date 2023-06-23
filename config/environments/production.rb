@@ -76,6 +76,17 @@ Rails.application.configure do
     authentication: 'plain',
     enable_starttls_auto: true
   }
+  ActionMailer::Base.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: 465,  
+    domain: 'heroku.com',
+    user_name: 'apikey',
+    password: ENV['SMTP_PASSWORD'],
+    read_timeout: 170,
+    debug_output: STDOUT,
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.perform_caching = false
   config.action_mailer.raise_delivery_errors = true
