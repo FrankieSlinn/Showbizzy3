@@ -71,7 +71,7 @@ Rails.application.configure do
     domain: 'showbizzy.org',
     user_name: 'apikey',
     password: ENV['SMTP_PASSWORD'],
-    read_timeout: 120,
+    read_timeout: 140,
     debug_output: STDOUT,
     authentication: 'plain',
     enable_starttls_auto: true
