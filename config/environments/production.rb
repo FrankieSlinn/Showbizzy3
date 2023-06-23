@@ -71,7 +71,7 @@ Rails.application.configure do
     domain: 'heroku.com',
     user_name: 'apikey',
     password: ENV['SMTP_PASSWORD'],
-    read_timeout: 140,
+    read_timeout: 170,
     debug_output: STDOUT,
     authentication: 'plain',
     enable_starttls_auto: true
