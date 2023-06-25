@@ -84,6 +84,9 @@ p.notice{
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
 }
+p.alert{
+  text-align: center;
+}
 
 .header-div {
   display: flex;
@@ -559,6 +562,7 @@ p.notice{
   } */
   .logout{
     margin-bottom: 0.25rem;
+    color: green;
   }
  
   p.notice{
