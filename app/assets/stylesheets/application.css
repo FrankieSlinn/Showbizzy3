@@ -144,6 +144,14 @@ select {
   color: #ffe135;
   text-align: right;
 }
+.logout{
+  color: green;
+  outline: none;
+  background: none;
+  border: none;
+  padding: none;
+ 
+}
 
 .logout,
 .delete-show {

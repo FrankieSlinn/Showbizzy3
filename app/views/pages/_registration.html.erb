@@ -1,41 +1,36 @@
 <div class="userlogin">
   <% if user_signed_in? %>
-  <br/>
-  <div class="signed-in">
-<p class = "greeting"><strong>Hello <%= current_user.username %>!</strong></p>
-&nbsp; &nbsp;
-<div class="reg-buttons">
-<%= form_for(current_user, url: destroy_user_session_path, method: :delete) do |f| %>
- <span class="reg-label"><%= ;button_to f.submit "Logout", class: "logout", onclick: "logoutClicked()" %></span>
-
- <script>
-  function logoutClicked() {
-    console.log("Logout button clicked");
-    // Additional logout functionality if needed
-  }
-</script>
-
-&nbsp; &nbsp;
- <span class="reg-label"><%= link_to 'Edit Profile', edit_user_registration_path, class: "edit-profile" %></span>
- <br />
- </div>
-  <script>
-document.addEventListener('DOMContentLoaded', function() {
-  var editProfileButton = document.getElementById('edit-profile-button');
-  if (editProfileButton) {
-    editProfileButton.addEventListener('click', function(event) {
-      event.preventDefault(); 
-    });
-  }
-});
-</script>
-  </div>
-  <% end %>
-  
+    <br/>
+    <div class="signed-in">
+      <p class="greeting"><strong>Hello <%= current_user.username %>!</strong></p>
+      &nbsp; &nbsp;
+      <div class="reg-buttons">
+        <%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete %>
+        <%# <script>
+        function logoutClicked() {
+          console.log("Logout button clicked");
+          // Additional logout functionality if needed
+        }
+        </script> %>
+        &nbsp; &nbsp;
+        <span class="reg-label"><%= link_to 'Edit Profile', edit_user_registration_path, class: "edit-profile" %></span>
+        <br />
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var editProfileButton = document.getElementById('edit-profile-button');
+          if (editProfileButton) {
+            editProfileButton.addEventListener('click', function(event) {
+              event.preventDefault();
+            });
+          }
+        });
+      </script>
+    </div>
   <% else %>
-  <div class="signed-out">
-    <%= link_to "Login", new_user_session_path %>&nbsp; &nbsp;
-    <%= link_to "Sign up", new_user_registration_path %>
+    <div class="signed-out">
+      <%= link_to "Login", new_user_session_path %>&nbsp; &nbsp;
+      <%= link_to "Sign up", new_user_registration_path %>
     </div>
   <% end %>
 </div>
