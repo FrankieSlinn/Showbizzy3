@@ -1,5 +1,6 @@
 <div class="show-container">
 <h2>Sign up</h2>
+<br />
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -16,12 +17,7 @@
   <%= label :username, :"Name you'd like to user for the site" %><br /><br />
   <%= text_field :user, :username %>
 </div>
-<br />
 
-<div class="field">
-  <%= label :user, :is_performer, "Are You a Performer?" %><br /><br />
-  <%= f.select :is_performer, [['Yes', true], ['No', false]], {}, class: 'form-control' %>
-</div>
 <br />
     <%= f.label :password %>
     <br />
@@ -46,3 +42,4 @@
 
 <%= render "devise/shared/links" %>
 </div>
+<br /><br /><br /><br />
