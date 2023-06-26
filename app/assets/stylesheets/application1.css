@@ -123,7 +123,7 @@ select {
 .signed-out {
   position: relative;
   top: 4rem;
-  right: 1rem;
+
 }
 
 .title {
@@ -485,10 +485,6 @@ p.notice{
   }
 }
 @media (max-width: 850px) {
-
-}
-@media (max-width: 740px) {
-
   .nav-container {
     flex-direction: column;
     justify-content: center;
@@ -505,6 +501,10 @@ p.notice{
     padding: 0.25rem;
     font-weight: 700;
   }
+
+}
+@media (max-width: 740px) {
+
   .search-buttons {
     justify-content: center;
   }
@@ -521,8 +521,20 @@ p.notice{
     flex-direction: row;
     justify-content: center;
   }
+  .reg-buttons{
+    background-color:none;
+    margin-bottom: 1.5rem;
+
+    text-align: right;
+  }
+
 
   .reg-div{
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     position: absolute;
     background: transparent;
@@ -533,11 +545,13 @@ p.notice{
     margin: 0;
   }
   .user-login{
+
     background: transparent;
     height: 2rem;
     margin: 0;
   }
   .signed-out{
+
     display: flex;
     justify-content: center;
     background: transparent;
@@ -548,26 +562,43 @@ p.notice{
   .signed-out a{
     background: transparent;
   }
+
   .signed-in{
     position: absolute;
     top: 5rem;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     align-items: bottom;
-    gap: 7rem;
+    gap: 2rem;
+    padding: 0.25rem;
+
     background: transparent;
     height: 1.2rem;
+    margin-right: 0;
+    margin-bottom: 0.75rem;
   }
   .greeting{
+    text-align: center;
     position: absolute;
-    top: -1rem;
+    top: -1.25rem;
+    margin-bottom: 1rem;
   }
   .userlogin{
+    display: flex;
+    justify-content: center;
+
     background: transparent;
     height:1.2rem;
+    margin-bottom: -0.5rem;
   }
   .edit-profile{
     display: inline-block;
     text-align: center;
+   }
+   .nav-container{
+    margin-top: 0.75rem;
    }
   .nav-container a {
     padding: 0rem;
@@ -595,7 +626,7 @@ p.notice{
   } */
   .logout{
     margin-bottom: 0.25rem;
-    color: green;
+
   }
  
   p.notice{
