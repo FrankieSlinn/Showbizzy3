@@ -252,6 +252,13 @@ textarea {
 .tc-title{
   color: #ffe135;
 }
+.terms-and-conditions-form{
+  text-decoration: underline;
+}
+.terms-and-conditions-form:hover{
+  color: #ffe135;
+  text-shadow: 0.025px 0.025px 15px;
+}
 
 .nav-container {
   display: flex;
@@ -277,6 +284,7 @@ textarea {
   color: #eee;
   text-shadow: 0.025px 0.025px 15px;
 }
+
 p.notice{
   margin-bottom: 2rem;
 }
