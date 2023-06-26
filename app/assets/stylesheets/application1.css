@@ -41,7 +41,7 @@ a {
   text-decoration: none;
 }
 
-a:hover, .terms-and-conditions:hover{
+a:hover{
   font-weight: 700;
   color: light-yellow;
 }
@@ -87,6 +87,13 @@ p.notice{
 p.alert{
   text-align: center;
 }
+div #error_explanation h2{
+  font-size: 1rem;
+}
+li::marker{
+  list-style-type: none;
+}
+
 
 .header-div {
   display: flex;
@@ -251,6 +258,10 @@ textarea {
 }
 .tc-title{
   color: #ffe135;
+}
+.terms-and-conditions:hover{
+  color: #eee;
+  text-shadow: 0.025px 0.025px 15px;
 }
 .terms-and-conditions-form{
   text-decoration: underline;
