@@ -41,7 +41,7 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+a:hover, .terms-and-conditions:hover{
   font-weight: 700;
   color: light-yellow;
 }
@@ -148,7 +148,6 @@ select {
   text-align: right;
 }
 .logout{
-  color: green;
   outline: none;
   background: none;
   border: none;
@@ -222,13 +221,36 @@ textarea {
   color: lightyellow;
 }
 
-.copyright-container {
+.footer {
+  display: flex;
+  justify-content: space-around;
   color: #ffe135;
+  background-color: #777;
   text-align: center;
   position: fixed;
   bottom: 0;
   width: 100%;
   font-weight: 700;
+}
+.copyright{
+  background-color: #777;
+  margin: 0;
+}
+.footer a{
+  background-color: #777;
+}
+.copyright, .footer a{
+  margin: 0.5rem 0;
+  font-weight: 300;
+}
+.tc-list{
+  text-align: left;
+}
+.tc-list li{
+  margin: 0.5rem;
+}
+.tc-title{
+  color: #ffe135;
 }
 
 .nav-container {
@@ -405,6 +427,7 @@ p.notice{
   font-size: 1.5rem;
   font-weight: 700;
 }
+
 
 @media (max-width: 1600px) {
   .index-container-outer {
