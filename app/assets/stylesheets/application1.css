@@ -224,8 +224,8 @@ textarea {
 .footer {
   display: flex;
   justify-content: space-around;
-  color: #ffe135;
-  background-color: #777;
+  color: #ddd;
+  background-color: #555;
   text-align: center;
   position: fixed;
   bottom: 0;
@@ -233,11 +233,11 @@ textarea {
   font-weight: 700;
 }
 .copyright{
-  background-color: #777;
   margin: 0;
 }
-.footer a{
-  background-color: #777;
+.footer a, .copyright{
+  color: #ddd;
+  background-color: #555;
 }
 .copyright, .footer a{
   margin: 0.5rem 0;
@@ -484,7 +484,9 @@ p.notice{
     font-size: 0.75rem;
   }
 }
+@media (max-width: 850px) {
 
+}
 @media (max-width: 740px) {
 
   .nav-container {
