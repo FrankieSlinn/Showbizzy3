@@ -35,6 +35,8 @@ gem 'sendgrid-ruby'
 
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
+gem 'sitemap_generator'
+
 
 
 # Use Redis adapter to run Action Cable in production
