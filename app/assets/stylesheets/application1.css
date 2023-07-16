@@ -120,17 +120,17 @@ li::marker{
 select {
   color: #ffe135;
 }
-
+.signed-in, .signed-out{
+  margin-right: 1rem;
+}
 .signed-in {
   color: #ffe135;
   font-weight: 700;
-  margin-right: 1rem;
 }
 
 .signed-out {
   position: relative;
   top: 4rem;
-
 }
 
 .title {
