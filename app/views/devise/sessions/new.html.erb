@@ -22,12 +22,12 @@
     <br />
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+<button type="submit" class="actions">
+  Log in
+</button>
 <% end %>
 <br />
 
-<%= render "devise/shared/links" %>
+<%= link_to "Forgot your password?", new_password_path(resource_name) %><br /><br />
 </div>
 <br /><br /><br /><br />

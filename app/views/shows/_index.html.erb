@@ -26,7 +26,7 @@
         <% end %>
       <% end %>
       <% if @count != 0 %>
-        <%= number_with_precision(@ratingsum.to_f / @count, precision: 1) %>&nbsp;&nbsp;&nbsp;<%= @count %>&nbsp;<span class="index-item">Reviews</span>
+        <%= number_with_precision(@ratingsum.to_f / @count, precision: 1) %>&nbsp;&nbsp;&nbsp;<%= @count %>&nbsp;<span class="index-item">Review/s</span>
       <% else %>
         Not yet rated
       <% end %>
