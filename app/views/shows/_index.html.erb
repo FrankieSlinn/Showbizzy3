@@ -42,19 +42,27 @@
     <% end %>
   <% end %>
 <% end %>
+
 <% div_array = div_array.shuffle.sort_by do |div| %>
   <% show = div.instance_variable_get(:@object) %>
   <% if show %>
-    <% average_rating = -(show.userreviews.average(:rating) || 0) %>
-    <% review_count = -show.userreviews.count %>
-  #Here the range of random factor can be adjusted.
-    <% random_factor = rand(3) + 1 %> 
-    <% rating_factor = average_rating * random_factor %>
-    # Relates to the increase of the rating factor for unrated shows
-    <% rating_factor += 10 if average_rating.zero? %>    
-    [rating_factor, review_count * random_factor]
+    <% if show.userreviews.count.present? %>
+      <% average_rating = show.userreviews.average(:rating) %>
+      <% review_count = show.userreviews.count %>
+      <% random_factor = rand(0.01) %>
+      
+      <% rating_factor = average_rating ? -(average_rating) : 0 %>
+      
+      [rating_factor, -(review_count || 0)]
+    <% else %>
+      <% [777, 777]%>
+    <% end %>
   <% end %>
 <% end %>
+
+
+
+
 <div class="index-container-outer">
   <%= div_array.join.html_safe %>
 </div>

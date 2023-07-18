@@ -9,7 +9,7 @@
   <%= form_with(url: root_path, method: :get) do |form| %>
     <%= form.select(:category, options_for_select([["All Categories", ""], ["Comedy", "Comedy"], ["Theatre", "Theatre"], ["Music", "Music"], ["Dance", "Dance"], ["Other", "Other"]]), {}, class: "cat-select", prompt: "Select a category") %>
     <br /><br />
-    <%= form.select(:userrating, options_for_select([["All Userratings", ""], ["5", "5"], ["4", "4"], ["3", "3"], ["2", "2"], ["1", "1"]]), {}, class: "cat-select", prompt: "Select a rating") %>
+    <%= form.select(:userrating, options_for_select([["All User Ratings", ""], ["5", "5"], ["4", "4"], ["3", "3"], ["2", "2"], ["1", "1"]]), {}, class: "cat-select", prompt: "Select a rating") %>
     <br /><br />
     <%= text_field_tag(:showname, params[:showname].to_s, placeholder: "Search by Show", class: "cat-input") %>
     <br /><br />
