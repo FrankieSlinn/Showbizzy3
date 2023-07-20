@@ -6,40 +6,43 @@
 <% @shows = @shows.where("performer LIKE ?", "%#{params[:performer]}%") if params[:performer].present? %>
 <% @shows = @shows.distinct %>
 <% div_array = [] %>
-<% if @shows %>
-  <% @shows.each do |show| %>
-    <% div_array << content_tag(:div, class: 'index') do %>
-      <% if show.present? && show.imageup.attached? %>
-        <img class="show-image" style="width: 300px; height: 175px;" src="<%= url_for(show.imageup) %>">
-      <% end %>
-      <br />
-      <span class="index-show-title"><%= show.title %></span>
-      <br />
-      <% @showid = show.id %>
-      <% @ratingsum = 0 %>
-      <% @count = 0 %>
-      <% @userreviews = Userreview.where(show_id: show.id) %>
-      <% @userreviews.each do |userreview| %>
-        <% if userreview.rating.is_a?(Numeric) %>
-          <% @ratingsum += userreview.rating %>
-          <% @count += 1 %>
-        <% end %>
-      <% end %>
-      <% if @count != 0 %>
-        <%= number_with_precision(@ratingsum.to_f / @count, precision: 1) %>&nbsp;&nbsp;&nbsp;<%= @count %>&nbsp;<span class="index-item">Review/s</span>
-      <% else %>
-        Not yet rated
-      <% end %>
-      <% @ratingsum = 0 %>
-      <% @count = 0 %>
-      <br />
-      <span class="index-item">Performed by: <%= show.performer %></span>
-      <br />
-      <span class="genre"><%= show.genre %></span>
-      <br /><br />
-      <%= button_to "Check it Out", show_path(show), method: :get, class: "view-show" %>
-      &nbsp;&nbsp;
+<% zero_array = [] %>
+
+
+
+<% @shows.each do |show| %>
+  <% target_array = show.userreviews.count.zero? ? zero_array : div_array %>
+  <% target_array << content_tag(:div, class: 'index') do %>
+    <% if show.present? && show.imageup.attached? %>
+      <img class="show-image" style="width: 300px; height: 175px;" src="<%= url_for(show.imageup) %>">
     <% end %>
+    <br />
+    <span class="index-show-title"><%= show.title %></span>
+    <br />
+    <% @showid = show.id %>
+    <% @ratingsum = 0 %>
+    <% @count = 0 %>
+    <% @userreviews = Userreview.where(show_id: show.id) %>
+    <% @userreviews.each do |userreview| %>
+      <% if userreview.rating.is_a?(Numeric) %>
+        <% @ratingsum += userreview.rating %>
+        <% @count += 1 %>
+      <% end %>
+    <% end %>
+    <% if @count != 0 %>
+      <%= number_with_precision(@ratingsum.to_f / @count, precision: 1) %>&nbsp;&nbsp;&nbsp;<%= @count %>&nbsp;<span class="index-item">Review/s</span>
+    <% else %>
+      Not yet rated
+    <% end %>
+    <% @ratingsum = 0 %>
+    <% @count = 0 %>
+    <br />
+    <span class="index-item">Performed by: <%= show.performer %></span>
+    <br />
+    <span class="genre"><%= show.genre %></span>
+    <br /><br />
+    <%= button_to "Check it Out", show_path(show), method: :get, class: "view-show" %>
+    &nbsp;&nbsp;
   <% end %>
 <% end %>
 
@@ -50,18 +53,20 @@
       <% average_rating = show.userreviews.average(:rating) %>
       <% review_count = show.userreviews.count %>
       <% random_factor = rand(0.01) %>
-      
+
       <% rating_factor = average_rating ? -(average_rating) : 0 %>
-      
+
       [rating_factor, -(review_count || 0)]
     <% else %>
-      <% [777, 777]%>
+      [777, 777]
     <% end %>
   <% end %>
 <% end %>
 
+<% zero_array = zero_array.shuffle.sort_by do |div| %>
+<% end %>
 
-
+<% div_array.concat(zero_array) %>
 
 <div class="index-container-outer">
   <%= div_array.join.html_safe %>
