@@ -28,4 +28,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'pages#splash'
+
+  Rails.application.routes.draw do
+    constraints subdomain: 'www' do
+      get '/path', to: 'controller#action', protocol: 'https'
+    end
+  end
+  
 end
