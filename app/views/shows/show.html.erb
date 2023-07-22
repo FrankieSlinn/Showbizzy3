@@ -1,4 +1,4 @@
-<div class="display-container show-details">
+<div class="display-container">
   <%# Confirms if the user has reviewed the site or not based on whether their email has been added to the 
   useremails array which contains the emails for the users that have reviewed this specific show.  %>
   <% @reviewed = false %>
@@ -23,9 +23,9 @@
     <% end %>
   <% end %>
   <% if current_user.present? %>
-    <% if current_user.id==@show.user_id %>
-      <% @ownreview=true %>
-    <% end %>
+  <% if current_user.id==@show.user_id %>
+    <% @ownreview=true %>
+  <% end %>
   <% end %>
   <%# Display the show details %>
   <h2><span class="display-title"><%= @show.title %></h2>
@@ -38,19 +38,10 @@
   <p><span class="label">Performer</span><br/>
     <br />
     <%= @show.performer %></p>
-    <div class="description-container">
-  <p class= "description"><span class="label">Description</span><br/>
+  <p><span class="label">Description</span><br/>
     <br />
     <%= @show.description %></p>
-    </div>
-    <p><span class="label">Link to Tickets</span><br/>
-   
-    <% if @show.ticketlink.present? %>
-  <p><%= link_to "Click here to get tickets", @show.ticketlink, target:"_blank", class: "ticket-link" %></p>
-<% else %>
-  <p>No ticket link currently available</p>
-<% end %>
-  <p><span class="label">Reviews</span><br/>
+  <br />
   <% if !user_signed_in? %>
     <p><span >Sign in to review this show</span></p>
     <%# Checks as to whether the current user has already reviewed the show.  %>
@@ -73,7 +64,7 @@
             <strong><%= r.rating %></strong></p>
           <p><span class="label">Reviewer:</span>
             <br />
-            <%=@usernames[0]%></p>
+ <%=@usernames[0]%></p>
           <% @usernames.shift %>
           <p><span class="label">Review:</span>
             <br />

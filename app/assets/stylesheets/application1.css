@@ -385,28 +385,6 @@ p.notice{
   font-weight: 700;
   font-size: 1.25rem;
 }
-.show-details{
-  text-align: center;
-}
-.description-container{
-  display: flex;
-  justify-content: center;
-}
-.description {
-
-  width: 45rem;
-  margin-right: 4rem;
-  margin-left: 4rem;
-
-}
-.ticket-link{
-  color: #ddd;
-  font-weight: 700;
-}
-.ticket-link:hover {
-  color: #eee;
-  text-shadow: 0.025px 0.025px 15px;
-}
 
 .display-container {
   margin-top: -1.5rem;
