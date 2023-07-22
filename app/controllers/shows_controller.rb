@@ -75,6 +75,7 @@ class ShowsController < ApplicationController
           :title,
           :genre,
           :description,
+          :ticketlink,
           :imageup,
           :performer,
           userreviews_attributes: [:show_id, :rating, :review]

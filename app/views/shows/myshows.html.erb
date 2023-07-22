@@ -4,7 +4,9 @@
   <% current_user.shows.each do |show| %>
     <div>
       <h3><span class="display-title"><%= show.title %></span></h3>
-      <p><%= show.description %></p>
+      <div class="description-container">
+      <p class="description" ><%= show.description %></p>
+      </div>
       <td> <%= link_to "View Show", show_path(show) %></td>
       <br />
       <br />
