@@ -11,7 +11,13 @@ module Showbizzy3
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     # config.assets.js_compressor = :uglifier
-
+    config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
+      rewrite %r{.*}, proc { |path, rack_env|
+        if rack_env['HTTP_HOST'] == 'showbizzy.org'
+          [301, { 'Location' => "https://www.showbizzy.org#{path}", 'Content-Type' => 'text/html' }, ['Moved Permanently']]
+        end
+      }
+    end
   
     # Configuration for the application, engines, and railties goes here.
     #
