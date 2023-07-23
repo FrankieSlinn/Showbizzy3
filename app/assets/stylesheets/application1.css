@@ -433,6 +433,9 @@ p.notice{
 .faq{
   text-align: center;
 }
+.shows-link{
+  text-align: center;
+}
 .about p {
   margin: 0 auto;
   width: 50rem;
