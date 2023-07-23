@@ -231,6 +231,7 @@ textarea {
 .footer {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   color: #ddd;
   background-color: #555;
   text-align: center;
@@ -242,14 +243,15 @@ textarea {
 .copyright{
   margin: 0;
 }
-.footer a, .copyright{
-  color: #ddd;
-  background-color: #555;
-}
-.copyright, .footer a{
+
+.copyright, a .mail-icon, .footer a{
   margin: 0.5rem 0;
   font-weight: 300;
+  color: #ddd;
+  background-color: #555 !important;
 }
+
+
 .tc-list{
   text-align: left;
 }
@@ -259,7 +261,12 @@ textarea {
 .tc-title{
   color: #ffe135;
 }
-.terms-and-conditions:hover{
+
+a .mail-icon:hover{
+  color: #eee;
+  font-weight: 700;
+}
+.terms-and-conditions:hover, .mail-icon:hover{
   color: #eee;
   text-shadow: 0.025px 0.025px 15px;
 }
