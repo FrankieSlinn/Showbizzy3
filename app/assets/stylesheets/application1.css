@@ -433,7 +433,7 @@ p.notice{
 .faq{
   text-align: center;
 }
-.shows-link{
+.shows-link, .back-link{
   text-align: center;
 }
 .about p {
