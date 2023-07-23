@@ -38,7 +38,7 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
     address: 'smtp.sendgrid.net',
     port:25,
-    domain: 'showbizzy.org',
+    domain: 'showbizzy.co.uk',
     user_name: 'apikey',
     password: ENV['SMTP_PASSWORD'],
     read_timeout: 120,
