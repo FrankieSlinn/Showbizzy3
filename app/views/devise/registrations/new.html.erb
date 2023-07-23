@@ -14,7 +14,8 @@
   
 
   <div class="field"><div class="field">
-  <%= label :username, :"Name you'd like to use for the site" %><br /><br />
+  <%= label :username, :"Name you'd like to use for the site" %><br />
+  <em>(<%= User::MAX_USERNAME_LENGTH %> characters maximum)</em><br /><br />
   <%= text_field :user, :username %>
 </div>
 

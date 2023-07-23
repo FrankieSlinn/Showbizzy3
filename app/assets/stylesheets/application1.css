@@ -244,7 +244,7 @@ textarea {
   margin: 0;
 }
 
-.copyright, a .mail-icon, .footer a{
+.copyright, a .mail-icon, a .help-icon, .footer a{
   margin: 0.5rem 0;
   font-weight: 300;
   color: #ddd;
@@ -262,7 +262,7 @@ textarea {
   color: #ffe135;
 }
 
-a .mail-icon:hover{
+a .mail-icon:hover, a .help-icon:hover{
   color: #eee;
   font-weight: 700;
 }
@@ -430,10 +430,20 @@ p.notice{
   margin: 0 3rem;
 
 }
-
+.faq{
+  text-align: center;
+}
 .about p {
   margin: 0 auto;
   width: 50rem;
+}
+.question-container{
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.question{
+  font-style: italic; 
+  font-weight: 700;
 }
 
 .display-container .display-title {

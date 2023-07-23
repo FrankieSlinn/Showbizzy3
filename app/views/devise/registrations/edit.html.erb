@@ -16,7 +16,7 @@
   <% end %>
 
    <div class="field">
-    <%= f.label :username %><br />
+    <%= f.label :username %> <i>(maximum of <%= User::MAX_USERNAME_LENGTH %> characters)</i><br />
     <br />
     <%= f.text_field :username, autofocus: true, autocomplete: "user-name" %>
   </div>

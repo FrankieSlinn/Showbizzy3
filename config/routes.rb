@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/user/myshows', to: 'shows#myshows'
   get '/shows/myreviews', to: 'shows#myreviews'
   get '/about', to: 'pages#about'
+  get '/FAQ', to: 'pages#FAQ'
   get '/terms_and_conditions', to: 'pages#terms_and_conditions'
 
   # post '/user/myshows', to: 'shows#myshows', as: 'user_myshows'

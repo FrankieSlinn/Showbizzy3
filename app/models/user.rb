@@ -1,7 +1,8 @@
 class User < ApplicationRecord
+  MAX_USERNAME_LENGTH = 12
   has_many :shows, dependent: :destroy
   has_many :userreviews, dependent: :destroy
-  validates :username, presence: true
+  validates :username, presence: true, length: { maximum: MAX_USERNAME_LENGTH }
   
 
   # attr_accessor :username, :is_performer
