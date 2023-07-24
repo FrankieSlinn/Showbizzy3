@@ -308,7 +308,7 @@ p.notice{
 }
 .overall-container {
   display: grid;
-  grid-template-columns: 4fr 1fr;
+  grid-template-columns: 4fr 0.75fr;
   grid-template-rows: auto;
   grid-gap: 10px;
   margin-top: -0.5rem;
