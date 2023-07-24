@@ -312,6 +312,7 @@ p.notice{
   grid-template-rows: auto;
   grid-gap: 10px;
   margin-top: -0.5rem;
+  margin-left: 1rem;
   justify-items: center;
 
 
@@ -320,7 +321,7 @@ p.notice{
 .right-container {
   grid-column: 4 / 5;
   padding: 0.5rem;
-  margin-right: 1.5rem;
+  
   border-radius: 5px;
 }
 
