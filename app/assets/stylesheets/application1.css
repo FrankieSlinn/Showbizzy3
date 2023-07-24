@@ -237,6 +237,7 @@ textarea {
   text-align: center;
   position: fixed;
   bottom: 0;
+  height: 3rem;
   width: 100%;
   font-weight: 700;
 }
@@ -280,7 +281,7 @@ a .mail-icon:hover, a .help-icon:hover{
 
 .nav-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   text-align: center;
   background-color: #555;
   padding: 0.5rem;
