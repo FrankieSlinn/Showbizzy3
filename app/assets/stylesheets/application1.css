@@ -308,9 +308,9 @@ p.notice{
 }
 .overall-container {
   display: grid;
-  grid-template-columns: 4fr 0.75fr;
+  grid-template-columns: 4fr 1.2fr;
   grid-template-rows: auto;
-  grid-gap: 10px;
+  grid-gap: 15px;
   margin-top: -0.5rem;
   margin-left: 1rem;
   justify-items: center;
@@ -321,7 +321,6 @@ p.notice{
 .right-container {
   grid-column: 4 / 5;
   padding: 0.5rem;
-  
   border-radius: 5px;
 }
 
