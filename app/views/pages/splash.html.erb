@@ -1,34 +1,31 @@
 <div class="overall-container">
-<div class="right-container">
-  <div class="search">
-<p class="search-instruction"> <strong>Search by show type, minimum show rating, <br />show name or performer/s.</strong> </p>
-
+  <div class="right-container">
+    <div class="search">
+      <p class="search-instruction"> <strong>Search by show type, minimum show rating, <br />
+          show name or performer/s.</strong> </p>
 <%# First step for search: get parameter for user search dropdown. These forms get parameters for
 <%# the show genre, the show title and the show performer%>
-
-  <%= form_with(url: root_path, method: :get) do |form| %>
-    <%= form.select(:category, options_for_select([["All Categories", ""], ["Comedy", "Comedy"], ["Theatre", "Theatre"], ["Music", "Music"], ["Dance", "Dance"], ["Other", "Other"]]), {}, class: "cat-select", prompt: "Select a category") %>
-    <br /><br />
-    <%= form.select(:userrating, options_for_select([["All User Ratings", ""], ["5", "5"], ["4", "4"], ["3", "3"], ["2", "2"], ["1", "1"]]), {}, class: "cat-select", prompt: "Select a rating") %>
-    <br /><br />
-    <%= text_field_tag(:showname, params[:showname].to_s, placeholder: "Search by Show", class: "cat-input") %>
-    <br /><br />
-    <%= text_field_tag(:performer, params[:performer].to_s, placeholder: "Search by Performer", class: "cat-input") %>
-    <br /><br />
+      <%= form_with(url: root_path, method: :get) do |form| %>
+        <%= form.select(:category, options_for_select([["All Categories", ""], ["Comedy", "Comedy"], ["Theatre", "Theatre"], ["Music", "Music"], ["Dance", "Dance"], ["Other", "Other"]]), {}, class: "cat-select", prompt: "Select a category") %>
+        <br />
+        <br />
+        <%= form.select(:userrating, options_for_select([["All User Ratings", ""], ["5", "5"], ["4", "4"], ["3", "3"], ["2", "2"], ["1", "1"]]), {}, class: "cat-select", prompt: "Select a rating") %>
+        <br />
+        <br />
+        <%= text_field_tag(:showname, params[:showname].to_s, placeholder: "Search by Show", class: "cat-input") %>
+        <br />
+        <br />
+        <%= text_field_tag(:performer, params[:performer].to_s, placeholder: "Search by Performer", class: "cat-input") %>
+        <br />
+        <br />
         <div class="search-buttons">
-    <button type="submit" class="cat-search">Search</button>
-
-    &nbsp; &nbsp;<%= button_tag("Reset", type: "reset", class: "cat-reset") %>
+          <button type="submit" class="cat-search">Search</button>
+          &nbsp; &nbsp;<%= button_tag("Reset", type: "reset", class: "cat-reset") %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+  <div class="show-container">
+    <%= render "shows/index" %>
+  </div>
 </div>
-
-
-
-</div>
-<div class="show-container">
-<%= render "shows/index" %> 
-</div>
-</div>
-
-

@@ -375,6 +375,8 @@ p.notice{
   font-size: 0.75rem;
 }
 
+
+
 .view-show {
   height: 2rem;
   font-size: 0.75rem;
@@ -516,6 +518,9 @@ p.notice{
     align-items: center;
     margin-top: 2rem;
   }
+  .right-container{
+    margin: 0;
+  }
 
 
   .search {
@@ -526,9 +531,11 @@ p.notice{
     text-align: center;
     margin-top: -2.5rem;
   }
+  .search-buttons {
+    justify-content: center;
+   }
+   
   .cat-input,
-  .cat-search,
-  .cat-reset,
   .search-instruction {
     margin: 0 auto;
     padding: 0.25rem;
@@ -558,9 +565,7 @@ p.notice{
 }
 @media (max-width: 740px) {
 
-  .search-buttons {
-    justify-content: center;
-  }
+
   .cat-reset {
     margin: 0;
   }
@@ -657,9 +662,7 @@ p.notice{
     padding: 0rem;
     font-weight: 700;
   }
-  .overall-container{
-    margin-top: 2rem;
-  }
+
   
 }
 @media (max-width: 600px) {
