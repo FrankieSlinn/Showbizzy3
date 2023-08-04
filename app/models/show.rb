@@ -9,9 +9,9 @@ class Show < ApplicationRecord
   accepts_nested_attributes_for :places
   accepts_nested_attributes_for :userreviews
 
-  def to_param
-    "#{id} #{name}".parameterize
-  end
+  # def to_param
+  #   "#{id} #{name}".parameterize
+  # end
  
   attr_accessor :current_user
 end

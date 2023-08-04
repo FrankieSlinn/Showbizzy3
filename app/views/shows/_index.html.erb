@@ -14,7 +14,7 @@
   <% target_array = show.userreviews.count.zero? ? zero_array : div_array %>
   <% target_array << content_tag(:div, class: 'index') do %>
     <% if show.present? && show.imageup.attached? %>
-      <img class="show-image" style="width: 300px; height: 175px;" src="<%= url_for(show.imageup) %>">
+      <img class="show-image" style="width: 300px; height: 200px;" src="<%= url_for(show.imageup) %>">
     <% end %>
     <br />
     <span class="index-show-title"><%= show.title %></span>
