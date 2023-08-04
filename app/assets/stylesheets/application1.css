@@ -354,6 +354,9 @@ p.notice{
 .adverts-mobile{
   display: none;
 }
+.hydesign{
+
+}
 
 .show-container {
   grid-row: 1;
