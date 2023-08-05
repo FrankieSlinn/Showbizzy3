@@ -25,8 +25,8 @@
       <% end %>
                 <div class="adverts">
 
-
-      <img src="assets/HYDESIGN_SKYSCRAPER_160x600_v1.png" alt="Hydesign" class="hydesign advert"/>
+       <%= image_tag("HYDESIGN_SKYSCRAPER_160x600_v1.png", class: "hydesign advert") %>
+      <%# <img src="assets/HYDESIGN_SKYSCRAPER_160x600_v1.png" alt="Hydesign" class="hydesign advert"/> %>
       </div>
     </div>
 
@@ -37,8 +37,10 @@
     <%= render "shows/index" %>
   </div>
       <div class="adverts-mobile" >
+        <%= image_tag("HYDESIGN_SKYSCRAPER_160x600_v1-mobile.png", class: "hydesign advert") %>
+        
 
-      <img src="assets/HYDESIGN_SKYSCRAPER_160x600_v1-mobile.png" alt="Hydesign" class="hydesign"/>
+      <%# <img src="assets/HYDESIGN_SKYSCRAPER_160x600_v1-mobile.png" alt="Hydesign" class="hydesign"/> %>
       <br/><br/><br/><br/>
       </div>
 
