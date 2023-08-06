@@ -56,8 +56,8 @@ button:hover {
   cursor: pointer;
 }
 
-img {
-  border-radius: 5px;
+.show-image {
+  border-radius: 30px;
 }
 
 input,
