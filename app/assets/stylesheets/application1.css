@@ -350,11 +350,18 @@ p.notice{
 }
 .advert{
   margin-top: 1rem;
+
 }
 .adverts-mobile{
   display: none;
+
 }
 .hydesign{
+  width: 13rem;
+
+}
+.hydesign-mobile{
+  width: 20rem;
 
 }
 

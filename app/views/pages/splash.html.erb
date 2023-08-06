@@ -23,12 +23,15 @@
           &nbsp; &nbsp;<%= button_tag("Reset", type: "reset", class: "cat-reset") %>
         </div>
       <% end %>
-                <div class="adverts">
 
-       <%= image_tag("HYDESIGN_SKYSCRAPER_160x600_v1.png", class: "hydesign advert") %>
+    </div>
+                    <div class="adverts">
+      <%# #image tag used not src in order to be able to display the image in production(as image name /
+       location can change in that environment)
+       ad-format is a generic class for formatting al ads. %>
+       <%= image_tag("HYDESIGN_SKYSCRAPER_350x900_v2.gif", class: "hydesign advert ad-format") %>
 
       </div>
-    </div>
 
 
 
@@ -36,8 +39,9 @@
   <div class="show-container">
     <%= render "shows/index" %>
   </div>
+        <%# Separate div for mobile adverts as need to be in a different section in mobile view.  %>
       <div class="adverts-mobile" >
-        <%= image_tag("HYDESIGN_SKYSCRAPER_160x600_v1-mobile.png", class: "hydesign") %>
+        <%= image_tag("HYDESIGN_SKYSCRAPER_350x900_v2-mobile.gif", class: "hydesign-mobile ad-format") %>
         
 
       
