@@ -15,8 +15,8 @@ module Showbizzy3
     # config.assets.js_compressor = :uglifier
     # config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
     #   rewrite %r{.*}, proc { |path, rack_env|
-    #     if rack_env['HTTP_HOST'] == 'showbizzy.org'
-    #       [301, { 'Location' => "https://www.showbizzy.org#{path}", 'Content-Type' => 'text/html' }, ['Moved Permanently']]
+    #     if rack_env['HTTP_HOST'] == 'showbizzy.co.uk'
+    #       [301, { 'Location' => "https://www.showbizzy.co.uk#{path}", 'Content-Type' => 'text/html' }, ['Moved Permanently']]
     #     end
     #   }
     # end

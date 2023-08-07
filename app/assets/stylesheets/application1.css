@@ -83,6 +83,7 @@ p.notice{
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
+  margin: 0 2rem;
 }
 p.alert{
   text-align: center;
