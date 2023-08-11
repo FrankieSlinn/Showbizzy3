@@ -11,7 +11,7 @@ module Showbizzy3
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
-    config.force_ssl = true
+     config.force_ssl = false
     # config.assets.js_compressor = :uglifier
     # config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
     #   rewrite %r{.*}, proc { |path, rack_env|
